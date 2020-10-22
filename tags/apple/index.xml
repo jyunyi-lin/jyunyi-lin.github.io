@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apple on 生活、學習紀錄</title>
+    <link>https://chuni-lin.github.io/tags/apple/</link>
+    <description>Recent content in apple on 生活、學習紀錄</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 21 Oct 2020 20:22:30 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/apple/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First File</title>
+      <link>https://chuni-lin.github.io/posts/2020/10/my-first-file/</link>
+      <pubDate>Wed, 21 Oct 2020 20:22:30 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2020/10/my-first-file/</guid>
+      <description>list.addEventListener(&amp;#39;click&amp;#39;, function (event) { console.log(this) console.log(event.target) if (event.target.classList.contains(&amp;#39;delete&amp;#39;)) { let li = event.target.parentElement li.remove() } else if (event.target.tagName === &amp;#39;LABEL&amp;#39;) { event.target.classList.toggle(&amp;#39;checked&amp;#39;) } }) </description>
+    </item>
+    
+  </channel>
+</rss>

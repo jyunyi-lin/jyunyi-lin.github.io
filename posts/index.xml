@@ -1794,8 +1794,9 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
             <pubDate>Sat, 24 Oct 2020 17:59:20 +0800</pubDate>
             
             <guid>https://chuni-lin.github.io/posts/2020/10/apple-pie/</guid>
-            <description>How&amp;rsquo;re you doing</description>
-            <content type="html"><![CDATA[<p>How&rsquo;re you doing</p>
+            <description>How&amp;rsquo;re you doing? What can I do?</description>
+            <content type="html"><![CDATA[<p>How&rsquo;re you doing?
+What can I do?</p>
 ]]></content>
         </item>
         

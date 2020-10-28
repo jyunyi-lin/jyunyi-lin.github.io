@@ -40,6 +40,16 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>關於本站</title>
+      <link>https://chuni-lin.github.io/about/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chuni-lin.github.io/about/</guid>
+      <description>讓自己能更了解如何與電腦溝通 這個部落格主要用來存放一些學習程式技術的雜記，偶爾可能也會有少許生活的紀錄。希望之後遇到問題時可以回到這裡尋找答案，也期許能幫助到遇到同樣問題的夥伴。
+這裡沒有精深高妙的文字，只有純粹的語言表達。讓自己能更了解與電腦溝通的奧妙。</description>
+    </item>
+    
+    <item>
       <title>Apple Pie</title>
       <link>https://chuni-lin.github.io/posts/2020/10/apple-pie/</link>
       <pubDate>Sat, 24 Oct 2020 17:59:20 +0800</pubDate>
@@ -64,17 +74,6 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       
       <guid>https://chuni-lin.github.io/posts/2020/10/my-first-file/</guid>
       <description>list.addEventListener(&amp;#39;click&amp;#39;, function (event) { console.log(this) console.log(event.target) if (event.target.classList.contains(&amp;#39;delete&amp;#39;)) { let li = event.target.parentElement li.remove() } else if (event.target.tagName === &amp;#39;LABEL&amp;#39;) { event.target.classList.toggle(&amp;#39;checked&amp;#39;) } }) </description>
-    </item>
-    
-    <item>
-      <title>關於本站</title>
-      <link>https://chuni-lin.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://chuni-lin.github.io/about/</guid>
-      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
-It makes use of a variety of open source projects including:
- https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
     </item>
     
     <item>

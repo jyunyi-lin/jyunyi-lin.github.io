@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 23 Nov 2020 14:16:53 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/js-%E5%AD%B8%E7%BF%92/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Nov 2020 14:16:53 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/js-%E5%AD%B8%E7%BF%92/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alpha Camp 學期 2-1 學習心得</title>
       <link>https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-1-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Mon, 23 Nov 2020 14:16:53 +0800</pubDate>
+      <pubDate>Sun, 22 Nov 2020 14:16:53 +0800</pubDate>
       
       <guid>https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-1-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
       <description>為什麼開始寫網頁？ 在工作中偶然有機會要製作一個網頁，當時由於經費的問題，必須自己搞定這個任務。於是就從一本厚重的 HTML、CSS 書籍開始，從學習到刻出一個靜態頁面。當時是在 wordpress 平台上操作，所以基本上不需要太多深入的技巧，頂多改動一下 CSS。不過就因為這次的經驗，讓我對「寫網頁」這件事有了興趣，後來持續自己精進，在某一次的產品計畫中提出希望能自己做出這個產品的 Brand Page。然後從伺服器開始，一直到客戶端的整個過程，使用 Google 大神的資訊漸漸把知識拼圖拼起來。後來發現有 Bootstrap 這個能夠快速拼出網頁模版的平台，一邊使用內建的功能，一邊加入自己的 CSS，終於把一個完整的品牌頁面刻出來。那時候的成就感真是像潮水湧出。

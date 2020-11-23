@@ -3,158 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://chuni-lin.github.io/posts/2020/10/%E6%89%80%E8%AC%82%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/2014/09/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/posts/2014/09/cr%C3%A9ation-dun-nouveau-th%C3%A8me/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/posts/2014/09/creating-a-new-theme/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/2014/03/migrate-to-hugo-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/posts/2014/03/migrate-to-hugo-from-jekyll/"
-                />
-  </url>
-  
-  <url>
     <loc>https://chuni-lin.github.io/about/</loc>
     <lastmod>2020-10-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chuni-lin.github.io/posts/2020/10/apple-pie/</loc>
-    <lastmod>2020-10-24T17:59:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/</loc>
-    <lastmod>2020-10-24T17:59:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/posts/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/</loc>
-    <lastmod>2020-10-24T17:59:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/untagged/</loc>
-    <lastmod>2020-10-24T17:59:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/</loc>
-    <lastmod>2020-10-24T17:59:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/2020/10/like-to/</loc>
-    <lastmod>2020-10-22T10:43:44+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/apple/</loc>
-    <lastmod>2020-10-21T20:22:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/2020/10/my-first-file/</loc>
-    <lastmod>2020-10-21T20:22:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/oragne/</loc>
-    <lastmod>2020-10-21T20:22:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/series/hugo-101/</loc>
-    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/series/</loc>
-    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/series/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/2014/04/hugo-template-primer/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/posts/2014/04/introduction-aux-mod%C3%A8les-hugo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/posts/2014/04/hugo-template-primer/"
-                />
-  </url>
-  
-  <url>
     <loc>https://chuni-lin.github.io/categories/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -168,58 +22,45 @@
   </url>
   
   <url>
-    <loc>https://chuni-lin.github.io/categories/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/2014/04/getting-started-with-hugo/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://chuni-lin.github.io/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://chuni-lin.github.io/fr/posts/2014/04/d%C3%A9buter-avec-hugo/"
+                href="https://chuni-lin.github.io/fr/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://chuni-lin.github.io/posts/2014/04/getting-started-with-hugo/"
+                href="https://chuni-lin.github.io/series/"
                 />
   </url>
   
   <url>
-    <loc>https://chuni-lin.github.io/tags/go/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://chuni-lin.github.io/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://chuni-lin.github.io/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://chuni-lin.github.io/tags/"
+                />
   </url>
   
   <url>
-    <loc>https://chuni-lin.github.io/tags/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/categories/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/hugo/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://chuni-lin.github.io/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://chuni-lin.github.io/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://chuni-lin.github.io/"
+                />
   </url>
   
 </urlset>

@@ -3,6 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-1-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2020-11-23T14:16:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/tags/js-%E5%AD%B8%E7%BF%92/</loc>
+    <lastmod>2020-11-23T14:16:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/posts/</loc>
+    <lastmod>2020-11-23T14:16:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/tags/</loc>
+    <lastmod>2020-11-23T14:16:53+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://chuni-lin.github.io/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://chuni-lin.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/</loc>
+    <lastmod>2020-11-23T14:16:53+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://chuni-lin.github.io/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://chuni-lin.github.io/"
+                />
+  </url>
+  
+  <url>
     <loc>https://chuni-lin.github.io/about/</loc>
     <lastmod>2020-10-28T00:00:00+00:00</lastmod>
   </url>
@@ -32,34 +77,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://chuni-lin.github.io/series/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/"
                 />
   </url>
   

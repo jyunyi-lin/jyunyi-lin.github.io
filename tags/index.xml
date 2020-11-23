@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 23 Nov 2020 21:29:07 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Nov 2020 22:54:02 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ORID</title>
+      <link>https://chuni-lin.github.io/tags/orid/</link>
+      <pubDate>Mon, 23 Nov 2020 22:54:02 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/tags/orid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>學習心得</title>
+      <link>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Mon, 23 Nov 2020 22:54:02 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>event loop</title>
       <link>https://chuni-lin.github.io/tags/event-loop/</link>
@@ -18,11 +36,11 @@
     </item>
     
     <item>
-      <title>JS 學習</title>
-      <link>https://chuni-lin.github.io/tags/js-%E5%AD%B8%E7%BF%92/</link>
+      <title>JavaScript 學習</title>
+      <link>https://chuni-lin.github.io/tags/javascript-%E5%AD%B8%E7%BF%92/</link>
       <pubDate>Sun, 22 Nov 2020 14:16:53 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/tags/js-%E5%AD%B8%E7%BF%92/</guid>
+      <guid>https://chuni-lin.github.io/tags/javascript-%E5%AD%B8%E7%BF%92/</guid>
       <description></description>
     </item>
     

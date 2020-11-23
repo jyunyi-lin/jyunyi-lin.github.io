@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Chun-i LIN ">
-<meta name="description" content="究竟什麼是 event loop Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
+<meta name="description" content="究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
 名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
 堆疊區（Stack） JavaScript 會將執行的程式放到 stack 中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 會放到 stack 中，然後一行一行地執行。而執行到 return 時，他會直接脫離堆疊。  [圖片來源][https://www.youtube.com/watch?v=8aghzqkofbq&amp;amp;feature=emb_title]
  事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。  [圖片來源][https://medium.com/@rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd]
@@ -20,7 +20,7 @@
 
     <title>
         
-            What Is Event Loop :: 生活、學習紀錄  — Hello Friend NG Theme
+            What Is Event Loop? :: 生活、學習紀錄  — Hello Friend NG Theme
         
     </title>
 
@@ -47,8 +47,8 @@
 
 
 
-<meta itemprop="name" content="What Is Event Loop">
-<meta itemprop="description" content="究竟什麼是 event loop Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
+<meta itemprop="name" content="What Is Event Loop?">
+<meta itemprop="description" content="究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
 名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
 堆疊區（Stack） JavaScript 會將執行的程式放到 stack 中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 會放到 stack 中，然後一行一行地執行。而執行到 return 時，他會直接脫離堆疊。  [圖片來源][https://www.youtube.com/watch?v=8aghzqkofbq&amp;feature=emb_title]
  事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。  [圖片來源][https://medium.com/@rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd]
@@ -67,8 +67,8 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://chuni-lin.github.io/"/>
 
-<meta name="twitter:title" content="What Is Event Loop"/>
-<meta name="twitter:description" content="究竟什麼是 event loop Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
+<meta name="twitter:title" content="What Is Event Loop?"/>
+<meta name="twitter:description" content="究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
 名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
 堆疊區（Stack） JavaScript 會將執行的程式放到 stack 中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 會放到 stack 中，然後一行一行地執行。而執行到 return 時，他會直接脫離堆疊。  [圖片來源][https://www.youtube.com/watch?v=8aghzqkofbq&amp;feature=emb_title]
  事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。  [圖片來源][https://medium.com/@rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd]
@@ -78,8 +78,8 @@
 
 
 
-    <meta property="og:title" content="What Is Event Loop" />
-<meta property="og:description" content="究竟什麼是 event loop Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
+    <meta property="og:title" content="What Is Event Loop?" />
+<meta property="og:description" content="究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
 名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
 堆疊區（Stack） JavaScript 會將執行的程式放到 stack 中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 會放到 stack 中，然後一行一行地執行。而執行到 return 時，他會直接脫離堆疊。  [圖片來源][https://www.youtube.com/watch?v=8aghzqkofbq&amp;feature=emb_title]
  事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。  [圖片來源][https://medium.com/@rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd]
@@ -173,7 +173,7 @@
 
   <article>
     <h1 class="post-title">
-      <a href="https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/">What Is Event Loop</a>
+      <a href="https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/">What Is Event Loop?</a>
     </h1>
     <hr />
     <aside id="toc">
@@ -198,7 +198,7 @@
     
 
     <div class="post-content">
-      <h1 id="究竟什麼是-event-loop">究竟什麼是 event loop</h1>
+      <h1 id="究竟什麼是-event-loop">究竟什麼是 event loop？</h1>
 <p>Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。</p>
 <h2 id="名詞解釋">名詞解釋</h2>
 <h3 id="單執行緒single-threaded">單執行緒（Single-Threaded）</h3>

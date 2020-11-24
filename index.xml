@@ -35,9 +35,9 @@ DECISIONAL 培養書寫技術文章的能力是我現在想開始進行的。觀
 堆疊區（Stack） JavaScript 會將執行的程式放到 stack 中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 會放到 stack 中，然後一行一行地執行。而執行到 return 時，他會直接脫離堆疊。  圖片來源
  事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。  圖片來源
  所以，到底什麼是 event loop？ JavaScript 在執行程式的順序是這樣的：
- 將函式放到堆疊區（Stack）中 如果有非同步的處理程式，例如上述的 setTimeout、event 監聽器、Ajax，會先被放到事件佇列(Callback Queue) 等到堆疊區（Stack）中執行完畢後，再將事件佇列(Callback Queue)中等待執行的任務丟到堆疊區（Stack）中 執行完堆疊區（Stack）中的任務後，再回到事件佇列(Callback Queue)查看是否還有任務要做  這個過程就是 event loop！ 第 3 步驟是我們下一步解題的關鍵，多閱讀幾次，放到你心中。
+ 將函式放到堆疊區（Stack）中 如果有非同步的處理程式，例如上述的 setTimeout、event 監聽器、Ajax，會先被放到事件佇列(Callback Queue) 在堆疊區（Stack）中的一般函式被執行 等到堆疊區（Stack）中執行完畢後，再將事件佇列(Callback Queue)中等待執行的任務丟到堆疊區（Stack）中 執行完堆疊區（Stack）中的任務後，再回到事件佇列(Callback Queue)查看是否還有任務要做  這個過程就是 event loop！ 第 4 步驟是我們下一步解題的關鍵，多閱讀幾次，放到你心中。
 拆解 setTimeout 函式的謎題 用範例會更好理解，首先我們輸入：
-setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console.</description>
+setTimeout(function() {console.</description>
     </item>
     
     <item>

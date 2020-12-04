@@ -6,8 +6,68 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 23 Nov 2020 22:54:02 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 04 Dec 2020 17:44:52 +0800</lastBuildDate>
         <atom:link href="https://chuni-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>JavaScript 語法筆記：顛倒字串 split()、reverse()、join()</title>
+            <link>https://chuni-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</link>
+            <pubDate>Fri, 04 Dec 2020 17:44:52 +0800</pubDate>
+            
+            <guid>https://chuni-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</guid>
+            <description>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
+1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
+String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
+const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
+const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。</description>
+            <content type="html"><![CDATA[<p>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：</p>
+<h2 id="1-使用-splitreversejoin">1. 使用 split()、reverse()、join()</h2>
+<p>首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！</p>
+<h3 id="stringprototypesplit">String.prototype.split()</h3>
+<p>split() 可以<strong>將字串轉為陣列</strong>，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 '' 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的<strong>陣列</strong>回傳。</p>
+<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split('')
+console.log(splitted)
+// [
+  'A', 'p', 'p', 'l', 'e',
+  ' ', 'i', 's', ' ', 'v',
+  'e', 'r', 'y', ' ', 'd',
+  'e', 'l', 'i', 'c', 'i',
+  'o', 'u', 's'
+]
+</code></pre><p>那如果在引號中加入空格呢？</p>
+<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split(' ')
+console.log(splitted) // [ 'Apple', 'is', 'very', 'delicious' ]
+</code></pre><p>神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字<strong>陣列</strong>。</p>
+<h3 id="arrayprototypereverse">Array.prototype.reverse()</h3>
+<p>顧名思義就是將<strong>陣列反轉，最後一個元素變成第一個</strong>。讓我們用剛剛的例子來看看：</p>
+<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split(' ').reverse()
+console.log(splitted) // [ 'delicious', 'very', 'is', 'Apple' ]
+</code></pre><p>如果只有一個單字的時候，記得在 split('') 的引號中不要放入空格喔，這樣才能將每一個字母倒轉。</p>
+<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple&quot;.split('').reverse()
+console.log(splitted) // [ 'e', 'l', 'p', 'p', 'A' ]
+</code></pre><p>是不是越來越接近我們要的感覺了？</p>
+<h3 id="arrayprototypejoin">Array.prototype.join()</h3>
+<p>與 split() 相反，join() 能將<strong>陣列轉成字串</strong>。而括號內的規則也是相同的。來看看例子吧：</p>
+<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple&quot;.split('').reverse().join('')
+console.log(splitted) // elppA
+</code></pre><p>我們成功完成題目了，把它寫成一個可以一直使用的函式吧。</p>
+<pre><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
+    return str.split('').reverse().join('')
+}
+</code></pre><p>句子也可以使用喔，自己試試看吧！</p>
+<h2 id="2-使用-for-迴圈">2. 使用 for 迴圈</h2>
+<p>第二種方式就簡單多了，用 for 迴圈讓它倒著跑回去就可以。</p>
+<pre><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
+  let reversed = ''
+  for (let i = str.length -1; i &gt;= 0; i--){
+    reversed += str[i]
+  }
+  return reversed
+}
+</code></pre><h2 id="結語">結語</h2>
+<p>一道看起來不怎麼起眼的題目也可以學到很多，尤其是陣列與字串互相轉換的語法在實作上會滿常使用到的。至於把字串顛倒要用在什麼情況呢？總會有那個時候的吧 😂</p>
+]]></content>
+        </item>
         
         <item>
             <title>Alpha Camp 學期 2-2 學習心得</title>

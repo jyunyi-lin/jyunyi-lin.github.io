@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>後端開發 on 生活、學習紀錄</title>
+    <link>https://chuni-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/</link>
+    <description>Recent content in 後端開發 on 生活、學習紀錄</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 06 Jan 2021 14:37:31 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ALPHA Camp 自學經驗回顧</title>
+      <link>https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</link>
+      <pubDate>Wed, 06 Jan 2021 14:37:31 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</guid>
+      <description>前言 進入後端課程之後，每個禮拜都過得十分充實。由於後端是自己平常不論在工作或是私底下的學習都比較沒有涉足到的領悟，所以每一章節都是全新的體驗。每一種體驗都帶給我許多成長，而其中最讓人印象深刻的就是不斷地閱讀原文文章這件事。網路上有著許多翻譯後的前端資源，但當來到後端時，往往都需要看英文的說明或者 google，即使平常對於英文並不排斥，也自認具有良好的閱讀能力，但當一開始閱讀「技術文章」時，還是會遇到許多名詞上的不熟悉而讀得不順暢，或者是不知道怎麼使用確切的關鍵字來在 google 海中撈一根針。這篇文章集結了這個月來自我學習及使用搜尋工具的心得，希望能有所幫助。
+關於學習 確立問題 找到真正的問題點，有時候是一件很傷腦筋的事。因為有時候你甚至不知道問題出在哪裡。尤其剛開始學習一個新的領域時，你必須先建構出該領域的空間，才能去感受內部的變化。所以很重要的是，在思考欲解決的問題之間，先想想遇到這個問題的過程。這種有脈絡地回溯，會讓整體的輪廓更明顯，也就更容易確立問題出在哪。
+當我在思考如何將 select 選單設計成能保存使用者前一次選項時，第一次嘗試了這種思考流程。我先是使用了 Handlebars 的 Built-in Helpers 中的 #if 來試試看，結果發現不可行，於是我跳回到問題發生之前，我想解決的是如何保存選項，而保存選項同義於兩次之間的選項相等，所以我用 handlebars if equal 搜尋，在第一個 stackoverflow 的論壇就找到了答案，但為求更精密的解釋，持續查詢後找到一份有 188 種 handlebars-helpers 的資料，非常有幫助。
+當問題確立了之後，尋找到的參考答案也會比較容易理解。
+閱讀文件 找到了看起來可能的解答後，接著就要有效率地從一大片草地中找出埋藏寶藏的位置，而且這不是一片普通的草地，而是外國的草地。一開始覺得閱讀英文文件有些困難，但隨著掌握一些訣竅之後，其實都會如同倒吃甘蔗，越來越順。這邊就以上述 188 種 handlebars-helpers 的資料為例，來闡述我的閱讀過程。
+ 馬上看 usage，該份文件的使用方式寫得非常清楚，也告訴你要使用時只需要載入一個主 category，其中就包含多個 helpers。 找到 equal 的同義字，也就是 comparison，看看其中有哪些是符合使用需求的。 選擇了 #is，點進去看它的 code。 藉由 code 來進一步了解用法。  上面的過程其實並沒有需要閱讀到許多文字，只有一開始在找可能解決法的發光點時讀了使用方式，之後大部分都是零星的單字，或者是看 code 來理解。這就跟觀摩同學的作業一樣，你可以選擇先模仿，懂了其中的要領後，再深入發展自己的解釋。
+觀摩他人的 code 很多時候，我需要觀摩同學的作業才能找到自己的癥結點。或者，在 CodePen 上尋找好看的 UI 時，也總是觀摩網路上他人的 code。觀摩和抄襲雖然只有一線之隔，但是學習勢必得從模仿開始。重要的是，觀看他人的 code 時，理解對方為何在此處這樣寫，如此一來便能刺激自己去思考，進而激盪出更好的想法。條條大路通羅馬，每個人寫的 code 都不同，但結果可以完全相同，這也是程式語言有趣之處，它告訴我們，其實一開始這就只是一個工具，像學習開車一樣，有的人撞爛一臺車才學會；有的人一插進鑰匙就會駕駛，但結果是每個人學會了開車之後，就都能使用這個工具，而過程就成為自己的回憶。
+關於課程 後端開發 後端開發使用的語言雖然還是 JavaScript，但隨著執行環境從瀏覽器到伺服器，使用的方式也有所不同，像是 DOM 之類的操作就行不通。接觸 Node.</description>
+    </item>
+    
+  </channel>
+</rss>

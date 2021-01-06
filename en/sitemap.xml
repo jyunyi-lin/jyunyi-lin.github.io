@@ -3,6 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</loc>
+    <lastmod>2021-01-06T14:37:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/posts/</loc>
+    <lastmod>2021-01-06T14:37:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/tags/</loc>
+    <lastmod>2021-01-06T14:37:31+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://chuni-lin.github.io/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://chuni-lin.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2021-01-06T14:37:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/</loc>
+    <lastmod>2021-01-06T14:37:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chuni-lin.github.io/</loc>
+    <lastmod>2021-01-06T14:37:31+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://chuni-lin.github.io/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://chuni-lin.github.io/"
+                />
+  </url>
+  
+  <url>
     <loc>https://chuni-lin.github.io/tags/javascript/</loc>
     <lastmod>2020-12-04T17:44:52+08:00</lastmod>
   </url>
@@ -14,11 +64,6 @@
   
   <url>
     <loc>https://chuni-lin.github.io/tags/join/</loc>
-    <lastmod>2020-12-04T17:44:52+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/posts/</loc>
     <lastmod>2020-12-04T17:44:52+08:00</lastmod>
   </url>
   
@@ -38,36 +83,6 @@
   </url>
   
   <url>
-    <loc>https://chuni-lin.github.io/tags/</loc>
-    <lastmod>2020-12-04T17:44:52+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/</loc>
-    <lastmod>2020-12-04T17:44:52+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://chuni-lin.github.io/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://chuni-lin.github.io/"
-                />
-  </url>
-  
-  <url>
     <loc>https://chuni-lin.github.io/tags/%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2/</loc>
     <lastmod>2020-12-04T17:44:52+08:00</lastmod>
   </url>
@@ -79,11 +94,6 @@
   
   <url>
     <loc>https://chuni-lin.github.io/tags/orid/</loc>
-    <lastmod>2020-11-23T22:54:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2020-11-23T22:54:02+08:00</lastmod>
   </url>
   

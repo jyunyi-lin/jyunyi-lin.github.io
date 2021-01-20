@@ -7,22 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 06 Jan 2021 14:37:31 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Jan 2021 10:00:33 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>學習心得</title>
-      <link>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Wed, 06 Jan 2021 14:37:31 +0800</pubDate>
+      <title>Project Introduction</title>
+      <link>https://chuni-lin.github.io/tags/project-introduction/</link>
+      <pubDate>Wed, 20 Jan 2021 10:00:33 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <guid>https://chuni-lin.github.io/tags/project-introduction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>專案介紹</title>
+      <link>https://chuni-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/</link>
+      <pubDate>Wed, 20 Jan 2021 10:00:33 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/</guid>
       <description></description>
     </item>
     
     <item>
       <title>後端開發</title>
       <link>https://chuni-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/</link>
-      <pubDate>Wed, 06 Jan 2021 14:37:31 +0800</pubDate>
+      <pubDate>Wed, 20 Jan 2021 10:00:33 +0800</pubDate>
       
       <guid>https://chuni-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>學習心得</title>
+      <link>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Wed, 06 Jan 2021 14:37:31 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
       <description></description>
     </item>
     
@@ -77,24 +95,6 @@
       <pubDate>Fri, 04 Dec 2020 17:44:52 +0800</pubDate>
       
       <guid>https://chuni-lin.github.io/tags/%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ORID</title>
-      <link>https://chuni-lin.github.io/tags/orid/</link>
-      <pubDate>Mon, 23 Nov 2020 22:54:02 +0800</pubDate>
-      
-      <guid>https://chuni-lin.github.io/tags/orid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>event loop</title>
-      <link>https://chuni-lin.github.io/tags/event-loop/</link>
-      <pubDate>Mon, 23 Nov 2020 21:29:07 +0800</pubDate>
-      
-      <guid>https://chuni-lin.github.io/tags/event-loop/</guid>
       <description></description>
     </item>
     

@@ -6,8 +6,103 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 06 Jan 2021 14:37:31 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 20 Jan 2021 10:00:33 +0800</lastBuildDate>
         <atom:link href="https://chuni-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>全端產品專案介紹——記帳本</title>
+            <link>https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</link>
+            <pubDate>Wed, 20 Jan 2021 10:00:33 +0800</pubDate>
+            
+            <guid>https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</guid>
+            <description>全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
+ GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
+技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
+使用了什麼技術？ 前端技術  BootStrap &amp;amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</description>
+            <content type="html"><![CDATA[<h1 id="全端產品專案介紹記帳本">全端產品專案介紹——記帳本</h1>
+<p><img src="https://i.imgur.com/T44x5kK.png" alt=""></p>
+<p>這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。</p>
+<p>以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：</p>
+<ul>
+<li><a href="https://github.com/chuni-lin/expense-tracker">GitHub</a></li>
+<li><a href="https://obscure-reaches-13602.herokuapp.com/users/login">Heroku</a></li>
+</ul>
+<h2 id="為何會選擇這個專案">為何會選擇這個專案？</h2>
+<h3 id="日常所需">日常所需</h3>
+<p>這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。<strong>記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力</strong>，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。</p>
+<h3 id="商業考量">商業考量</h3>
+<p>記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。<strong>為自己負責，是一種安全感最大化的表現</strong>。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。</p>
+<h3 id="技能鍛鍊">技能鍛鍊</h3>
+<p>此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。</p>
+<h2 id="使用了什麼技術">使用了什麼技術？</h2>
+<h3 id="前端技術">前端技術</h3>
+<ol>
+<li><strong>BootStrap &amp; RWD</strong></li>
+<li><strong>Font Awesome</strong></li>
+</ol>
+<h3 id="後端技術">後端技術</h3>
+<ol>
+<li>網路伺服器</li>
+</ol>
+<ul>
+<li><strong>Node.js</strong>： JavaScript 執行環境</li>
+<li><strong>Express</strong>：伺服器框架</li>
+</ul>
+<ol start="2">
+<li>npm packages</li>
+</ol>
+<ul>
+<li><strong>bcryptjs</strong>：密碼雜湊加密</li>
+<li><strong>body-parser</strong>：取得表單（form）資訊</li>
+<li><strong>connect-flash</strong>：訊息提示</li>
+<li><strong>dotenv</strong>：管理敏感資訊與環境變數</li>
+<li><strong>express-handlebars</strong>：樣板引擎(template engine)</li>
+<li><strong>express-session</strong>：儲存認證結果，保留使用者登入狀態</li>
+<li><strong>handlebars-helpers</strong>：樣版引擎輔助</li>
+<li><strong>method-override</strong>：RESTful 路由</li>
+<li><strong>passport</strong> : 根據 session 資訊，驗證使用者</li>
+<li><strong>passport-facebook</strong>、<strong>passport-local</strong>：本地與第三方登入機制</li>
+</ul>
+<ol start="3">
+<li>資料庫</li>
+</ol>
+<ul>
+<li><strong>MongoDB &amp; Mongoose</strong>： NoSQL Database &amp; ODM 資料庫</li>
+<li><strong>Data Schema 資料設計</strong></li>
+<li><strong>CRUD 操作</strong></li>
+</ul>
+<ol start="4">
+<li>部署</li>
+</ol>
+<ul>
+<li><strong>Heroku</strong></li>
+</ul>
+<h3 id="協作技術">協作技術</h3>
+<ol>
+<li>Git 版控</li>
+<li>GitHub</li>
+</ol>
+<h2 id="哪部分你相對能掌握">哪部分你相對能掌握？</h2>
+<p>基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</p>
+<h2 id="哪裡花了最多時間過程中碰到什麼困難又如何克服">哪裡花了最多時間？過程中碰到什麼困難？又如何克服？</h2>
+<h3 id="多重篩選功能">多重篩選功能</h3>
+<p>篩選的處理是實作中的一大挑戰。同時要篩選類別與月份，遇到非同步的問題——不是只有類別被篩選，就是只有月份被篩選，只好先去查找 JavaScript 中非同步處理的文章來讀，然後練習完再放到專案上。但，過程並非如此順利，在設定兩天的停損點過後依然沒能完成篩選的功能，退而求其次先觀看他人如何實作，藉著模仿再把知識內化給自己。最後學習了 Async/Await 的使用方法，並應用到專案中。</p>
+<h3 id="mongodb-及-mongoose-操作資料的方式">MongoDB 及 Mongoose 操作資料的方式</h3>
+<p>相較於伺服器有較多的中文資料，資料庫中文資源顯得較少，大多需要查找官方文件或英文資料。然而 Mongoose 的官方文件風格偏學術而不易閱讀，許多操作需要大量自我提問或練習。經過不斷查詢與閱讀、觀摩的過程，建立了基本的 google 能力，接著轉換搜尋策略後，終於找到合適的解決方法。</p>
+<h2 id="過程中你有對哪個技術有特別深刻的學習">過程中你有對哪個技術有特別深刻的學習？</h2>
+<h3 id="使用者認證系統passport--express-session與密碼雜湊bcryptjs">使用者認證系統（passport &amp; express-session）與密碼雜湊（bcrypt.js）</h3>
+<p>對於「登入」與「註冊」這兩件看似簡單但觀念需要很清楚才能理解的原理有深刻的體會。也更能體會 cookie 與 session 在認證上所扮演的角色分別可以對應到伺服器與用戶端。在實作了 Facebook 第三方登入的功能後，於整體印象更深刻。而認證勢必得搭配加密，因為必須讓使用者的密碼在寫入資料庫後不會是明碼 (plain text)。學習中認識了 SHA256 及 bcrypt 兩種雜湊演算法，再詳細閱讀資料後，理解了為什麼雜湊不等於加密，原因在於<strong>加密是可逆的，雜湊是不可逆的</strong>，而雜湊本身的目的在於提高攻擊者的成本。</p>
+<p>在研究雜湊這門學問時，讀了許多資安的文章，開始會留意自己寫的 code 是否有被 XSS、CSRF 等攻擊的風險。在這個個資炙手可熱的時代，開發者更應該確保使用者的資訊安全。</p>
+<h2 id="下一步計畫">下一步計畫</h2>
+<ul>
+<li>精進前端能力，學習 Vue 與 React 框架</li>
+<li>熟悉資料庫操作與學習關連式資料庫</li>
+<li>JavaScript 非同步處理方法，Callback、Promise、 Async/Await</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>ALPHA Camp 自學經驗回顧</title>

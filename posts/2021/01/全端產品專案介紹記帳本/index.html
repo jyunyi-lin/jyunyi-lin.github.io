@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Chun-i LIN ">
+<meta name="description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
+ GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
+技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
+使用了什麼技術？ 前端技術  BootStrap &amp;amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。" />
+<meta name="keywords" content="JavaScript, 程式語言, 生活, 後端開發, 專案介紹, Project Introduction" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/" />
+
+
+    <title>
+        
+            全端產品專案介紹——記帳本 :: 生活、學習紀錄  — Hello Friend NG Theme
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://chuni-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://chuni-lin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://chuni-lin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://chuni-lin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://chuni-lin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://chuni-lin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://chuni-lin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="全端產品專案介紹——記帳本">
+<meta itemprop="description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
+ GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
+技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
+使用了什麼技術？ 前端技術  BootStrap &amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。">
+<meta itemprop="datePublished" content="2021-01-20T10:00:33+08:00" />
+<meta itemprop="dateModified" content="2021-01-20T10:00:33+08:00" />
+<meta itemprop="wordCount" content="126">
+<meta itemprop="image" content="https://chuni-lin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="後端開發,專案介紹,Project Introduction," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://chuni-lin.github.io/"/>
+
+<meta name="twitter:title" content="全端產品專案介紹——記帳本"/>
+<meta name="twitter:description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
+ GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
+技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
+使用了什麼技術？ 前端技術  BootStrap &amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。"/>
+
+
+
+    <meta property="og:title" content="全端產品專案介紹——記帳本" />
+<meta property="og:description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
+ GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
+技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
+使用了什麼技術？ 前端技術  BootStrap &amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/" />
+<meta property="og:image" content="https://chuni-lin.github.io/"/>
+<meta property="article:published_time" content="2021-01-20T10:00:33+08:00" />
+<meta property="article:modified_time" content="2021-01-20T10:00:33+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2021-01-20 10:00:33 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://chuni-lin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#548687;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://chuni-lin.github.io/about/">About</a></li><li><a href="https://chuni-lin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+
+  <div class="post-info">
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-clock">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      One minute
+
+      
+    </p>
+  </div>
+
+  <article>
+    <h1 class="post-title">
+      <a href="https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/">全端產品專案介紹——記帳本</a>
+    </h1>
+    <hr />
+    <aside id="toc">
+      <div class="toc-title">Table of Contents</div>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#為何會選擇這個專案">為何會選擇這個專案？</a>
+      <ul>
+        <li><a href="#日常所需">日常所需</a></li>
+        <li><a href="#商業考量">商業考量</a></li>
+        <li><a href="#技能鍛鍊">技能鍛鍊</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用了什麼技術">使用了什麼技術？</a>
+      <ul>
+        <li><a href="#前端技術">前端技術</a></li>
+        <li><a href="#後端技術">後端技術</a></li>
+        <li><a href="#協作技術">協作技術</a></li>
+      </ul>
+    </li>
+    <li><a href="#哪部分你相對能掌握">哪部分你相對能掌握？</a></li>
+    <li><a href="#哪裡花了最多時間過程中碰到什麼困難又如何克服">哪裡花了最多時間？過程中碰到什麼困難？又如何克服？</a>
+      <ul>
+        <li><a href="#多重篩選功能">多重篩選功能</a></li>
+        <li><a href="#mongodb-及-mongoose-操作資料的方式">MongoDB 及 Mongoose 操作資料的方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#過程中你有對哪個技術有特別深刻的學習">過程中你有對哪個技術有特別深刻的學習？</a>
+      <ul>
+        <li><a href="#使用者認證系統passport--express-session與密碼雜湊bcryptjs">使用者認證系統（passport &amp; express-session）與密碼雜湊（bcrypt.js）</a></li>
+      </ul>
+    </li>
+    <li><a href="#下一步計畫">下一步計畫</a></li>
+  </ul>
+</nav>
+    </aside>
+    <hr />
+
+    
+
+    <div class="post-content">
+      <h1 id="全端產品專案介紹記帳本">全端產品專案介紹——記帳本</h1>
+<p><img src="https://i.imgur.com/T44x5kK.png" alt=""></p>
+<p>這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。</p>
+<p>以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：</p>
+<ul>
+<li><a href="https://github.com/chuni-lin/expense-tracker">GitHub</a></li>
+<li><a href="https://obscure-reaches-13602.herokuapp.com/users/login">Heroku</a></li>
+</ul>
+<h2 id="為何會選擇這個專案">為何會選擇這個專案？</h2>
+<h3 id="日常所需">日常所需</h3>
+<p>這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。<strong>記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力</strong>，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。</p>
+<h3 id="商業考量">商業考量</h3>
+<p>記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。<strong>為自己負責，是一種安全感最大化的表現</strong>。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。</p>
+<h3 id="技能鍛鍊">技能鍛鍊</h3>
+<p>此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。</p>
+<h2 id="使用了什麼技術">使用了什麼技術？</h2>
+<h3 id="前端技術">前端技術</h3>
+<ol>
+<li><strong>BootStrap &amp; RWD</strong></li>
+<li><strong>Font Awesome</strong></li>
+</ol>
+<h3 id="後端技術">後端技術</h3>
+<ol>
+<li>網路伺服器</li>
+</ol>
+<ul>
+<li><strong>Node.js</strong>： JavaScript 執行環境</li>
+<li><strong>Express</strong>：伺服器框架</li>
+</ul>
+<ol start="2">
+<li>npm packages</li>
+</ol>
+<ul>
+<li><strong>bcryptjs</strong>：密碼雜湊加密</li>
+<li><strong>body-parser</strong>：取得表單（form）資訊</li>
+<li><strong>connect-flash</strong>：訊息提示</li>
+<li><strong>dotenv</strong>：管理敏感資訊與環境變數</li>
+<li><strong>express-handlebars</strong>：樣板引擎(template engine)</li>
+<li><strong>express-session</strong>：儲存認證結果，保留使用者登入狀態</li>
+<li><strong>handlebars-helpers</strong>：樣版引擎輔助</li>
+<li><strong>method-override</strong>：RESTful 路由</li>
+<li><strong>passport</strong> : 根據 session 資訊，驗證使用者</li>
+<li><strong>passport-facebook</strong>、<strong>passport-local</strong>：本地與第三方登入機制</li>
+</ul>
+<ol start="3">
+<li>資料庫</li>
+</ol>
+<ul>
+<li><strong>MongoDB &amp; Mongoose</strong>： NoSQL Database &amp; ODM 資料庫</li>
+<li><strong>Data Schema 資料設計</strong></li>
+<li><strong>CRUD 操作</strong></li>
+</ul>
+<ol start="4">
+<li>部署</li>
+</ol>
+<ul>
+<li><strong>Heroku</strong></li>
+</ul>
+<h3 id="協作技術">協作技術</h3>
+<ol>
+<li>Git 版控</li>
+<li>GitHub</li>
+</ol>
+<h2 id="哪部分你相對能掌握">哪部分你相對能掌握？</h2>
+<p>基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</p>
+<h2 id="哪裡花了最多時間過程中碰到什麼困難又如何克服">哪裡花了最多時間？過程中碰到什麼困難？又如何克服？</h2>
+<h3 id="多重篩選功能">多重篩選功能</h3>
+<p>篩選的處理是實作中的一大挑戰。同時要篩選類別與月份，遇到非同步的問題——不是只有類別被篩選，就是只有月份被篩選，只好先去查找 JavaScript 中非同步處理的文章來讀，然後練習完再放到專案上。但，過程並非如此順利，在設定兩天的停損點過後依然沒能完成篩選的功能，退而求其次先觀看他人如何實作，藉著模仿再把知識內化給自己。最後學習了 Async/Await 的使用方法，並應用到專案中。</p>
+<h3 id="mongodb-及-mongoose-操作資料的方式">MongoDB 及 Mongoose 操作資料的方式</h3>
+<p>相較於伺服器有較多的中文資料，資料庫中文資源顯得較少，大多需要查找官方文件或英文資料。然而 Mongoose 的官方文件風格偏學術而不易閱讀，許多操作需要大量自我提問或練習。經過不斷查詢與閱讀、觀摩的過程，建立了基本的 google 能力，接著轉換搜尋策略後，終於找到合適的解決方法。</p>
+<h2 id="過程中你有對哪個技術有特別深刻的學習">過程中你有對哪個技術有特別深刻的學習？</h2>
+<h3 id="使用者認證系統passport--express-session與密碼雜湊bcryptjs">使用者認證系統（passport &amp; express-session）與密碼雜湊（bcrypt.js）</h3>
+<p>對於「登入」與「註冊」這兩件看似簡單但觀念需要很清楚才能理解的原理有深刻的體會。也更能體會 cookie 與 session 在認證上所扮演的角色分別可以對應到伺服器與用戶端。在實作了 Facebook 第三方登入的功能後，於整體印象更深刻。而認證勢必得搭配加密，因為必須讓使用者的密碼在寫入資料庫後不會是明碼 (plain text)。學習中認識了 SHA256 及 bcrypt 兩種雜湊演算法，再詳細閱讀資料後，理解了為什麼雜湊不等於加密，原因在於<strong>加密是可逆的，雜湊是不可逆的</strong>，而雜湊本身的目的在於提高攻擊者的成本。</p>
+<p>在研究雜湊這門學問時，讀了許多資安的文章，開始會留意自己寫的 code 是否有被 XSS、CSRF 等攻擊的風險。在這個個資炙手可熱的時代，開發者更應該確保使用者的資訊安全。</p>
+<h2 id="下一步計畫">下一步計畫</h2>
+<ul>
+<li>精進前端能力，學習 Vue 與 React 框架</li>
+<li>熟悉資料庫操作與學習關連式資料庫</li>
+<li>JavaScript 非同步處理方法，Callback、Promise、 Async/Await</li>
+</ul>
+
+    </div>
+  </article>
+
+  <hr />
+
+  <div class="post-info">
+    
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://chuni-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/">後端開發</a></span>
+        <span class="tag"><a href="https://chuni-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/">專案介紹</a></span>
+        <span class="tag"><a href="https://chuni-lin.github.io/tags/project-introduction/">Project Introduction</a></span>
+        
+    </p>
+
+    
+
+    
+
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-calendar">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      
+      2021-01-20 10:00
+      
+
+      
+      
+      
+    </p>
+  </div>
+  <hr />
+  <div class="sharing-buttons">
+    
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac&amp;body=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_self"
+  rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f&amp;resubmit=true&amp;title=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank"
+  rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f;title=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank" rel="noopener"
+  aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac%20https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f&amp;t=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank" rel="noopener"
+  aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac&amp;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f"
+  target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </div>
+  </div>
+</a>
+  </div>
+
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span class="pagination__title-h"></span>
+      <hr />
+    </div>
+
+    <div class="pagination__buttons">
+      
+
+      
+      <span class="button next">
+        <a href="https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
+          <span class="button__text">ALPHA Camp 自學經驗回顧</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+
+  
+
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a href="https://chuni-lin.github.io/">Chun-i LIN</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://chuni-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://chuni-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

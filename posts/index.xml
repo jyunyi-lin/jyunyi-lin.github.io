@@ -6,8 +6,43 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 18 Mar 2021 22:36:28 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 30 Mar 2021 15:11:54 +0800</lastBuildDate>
         <atom:link href="https://chuni-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>使用 FileReader 實現圖片預覽</title>
+            <link>https://chuni-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</link>
+            <pubDate>Tue, 30 Mar 2021 15:11:54 +0800</pubDate>
+            
+            <guid>https://chuni-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
+            <description>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
+實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
+            <content type="html"><![CDATA[<p>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。</p>
+<h2 id="實作">實作</h2>
+<ol>
+<li>首先要先創建 FileReader 的對象實例</li>
+<li>然後設定在 onload 時要做什麼事</li>
+<li>最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。</li>
+</ol>
+<pre><code class="language-javascript=" data-lang="javascript=">  const reader = new FileReader()  //創建 FileReader 的對象實例
+    reader.onload = (event) =&gt; {   //設定 onload handler
+      if (input.id === 'cover') {
+        coverPreview.src = `${event.target.result}`
+      }
+      if (input.id === 'avatar') {
+        avatarPreview.src = `${event.target.result}`
+      }
+    }
+    reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容
+</code></pre><h2 id="error">Error!</h2>
+<p>操作到這邊，功能皆正常，但檢查器卻出現一個 error 說 FileReader is not defined。
+<img src="https://i.imgur.com/Cyh2tVg.png" alt=""></p>
+<h2 id="解決方法">解決方法</h2>
+<p>試了很多方法後，發現在 stake overflow 上已經有人提出一樣的疑問。原來問題就出在我們沒指出要在哪裡使用 FileReader。error 會出現是因為 webpack 無法在 Node.js 中找到 FileReader，但我們是要在瀏覽器裡使用 FileReader 實現預覽功能，所以只要加上 window 就可以了：</p>
+<pre><code class="language-javascript=" data-lang="javascript=">const reader = new window.FileReader()  //我們是要在瀏覽器中使用 FileReader
+</code></pre><p>🥳 恭喜完成預覽功能！</p>
+]]></content>
+        </item>
         
         <item>
             <title>Simple Twitter self-reflection</title>

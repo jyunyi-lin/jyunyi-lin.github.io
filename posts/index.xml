@@ -6,8 +6,54 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 30 Mar 2021 15:11:54 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 31 Mar 2021 09:58:16 +0800</lastBuildDate>
         <atom:link href="https://chuni-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Vue Review 1</title>
+            <link>https://chuni-lin.github.io/posts/2021/03/vue-review-1/</link>
+            <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
+            
+            <guid>https://chuni-lin.github.io/posts/2021/03/vue-review-1/</guid>
+            <description>Vue.js 學習筆記 - 1 學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
+Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
+Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
+初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
+ npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
+資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。</description>
+            <content type="html"><![CDATA[<h1 id="vuejs-學習筆記---1">Vue.js 學習筆記 - 1</h1>
+<p>學了 Vue 也已經一段時間，實作了<a href="https://github.com/chuni-lin/forum-front-end-vue">餐廳論壇</a>與簡易的<a href="https://github.com/chuni-lin/user-list-vue">社交平台</a>後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：<strong>由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 <a href="https://vuejs.org/v2/guide/">Vue 官方文件</a>來服用，效果更佳。</strong></p>
+<h2 id="vue-是什麼">Vue 是什麼？</h2>
+<p><img src="https://i.imgur.com/RJAI2TQ.png" alt=""></p>
+<p>Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。</p>
+<p>Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。</p>
+<h2 id="初始設置">初始設置</h2>
+<p>在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。</p>
+<ol>
+<li><code>npm install -g @vue/cli //在全域環境安裝</code></li>
+<li><code>vue create your-project-name</code></li>
+<li><code>npm run server</code></li>
+</ol>
+<p>完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。</p>
+<h2 id="資料夾詳解">資料夾詳解</h2>
+<h3 id="public-資料夾">public 資料夾</h3>
+<p>這個資料夾裡會有網頁的 <code>icon</code> 和 <code>index.html</code> 檔案，<code>html</code> 檔案主要是 <code>Vue</code> 預設的一些內容。通常在專案裡，叫做 <code>public</code> 的資料夾是放一些可以直接被外部讀取到的檔案。</p>
+<h3 id="src-資料夾">src 資料夾</h3>
+<p>其中有四個部分，分別是</p>
+<ol>
+<li>assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 <code>icon</code>、圖檔、<code>css</code> 設定檔。</li>
+<li>components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。</li>
+<li>main.js：這是 JavaScript 的進入點。<code>vue</code> 是 Vue.js 本身，<code>App.vue</code> 是整個專案本身。最底下的 <code>$mount('#app')</code> ，這個動作會把所有和 Vue 有關的內容都放進 public/index.html 裡的 <code>&lt;div id=&quot;app&quot;&gt;</code>。<img src="https://i.imgur.com/E5nkH8n.png" alt=""></li>
+<li>App.vue：這個檔案裡又分為三個大部分，分別是 template、script、style。
+&ndash; <code>&lt;template&gt;&lt;/template&gt;</code> 裡放 HTML 元素內容
+&ndash; <code>&lt;script&gt;&lt;/script&gt;</code> 內放 JavaScript 語法，大多是和 Vue 有關的資料處理
+&ndash; <code>&lt;style&gt;&lt;/style&gt;</code> 裡則是和 <code>css</code> 樣式相關的設定</li>
+</ol>
+<p>App.vue 中的設定都會套用到整個專案，可以把它想成是一個主元件。實際進行時還會再另外分出其他元件，像是一個路由會對到一個頁面的父元件和可以被多個父元件共用的子元件。 *<em>在 Vue 預設的內容中，引入的子元件是 <code>HelloWorld</code></em></p>
+<h2 id="專案建構完成">專案建構完成</h2>
+<p>完成第一步的專案建構與認識 Vue 構造。下一回我想繼續複習 Vue 的指令部分。</p>
+]]></content>
+        </item>
         
         <item>
             <title>使用 FileReader 實現圖片預覽</title>

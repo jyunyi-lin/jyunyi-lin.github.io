@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 30 Mar 2021 15:11:54 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Mar 2021 09:58:16 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue Review 1</title>
+      <link>https://chuni-lin.github.io/posts/2021/03/vue-review-1/</link>
+      <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2021/03/vue-review-1/</guid>
+      <description>Vue.js 學習筆記 - 1 學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
+Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
+Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
+初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
+ npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
+資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。</description>
+    </item>
+    
     <item>
       <title>使用 FileReader 實現圖片預覽</title>
       <link>https://chuni-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</link>

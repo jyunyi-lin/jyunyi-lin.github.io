@@ -6,13 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Chun-i LIN ">
 <meta name="description" content="這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
-常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 javascript 標籤上，就可以進行事件監聽。
+常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
 使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
 假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
 &amp;lt;button v-on:click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：
 &amp;lt;button @click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：
 methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
-v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
+v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
 使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;
 直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
 &amp;lt;img v-bind:src=&amp;quot;user.avatar&amp;quot; v-bind:data-id=&amp;quot;user.id&amp;quot; &amp;gt; 或者使用簡寫：" />
@@ -53,13 +53,13 @@ v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時�
 
 <meta itemprop="name" content="Vue.js 學習筆記 - 2">
 <meta itemprop="description" content="這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
-常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 javascript 標籤上，就可以進行事件監聽。
+常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
 使用方法為：v-on:事件動作=&quot;事件動作執行後要用的 method&quot; 可以簡寫為：@事件動作=&quot;事件動作執行後要用的 method&quot;
 假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
 &lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt; 或者使用簡寫：
 &lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt; 觸發事件後會執行的方法寫在 method 裡面：
 methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
-v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
+v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
 使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;
 直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
 &lt;img v-bind:src=&quot;user.avatar&quot; v-bind:data-id=&quot;user.id&quot; &gt; 或者使用簡寫：">
@@ -77,13 +77,13 @@ v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時�
 
 <meta name="twitter:title" content="Vue.js 學習筆記 - 2"/>
 <meta name="twitter:description" content="這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
-常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 javascript 標籤上，就可以進行事件監聽。
+常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
 使用方法為：v-on:事件動作=&quot;事件動作執行後要用的 method&quot; 可以簡寫為：@事件動作=&quot;事件動作執行後要用的 method&quot;
 假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
 &lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt; 或者使用簡寫：
 &lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt; 觸發事件後會執行的方法寫在 method 裡面：
 methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
-v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
+v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
 使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;
 直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
 &lt;img v-bind:src=&quot;user.avatar&quot; v-bind:data-id=&quot;user.id&quot; &gt; 或者使用簡寫："/>
@@ -92,13 +92,13 @@ v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時�
 
     <meta property="og:title" content="Vue.js 學習筆記 - 2" />
 <meta property="og:description" content="這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
-常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 javascript 標籤上，就可以進行事件監聽。
+常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
 使用方法為：v-on:事件動作=&quot;事件動作執行後要用的 method&quot; 可以簡寫為：@事件動作=&quot;事件動作執行後要用的 method&quot;
 假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
 &lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt; 或者使用簡寫：
 &lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt; 觸發事件後會執行的方法寫在 method 裡面：
 methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
-v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
+v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
 使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;
 直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
 &lt;img v-bind:src=&quot;user.avatar&quot; v-bind:data-id=&quot;user.id&quot; &gt; 或者使用簡寫：" />
@@ -218,13 +218,13 @@ v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時�
       <p>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的<a href="https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/">文章</a>喔。</p>
 <h2 id="常用指令">常用指令</h2>
 <h3 id="v-on-事件監聽">v-on 事件監聽</h3>
-<p>使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 javascript 標籤上，就可以進行事件監聽。</p>
+<p>使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。</p>
 <p>使用方法為：<code>v-on:事件動作=&quot;事件動作執行後要用的 method&quot;</code>
 可以簡寫為：<code>@事件動作=&quot;事件動作執行後要用的 method&quot;</code></p>
 <p>假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
 </code></pre><p>或者使用簡寫：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
 </code></pre><p>觸發事件後會執行的方法寫在 method 裡面：</p>
 <pre><code class="language-javascript=" data-lang="javascript=">methods: {
     alertAfterClick () {
@@ -233,28 +233,28 @@ v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時�
 }
 </code></pre><p>如此一來視窗就會順利出現相對應得 Alert 囉！</p>
 <h3 id="v-bind">v-bind</h3>
-<p>想增加 javascript 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。</p>
+<p>想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。</p>
 <p>使用方法為：<code>v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;</code>
 可以簡寫為：<code>:屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;</code></p>
 <p>直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;img
+<pre><code class="language-html=" data-lang="html=">&lt;img
   v-bind:src=&quot;user.avatar&quot;
   v-bind:data-id=&quot;user.id&quot;
 &gt;
 </code></pre><p>或者使用簡寫：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;img
+<pre><code class="language-html=" data-lang="html=">&lt;img
   :src=&quot;user.avatar&quot;
   :data-id=&quot;user.id&quot;
 &gt;
 </code></pre><p>大功告成！</p>
 <h3 id="v-for-迴圈">v-for 迴圈</h3>
-<p>在 Vue 框架中當然也有迴圈來渲染資料，可以將陣列資料依序渲染到 javascript 裡面，只需要一組固定的 javascript，不需要像操控 DOM 一樣，還要額外插入 javascript。</p>
+<p>在 Vue 框架中當然也有迴圈來渲染資料，可以將陣列資料依序渲染到 HTML 裡面，只需要一組固定的 HTML，不需要像操控 DOM 一樣，還要額外插入 HTML。</p>
 <p>使用方法為：<code>v-for=&quot;(item, index) in items&quot; 加上 :key=&quot;item.id&quot;</code></p>
 <blockquote>
 <p>加上 key 的原因是因為 Vue 會用 key 值判斷資料有無被修改，有 key 值的時候，在渲染資料時，就可以避免因為資料所造成的渲染問題。</p>
 </blockquote>
 <p>看看範例怎麼寫：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;UserList
+<pre><code class="language-html=" data-lang="html=">&lt;UserList
   v-for=&quot;user in users&quot;
   :key=&quot;user.id&quot;
   :user=&quot;user&quot;
@@ -265,13 +265,13 @@ v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時�
 <p>雙向綁定可以讓我們在操作資料時更方便與彈性，如果沒有將資料雙向綁定，就只能單方面地從後端資料庫更改內容，但要是做了雙向綁定，當使用者在輸入時也能一定更改資料內容喔！可以想成是你在更改帳號名稱的時候，我們就會做雙向綁定來取得你的新名稱。</p>
 <p>使用方法為：<code>v-model=&quot;要綁定的資料&quot;</code></p>
 <p>範例：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;input v-model=&quot;search&quot;&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;input v-model=&quot;search&quot;&gt;
 </code></pre><p>我們在 input 上做資料的雙向綁定是為了要取得使用者想查詢的內容是什麼，如此才能使用這個內容再撈資料回傳給使用者。</p>
 <h3 id="v-if-v-else-v-else-if-條件設定">v-if, v-else, v-else-if 條件設定</h3>
-<p>這個條件是判斷就跟 JavaScript 中的一樣，設定一個條件，來決定是否渲染這部分的 javascript。如果為 true，就會出現 javascript；如果為 false，就不渲染 javascript</p>
+<p>這個條件是判斷就跟 JavaScript 中的一樣，設定一個條件，來決定是否渲染這部分的 HTML。如果為 true，就會出現 HTML；如果為 false，就不渲染 HTML</p>
 <p>使用方法為：<code>v-if=&quot;條件內容&quot;，可以搭配 v-else 使用，若多條件則再加 v-else-if</code></p>
 <p>範例：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;template v-if=&quot;mode === 'card'&quot;&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;template v-if=&quot;mode === 'card'&quot;&gt;
   &lt;UserCard
     v-for=&quot;(user, index) in users&quot;
     :key=&quot;user.id&quot;
@@ -288,16 +288,16 @@ v-bind 想增加 javascript 屬性值或把父元件的資料帶入子元件時�
  &lt;/template&gt;
 </code></pre><p>當現在的 mode 是卡片時則顯示 UserCard 的元件；否則顯示 UserList。</p>
 <h3 id="v-show">v-show</h3>
-<p>跟 v-if 很像，都可以用 true 和 false 來控制是否顯示指定部分的內容，不同的地方是，v-if 會決定是否渲染，而 v-show 不管是 true 還是 false 都會渲染出來，只是會用 CSS hidden 讓這部分被隱藏，所以從開發者工具查看的話，不管是 true 還是 false 的 javascript 都會被顯示在上面。</p>
+<p>跟 v-if 很像，都可以用 true 和 false 來控制是否顯示指定部分的內容，不同的地方是，v-if 會決定是否渲染，而 v-show 不管是 true 還是 false 都會渲染出來，只是會用 CSS hidden 讓這部分被隱藏，所以從開發者工具查看的話，不管是 true 還是 false 的 HTML 都會被顯示在上面。</p>
 <p>使用方法為：<code>v-show=&quot;條件內容&quot;</code></p>
-<pre><code class="language-javascript=" data-lang="javascript=">&lt;template v-show=&quot;mode === 'card'&quot;&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;template v-show=&quot;mode === 'card'&quot;&gt;
   &lt;UserCard
     v-for=&quot;(user, index) in users&quot;
     :key=&quot;user.id&quot;
     :user=&quot;user&quot;
   /&gt;
 &lt;/template&gt;
-</code></pre><p>當 mode 是 card 時會被渲染在畫面上，但即使不等於時這一段 javascript 也會在開發者工具出現，只是會被設定 <code>display: none</code>。</p>
+</code></pre><p>當 mode 是 card 時會被渲染在畫面上，但即使不等於時這一段 HTML 也會在開發者工具出現，只是會被設定 <code>display: none</code>。</p>
 <h2 id="休息一下吧">休息一下吧</h2>
 <p>這次指令就複習到這邊，是不是有種躍躍欲試的感覺呢？快把新學到的把手玩一玩吧!</p>
 

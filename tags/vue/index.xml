@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 31 Mar 2021 09:58:16 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Apr 2021 14:37:32 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue.js 學習筆記 - 2</title>
+      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
+      <pubDate>Thu, 01 Apr 2021 14:37:32 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
+      <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
+常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
+使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
+假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
+&amp;lt;button v-on:click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：
+&amp;lt;button @click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：
+methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
+v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
+使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;
+直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
+&amp;lt;img v-bind:src=&amp;quot;user.avatar&amp;quot; v-bind:data-id=&amp;quot;user.id&amp;quot; &amp;gt; 或者使用簡寫：</description>
+    </item>
+    
     <item>
       <title>Vue.js 學習筆記 - 1</title>
       <link>https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>

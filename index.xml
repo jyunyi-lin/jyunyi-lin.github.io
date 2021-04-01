@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 31 Mar 2021 09:58:16 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Apr 2021 14:37:32 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue.js 學習筆記 - 2</title>
+      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
+      <pubDate>Thu, 01 Apr 2021 14:37:32 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
+      <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
+常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
+使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
+假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
+&amp;lt;button v-on:click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：
+&amp;lt;button @click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：
+methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
+v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
+使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;
+直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
+&amp;lt;img v-bind:src=&amp;quot;user.avatar&amp;quot; v-bind:data-id=&amp;quot;user.id&amp;quot; &amp;gt; 或者使用簡寫：</description>
+    </item>
+    
     <item>
       <title>Vue.js 學習筆記 - 1</title>
       <link>https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
@@ -133,16 +152,6 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console.</descrip
       <description>為什麼開始寫網頁？ 在工作中偶然有機會要製作一個網頁，當時由於經費的問題，必須自己搞定這個任務。於是就從一本厚重的 HTML、CSS 書籍開始，從學習到刻出一個靜態頁面。當時是在 wordpress 平台上操作，所以基本上不需要太多深入的技巧，頂多改動一下 CSS。不過就因為這次的經驗，讓我對「寫網頁」這件事有了興趣，後來持續自己精進，在某一次的產品計畫中提出希望能自己做出這個產品的 Brand Page。然後從伺服器開始，一直到客戶端的整個過程，使用 Google 大神的資訊漸漸把知識拼圖拼起來。後來發現有 Bootstrap 這個能夠快速拼出網頁模版的平台，一邊使用內建的功能，一邊加入自己的 CSS，終於把一個完整的品牌頁面刻出來。那時候的成就感真是像潮水湧出。
 為什麼想學習 JavaScript？ 在跳進這個坑之後，發現原來這是個很深很深看不到最下面的坑。開始開啟開發者工具去看喜歡的網頁的程式碼，試著去理解他的邏輯，然後也想做出跟他一樣的互動效果。結果發現原來這都需要 JavaScript。用 CSS 或許也可以做出動畫效果，但要真正的與使用者互動，非 JavaScript 莫屬。與 HTML、CSS 不同，JavaScript 是一個程式語言，它較為複雜的邏輯概念讓我無法有效率地自己學習，但我想讓品牌網頁更有互動性、更完整，於是我開始尋找線上課程。
 所以學了幾個月，有什麼感受？ 我是在學完學期 2-2 才回過頭來做這個 review，原因是當時學完 2-1 時，對 JavaScript 只有初步的了解，沒有一個宏觀、完整的認識，所以無法整理出太多內化的知識。在跑過 API、DOM 及前端使用者體驗後，從一開始覺得這是一個很難理解的程式語言，到現在開始發現他的趣味所在。原本我猜想要學會 JavaScript，大概數學、邏輯能力要很好，後來發現其實不盡然如此。當然在一開始不習慣要如何去思考它時，會顯得自己很笨拙，但跟著課程循序漸進地拆解後，才發現真正重要的，不是「有沒有解題的能力」，而是「如何去思考它運作的能力。」這再次向我說明了，邏輯是要柔軟去對待而不是用死背來應付的。你可以背很多語法，但當你沒掌握到整個撰寫程式的思考脈絡時，你會發現語法就只是語法，而不是解決問題的工具。JavaScript 真的是一門博大精深的語言，有很多可以探索的部分，當你在拆解每一個步驟時，都可以感受到設計者在 JavaScript 引擎上所做的巧思。</description>
-    </item>
-    
-    <item>
-      <title>關於本站</title>
-      <link>https://chuni-lin.github.io/about/</link>
-      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chuni-lin.github.io/about/</guid>
-      <description>讓自己能更了解如何與電腦溝通 這個部落格主要用來存放一些學習程式技術的雜記，偶爾可能也會有少許生活的紀錄。希望之後遇到問題時可以回到這裡尋找答案，也期許能幫助到遇到同樣問題的夥伴。
-整理、寫下來，才能真正算是完整的內化。</description>
     </item>
     
   </channel>

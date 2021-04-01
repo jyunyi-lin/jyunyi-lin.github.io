@@ -222,9 +222,9 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <p>使用方法為：<code>v-on:事件動作=&quot;事件動作執行後要用的 method&quot;</code>
 可以簡寫為：<code>@事件動作=&quot;事件動作執行後要用的 method&quot;</code></p>
 <p>假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：</p>
-<pre><code class="language-htmlembedded=" data-lang="htmlembedded=">&lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
 </code></pre><p>或者使用簡寫：</p>
-<pre><code class="language-htmlembedded=" data-lang="htmlembedded=">&lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
 </code></pre><p>觸發事件後會執行的方法寫在 method 裡面：</p>
 <pre><code class="language-javascript=" data-lang="javascript=">methods: {
     alertAfterClick () {
@@ -237,12 +237,12 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <p>使用方法為：<code>v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;</code>
 可以簡寫為：<code>:屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;</code></p>
 <p>直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：</p>
-<pre><code class="language-htmlembedded=" data-lang="htmlembedded=">&lt;img
+<pre><code class="language-html=" data-lang="html=">&lt;img
   v-bind:src=&quot;user.avatar&quot;
   v-bind:data-id=&quot;user.id&quot;
 &gt;
 </code></pre><p>或者使用簡寫：</p>
-<pre><code class="language-htmlembedded=" data-lang="htmlembedded=">&lt;img
+<pre><code class="language-html=" data-lang="html=">&lt;img
   :src=&quot;user.avatar&quot;
   :data-id=&quot;user.id&quot;
 &gt;
@@ -254,7 +254,7 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <p>加上 key 的原因是因為 Vue 會用 key 值判斷資料有無被修改，有 key 值的時候，在渲染資料時，就可以避免因為資料所造成的渲染問題。</p>
 </blockquote>
 <p>看看範例怎麼寫：</p>
-<pre><code class="language-htmlmixed=" data-lang="htmlmixed=">&lt;UserList
+<pre><code class="language-html=" data-lang="html=">&lt;UserList
   v-for=&quot;user in users&quot;
   :key=&quot;user.id&quot;
   :user=&quot;user&quot;
@@ -265,13 +265,13 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <p>雙向綁定可以讓我們在操作資料時更方便與彈性，如果沒有將資料雙向綁定，就只能單方面地從後端資料庫更改內容，但要是做了雙向綁定，當使用者在輸入時也能一定更改資料內容喔！可以想成是你在更改帳號名稱的時候，我們就會做雙向綁定來取得你的新名稱。</p>
 <p>使用方法為：<code>v-model=&quot;要綁定的資料&quot;</code></p>
 <p>範例：</p>
-<pre><code class="language-htmlmixed=" data-lang="htmlmixed=">&lt;input v-model=&quot;search&quot;&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;input v-model=&quot;search&quot;&gt;
 </code></pre><p>我們在 input 上做資料的雙向綁定是為了要取得使用者想查詢的內容是什麼，如此才能使用這個內容再撈資料回傳給使用者。</p>
 <h3 id="v-if-v-else-v-else-if-條件設定">v-if, v-else, v-else-if 條件設定</h3>
 <p>這個條件是判斷就跟 JavaScript 中的一樣，設定一個條件，來決定是否渲染這部分的 HTML。如果為 true，就會出現 HTML；如果為 false，就不渲染 HTML</p>
 <p>使用方法為：<code>v-if=&quot;條件內容&quot;，可以搭配 v-else 使用，若多條件則再加 v-else-if</code></p>
 <p>範例：</p>
-<pre><code class="language-htmlmixed=" data-lang="htmlmixed=">&lt;template v-if=&quot;mode === 'card'&quot;&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;template v-if=&quot;mode === 'card'&quot;&gt;
   &lt;UserCard
     v-for=&quot;(user, index) in users&quot;
     :key=&quot;user.id&quot;
@@ -290,7 +290,7 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <h3 id="v-show">v-show</h3>
 <p>跟 v-if 很像，都可以用 true 和 false 來控制是否顯示指定部分的內容，不同的地方是，v-if 會決定是否渲染，而 v-show 不管是 true 還是 false 都會渲染出來，只是會用 CSS hidden 讓這部分被隱藏，所以從開發者工具查看的話，不管是 true 還是 false 的 HTML 都會被顯示在上面。</p>
 <p>使用方法為：<code>v-show=&quot;條件內容&quot;</code></p>
-<pre><code class="language-htmlmixed=" data-lang="htmlmixed=">&lt;template v-show=&quot;mode === 'card'&quot;&gt;
+<pre><code class="language-html=" data-lang="html=">&lt;template v-show=&quot;mode === 'card'&quot;&gt;
   &lt;UserCard
     v-for=&quot;(user, index) in users&quot;
     :key=&quot;user.id&quot;

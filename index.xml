@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 01 Apr 2021 15:29:24 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Apr 2021 15:21:50 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>reduce() 是什麼？該如何使用？</title>
+      <link>https://chuni-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 07 Apr 2021 15:21:50 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
+Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
+Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
+ accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容  而 initialValue 則是代表第一次要傳入的初始值。
+實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&amp;gt; { return accumulator + currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18    No accumulator currentValue currentIndex return value     1 5 1 0 6   2 6 3 1 9   3 9 4 2 13   4 13 5 3 18    可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。</description>
+    </item>
+    
     <item>
       <title>ALPHA Camp 畢業心得</title>
       <link>https://chuni-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
@@ -142,22 +155,6 @@ INTERPRETIVE 無論人類的語言或電腦的語言，若要「持續學習，�
 要是有一個 JavaScript 的語法或者觀念一直無法理解，就好比在現實社會中你不懂為什麼媽媽總是要你如何如何一樣，但若是你不試著跨過你自己的舒適圈與媽媽溝通，情況就會一直僵持下去。試著去讓自己不要陷入這種一直無法理解的負面情緒，打破這個框架去找方法更加認識它，是我認為唯一能持續成長的方法。
 就像 Leonard Cohen 在 Anthem 這首歌中的一句歌詞一樣 “There is a crack in everything. That’s how the light gets in.”
 DECISIONAL 培養書寫技術文章的能力是我現在想開始進行的。觀摩同學的筆記後發現，唯有自己整理過的，才真正能內化為知識。下一階段要開始學習後端的內容，想必更需要有條理的邏輯與思考力，勉勵自己能將每個章節留下一些紀錄，以供之後需要時能隨時查閱，而不會船過水無痕。</description>
-    </item>
-    
-    <item>
-      <title>What Is Event Loop?</title>
-      <link>https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/</link>
-      <pubDate>Mon, 23 Nov 2020 21:29:07 +0800</pubDate>
-      
-      <guid>https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/</guid>
-      <description>究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
-名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
-堆疊區（Stack） JavaScript 引擎會將執行的程式放到堆疊區（Stack）中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 引擎將任務先放到堆疊區（Stack）中，然後一行一行地執行。而碰到 return 時，就直接脫離堆疊。  圖片來源
- 事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。  圖片來源
- 所以，到底什麼是 event loop？ JavaScript 在執行程式的順序是這樣的：
- 將函式放到堆疊區（Stack）中 如果有非同步的處理程式，例如上述的 setTimeout、event 監聽器、Ajax，會先被放到事件佇列(Callback Queue) 在堆疊區（Stack）中的一般函式被執行 等到堆疊區（Stack）中執行完畢後，再將事件佇列(Callback Queue)中等待執行的任務丟到堆疊區（Stack）中 執行完堆疊區（Stack）中的任務後，再回到事件佇列(Callback Queue)查看是否還有任務要做  這個過程就是 event loop！ 第 4 步驟是我們下一步解題的關鍵，多閱讀幾次，放到你心中。
-拆解 setTimeout 函式的謎題 用範例會更好理解，首先我們輸入：
-setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console.</description>
     </item>
     
   </channel>

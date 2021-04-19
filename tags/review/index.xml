@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 01 Apr 2021 14:37:32 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/review/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/review/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue.js 學習筆記 - 3</title>
+      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
+      <pubDate>Mon, 19 Apr 2021 15:44:43 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
+      <description>今天想來聊聊 Vue Router。
+Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
+ SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
+  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
+ 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
+如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
+vue add router
+在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
+安裝好之後，來觀察看看專案下哪邊變得不同了。
+ 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.</description>
+    </item>
+    
     <item>
       <title>Vue.js 學習筆記 - 2</title>
       <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>

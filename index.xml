@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 07 Apr 2021 15:21:50 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue.js 學習筆記 - 3</title>
+      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
+      <pubDate>Mon, 19 Apr 2021 15:44:43 +0800</pubDate>
+      
+      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
+      <description>今天想來聊聊 Vue Router。
+Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
+ SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
+  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
+ 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
+如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
+vue add router
+在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
+安裝好之後，來觀察看看專案下哪邊變得不同了。
+ 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.</description>
+    </item>
+    
     <item>
       <title>reduce() 是什麼？該如何使用？</title>
       <link>https://chuni-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</link>
@@ -139,22 +157,6 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
 String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
 const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
 const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。</description>
-    </item>
-    
-    <item>
-      <title>ALPHA Camp 學期 2-2 學習心得</title>
-      <link>https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-2-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Mon, 23 Nov 2020 22:54:02 +0800</pubDate>
-      
-      <guid>https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-2-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
-      <description>OBJECTIVE 學期 2-1 到 2-2 之間，我認為有著飛躍性的成長。很多模糊的觀念在這學期開始變得清晰，也逐漸體會到 JavaScript 這個語言的博大精深，當然坑挖得越深，越是覺得有更多想去理解與學習的。相比於一個月前的自己，現在不僅懂得使用更多的語法，也更能掌控整體寫程式的思考脈絡，比較不容易陷入鑽牛角尖的負面情緒。在寫 code 的過程中，也逐漸培養出要求更精確的命名、排版的一致性與函式的低耦合性。
-REFLECTIVE 成功總不是一蹴而就的。進步發生在每一次練習背後找資料的過程。例如遇到新的語法時，除了用教案中的例子來理解，我也會從 Google 中抓取很多資料，把自己會的語言的資料都閱讀過一遍，然後很驚訝地發現原來同一個語法在中文、英文、日文、法文中都有些微相異的解釋方式。我原本就很喜歡日常語言，在學了 JavaScript 之後，我更享受觀察人類語言與電腦語言之間的相關性。
-很奇妙的是，我發現閱讀中文資料時會比起閱讀其他語言的資料更難以理解。或許跟語言的特性有關，當英文翻譯成中文時，有時候會顯得有點牽強，但當翻成同有漢字的日文時，卻又沒有這種問題，是否與語言的嚴謹性也有關聯？以上純屬個人意見。
-其中我看了一個在講 functional programming 的影片，十分發人省思。裡頭提到純（Pure）與不純的函數、使用高階函數（Higher-order function）而不是用 for、while 來做迴圈、持久化數據結構（Persistent data structure）等等的概念。一個月前我大概影片一開始就直接放棄，但現在我會很有興趣地把它看過一遍又一遍，然後試著梳理出其中的脈絡。我認為這也跟對 JavaScript 有更為深入的認識有關，就像是一開始你不懂到連問問題都沒辦法，一直到你有一些基礎概念而能問出一個問題有異曲同工之妙。問問題也是一門學問。
-INTERPRETIVE 無論人類的語言或電腦的語言，若要「持續學習，持續進步」就必須不斷地跳出舒適圈。我們要開口說才能培養出更好的語感，語言的最終目的是完成與其他人的溝通，這是一個絕對雙向的過程，當然閱讀亦是如此，你必須先磨練自己的寫作能力，才能看得懂更深刻晦澀的文章，而每一次練習都在跳出舒適圈。同理可證，學習 JavaScript 的目的是用來與電腦溝通，但是設計這個溝通架構的也是人，所以最終還是在與人溝通。
-要是有一個 JavaScript 的語法或者觀念一直無法理解，就好比在現實社會中你不懂為什麼媽媽總是要你如何如何一樣，但若是你不試著跨過你自己的舒適圈與媽媽溝通，情況就會一直僵持下去。試著去讓自己不要陷入這種一直無法理解的負面情緒，打破這個框架去找方法更加認識它，是我認為唯一能持續成長的方法。
-就像 Leonard Cohen 在 Anthem 這首歌中的一句歌詞一樣 “There is a crack in everything. That’s how the light gets in.”
-DECISIONAL 培養書寫技術文章的能力是我現在想開始進行的。觀摩同學的筆記後發現，唯有自己整理過的，才真正能內化為知識。下一階段要開始學習後端的內容，想必更需要有條理的邏輯與思考力，勉勵自己能將每個章節留下一些紀錄，以供之後需要時能隨時查閱，而不會船過水無痕。</description>
     </item>
     
   </channel>

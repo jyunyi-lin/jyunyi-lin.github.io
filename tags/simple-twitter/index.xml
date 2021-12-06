@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Simple Twitter on 生活、學習紀錄</title>
-    <link>https://chuni-lin.github.io/tags/simple-twitter/</link>
+    <link>https://jyunyi-lin.github.io/tags/simple-twitter/</link>
     <description>Recent content in Simple Twitter on 生活、學習紀錄</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 18 Mar 2021 22:36:28 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/simple-twitter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Mar 2021 22:36:28 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/tags/simple-twitter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple Twitter self-reflection</title>
-      <link>https://chuni-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</link>
       <pubDate>Thu, 18 Mar 2021 22:36:28 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</guid>
       <description>兩個禮拜的開發過程一下就過了。期間經歷了團隊合作、自動化測試 Debug、尋找技術文件、協作開發遇到的各種 git 問題等，讓人成長許多。凡走過必留下痕跡，這篇文章便是希望能寫下一些開發時遇到的插曲，留給以後的自己回味外，或許在之後遇到問題後也能回首來尋找答案。
 專案介紹 ALPHA Camp 的畢業專案是復刻一個 Twitter 功能的 Web Application。協作能以全端或前後端分離來進行，全端是在 Node.js 上以 JavaScript 為主要語言、Handlebars 為前端模板來進行，採用 MySQL 作為資料庫，使用 Sequelize 操作資料庫。專案完成後部署至 Heroku；前後端分離則是後端製作 API，前端以 Vue.js 做開發。我們這一組選擇全端開發。
 開發流程 專案開始後，組長先在 trello 上建立功能看板，組員則自己選擇樣板來開發。不過，主要的模板，例如資料庫、model 建立、登入登出等專案基礎架構由組長先完成。

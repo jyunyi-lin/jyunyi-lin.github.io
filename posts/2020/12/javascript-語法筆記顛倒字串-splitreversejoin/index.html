@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Chun-i LIN ">
+<meta name="author" content="Jyun-Yi LIN ">
 <meta name="description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
 1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
 String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
@@ -13,7 +13,7 @@ const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) 
 <meta name="keywords" content="JavaScript, 程式語言, 生活, JavaScript, string, split(), reverse(), join(), 顛倒字串" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://chuni-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/" />
+<link rel="canonical" href="https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/" />
 
 
     <title>
@@ -29,17 +29,17 @@ const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) 
 
 
 
-<link rel="stylesheet" href="https://chuni-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+<link rel="stylesheet" href="https://jyunyi-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://chuni-lin.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://chuni-lin.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://chuni-lin.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://chuni-lin.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://chuni-lin.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://chuni-lin.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jyunyi-lin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jyunyi-lin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jyunyi-lin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://jyunyi-lin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://jyunyi-lin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://jyunyi-lin.github.io/favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
@@ -54,14 +54,14 @@ const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.
 <meta itemprop="datePublished" content="2020-12-04T17:44:52+08:00" />
 <meta itemprop="dateModified" content="2020-12-04T17:44:52+08:00" />
 <meta itemprop="wordCount" content="166">
-<meta itemprop="image" content="https://chuni-lin.github.io/"/>
+<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
 
 
 
 <meta itemprop="keywords" content="JavaScript,string,split(),reverse(),join(),顛倒字串," />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://chuni-lin.github.io/"/>
+<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
 
 <meta name="twitter:title" content="JavaScript 語法筆記：顛倒字串 split()、reverse()、join()"/>
 <meta name="twitter:description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
@@ -79,8 +79,8 @@ String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一�
 const splitted = &quot;Apple is very delicious&quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
 const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://chuni-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/" />
-<meta property="og:image" content="https://chuni-lin.github.io/"/>
+<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/" />
+<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
 <meta property="article:published_time" content="2020-12-04T17:44:52+08:00" />
 <meta property="article:modified_time" content="2020-12-04T17:44:52+08:00" />
 
@@ -104,7 +104,7 @@ const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://chuni-lin.github.io/" style="text-decoration: none;">
+        <a href="https://jyunyi-lin.github.io/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -122,7 +122,7 @@ const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://chuni-lin.github.io/about/">About</a></li><li><a href="https://chuni-lin.github.io/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://jyunyi-lin.github.io/about/">About</a></li><li><a href="https://jyunyi-lin.github.io/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -165,7 +165,7 @@ const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.
 
   <article>
     <h1 class="post-title">
-      <a href="https://chuni-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/">JavaScript 語法筆記：顛倒字串 split()、reverse()、join()</a>
+      <a href="https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/">JavaScript 語法筆記：顛倒字串 split()、reverse()、join()</a>
     </h1>
     <hr />
     <aside id="toc">
@@ -246,12 +246,12 @@ console.log(splitted) // elppA
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/javascript/">JavaScript</a></span>
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/string/">string</a></span>
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/split/">split()</a></span>
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/reverse/">reverse()</a></span>
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/join/">join()</a></span>
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2/">顛倒字串</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/javascript/">JavaScript</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/string/">string</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/split/">split()</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/reverse/">reverse()</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/join/">join()</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2/">顛倒字串</a></span>
         
     </p>
 
@@ -280,7 +280,7 @@ console.log(splitted) // elppA
   <hr />
   <div class="sharing-buttons">
     
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f" target="_blank"
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f" target="_blank"
   rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -299,7 +299,7 @@ console.log(splitted) // elppA
 
 
 
-<a class="resp-sharing-button__link" href="mailto:?subject=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29&amp;body=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f" target="_self"
+<a class="resp-sharing-button__link" href="mailto:?subject=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29&amp;body=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f" target="_self"
   rel="noopener" aria-label="" title="Share via email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -320,7 +320,7 @@ console.log(splitted) // elppA
 
 
 <a class="resp-sharing-button__link"
-  href="https://reddit.com/submit/?url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f&amp;resubmit=true&amp;title=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29" target="_blank"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f&amp;resubmit=true&amp;title=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29" target="_blank"
   rel="noopener" aria-label="" title="Share on reddit">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -335,7 +335,7 @@ console.log(splitted) // elppA
 
 
 <a class="resp-sharing-button__link"
-  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f;title=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29" target="_blank" rel="noopener"
+  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f;title=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29" target="_blank" rel="noopener"
   aria-label="" title="Share on xing">
   <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -349,7 +349,7 @@ console.log(splitted) // elppA
 </a>
 
 
-<a class="resp-sharing-button__link" href="whatsapp://send?text=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29%20https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f" target="_blank"
+<a class="resp-sharing-button__link" href="whatsapp://send?text=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29%20https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f" target="_blank"
   rel="noopener" aria-label="" title="Share on whatsapp">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -364,7 +364,7 @@ console.log(splitted) // elppA
 
 
 <a class="resp-sharing-button__link"
-  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f&amp;t=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29" target="_blank" rel="noopener"
+  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f&amp;t=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29" target="_blank" rel="noopener"
   aria-label="" title="Share on hacker news">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -378,7 +378,7 @@ console.log(splitted) // elppA
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29&amp;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f"
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=JavaScript%20%e8%aa%9e%e6%b3%95%e7%ad%86%e8%a8%98%ef%bc%9a%e9%a1%9b%e5%80%92%e5%ad%97%e4%b8%b2%20split%28%29%e3%80%81reverse%28%29%e3%80%81join%28%29&amp;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f12%2fjavascript-%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598%25E9%25A1%259B%25E5%2580%2592%25E5%25AD%2597%25E4%25B8%25B2-splitreversejoin%2f"
   target="_blank" rel="noopener" aria-label="" title="Share on telegram">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -402,7 +402,7 @@ console.log(splitted) // elppA
     <div class="pagination__buttons">
       
       <span class="button previous">
-        <a href="https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
+        <a href="https://jyunyi-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
           <span class="button__icon">←</span>
           <span class="button__text">ALPHA Camp 自學經驗回顧</span>
         </a>
@@ -411,7 +411,7 @@ console.log(splitted) // elppA
 
       
       <span class="button next">
-        <a href="https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-2-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+        <a href="https://jyunyi-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-2-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
           <span class="button__text">ALPHA Camp 學期 2-2 學習心得</span>
           <span class="button__icon">→</span>
         </a>
@@ -434,11 +434,11 @@ console.log(splitted) // elppA
         <div class="footer__content">
             <span>&copy; 2021</span>
             
-                <span><a href="https://chuni-lin.github.io/">Chun-i LIN</a></span>
+                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
                 <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://chuni-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -457,7 +457,7 @@ console.log(splitted) // elppA
 
 
 
-<script type="text/javascript" src="https://chuni-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
 
 
 

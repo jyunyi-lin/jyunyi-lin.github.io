@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vue on 生活、學習紀錄</title>
-    <link>https://chuni-lin.github.io/tags/vue/</link>
+    <link>https://jyunyi-lin.github.io/tags/vue/</link>
     <description>Recent content in Vue on 生活、學習紀錄</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vue.js 學習筆記 - 3</title>
-      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
       <pubDate>Mon, 19 Apr 2021 15:44:43 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
       <description>今天想來聊聊 Vue Router。
 Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
  SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
@@ -28,10 +28,10 @@ vue add router
     
     <item>
       <title>Vue.js 學習筆記 - 2</title>
-      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
       <pubDate>Thu, 01 Apr 2021 14:37:32 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
       <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
 常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
 使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
@@ -47,10 +47,10 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
     
     <item>
       <title>Vue.js 學習筆記 - 1</title>
-      <link>https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
       <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
       <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
 Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
 Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。

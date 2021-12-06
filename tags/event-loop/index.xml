@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>event loop on 生活、學習紀錄</title>
-    <link>https://chuni-lin.github.io/tags/event-loop/</link>
+    <link>https://jyunyi-lin.github.io/tags/event-loop/</link>
     <description>Recent content in event loop on 生活、學習紀錄</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 23 Nov 2020 21:29:07 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/tags/event-loop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Nov 2020 21:29:07 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/tags/event-loop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What Is Event Loop?</title>
-      <link>https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/</link>
+      <link>https://jyunyi-lin.github.io/posts/2020/11/what-is-event-loop/</link>
       <pubDate>Mon, 23 Nov 2020 21:29:07 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2020/11/what-is-event-loop/</guid>
       <description>究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
 名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
 堆疊區（Stack） JavaScript 引擎會將執行的程式放到堆疊區（Stack）中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 引擎將任務先放到堆疊區（Stack）中，然後一行一行地執行。而碰到 return 時，就直接脫離堆疊。  圖片來源

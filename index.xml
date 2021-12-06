@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>生活、學習紀錄</title>
-    <link>https://chuni-lin.github.io/</link>
+    <link>https://jyunyi-lin.github.io/</link>
     <description>Recent content on 生活、學習紀錄</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://chuni-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vue.js 學習筆記 - 3</title>
-      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
       <pubDate>Mon, 19 Apr 2021 15:44:43 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
       <description>今天想來聊聊 Vue Router。
 Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
  SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
@@ -28,10 +28,10 @@ vue add router
     
     <item>
       <title>reduce() 是什麼？該如何使用？</title>
-      <link>https://chuni-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 07 Apr 2021 15:21:50 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</guid>
       <description>昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
 Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
 Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
@@ -41,10 +41,10 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
     
     <item>
       <title>ALPHA Camp 畢業心得</title>
-      <link>https://chuni-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
       <pubDate>Thu, 01 Apr 2021 15:29:24 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/</guid>
       <description>從 2020 年 9 月一直到現在，整整半年的時間，終於是寫畢業部落格的時機了。還記得剛開始接觸 JavaScript 時笨拙得連函式都搞不太清楚，物件跟陣列分不出個所以然的自己。一路走來真是有種浴火重生，現在才要開始的感慨。完全沒有後悔過這個選擇，因為不論上完課程後是否要轉職，過程中所得到的收穫是比這個結果還要更重要、更能影響我的。
 還記得一開始寫 AC 要求的技術文章時，覺得有點麻煩之外，又想說怎麼會有人來看呢，滿心都是一個想逃避的態度。後來寫著寫著不知為何就啟動某個開關，其實根本不需要真的有人來閱讀，只要我還有在讀自己的文章，這些被記錄下的事就是有價值的。現在很感謝 AC 的這種作業形式，讓我更能反覆的反省、思考不足之處。
 我想大略談談每個學期的感受，雖然之前已經有兩篇學期心得文，還是不厭煩的來總結一下。
@@ -58,10 +58,10 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
     
     <item>
       <title>Vue.js 學習筆記 - 2</title>
-      <link>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
       <pubDate>Thu, 01 Apr 2021 14:37:32 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
       <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
 常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
 使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
@@ -77,10 +77,10 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
     
     <item>
       <title>Vue.js 學習筆記 - 1</title>
-      <link>https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
       <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
       <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
 Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
 Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
@@ -92,20 +92,20 @@ src 資料夾 其中有四個部分，分別是</description>
     
     <item>
       <title>使用 FileReader 實現圖片預覽</title>
-      <link>https://chuni-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</link>
       <pubDate>Tue, 30 Mar 2021 15:11:54 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
       <description>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
 實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
     </item>
     
     <item>
       <title>Simple Twitter self-reflection</title>
-      <link>https://chuni-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</link>
       <pubDate>Thu, 18 Mar 2021 22:36:28 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</guid>
       <description>兩個禮拜的開發過程一下就過了。期間經歷了團隊合作、自動化測試 Debug、尋找技術文件、協作開發遇到的各種 git 問題等，讓人成長許多。凡走過必留下痕跡，這篇文章便是希望能寫下一些開發時遇到的插曲，留給以後的自己回味外，或許在之後遇到問題後也能回首來尋找答案。
 專案介紹 ALPHA Camp 的畢業專案是復刻一個 Twitter 功能的 Web Application。協作能以全端或前後端分離來進行，全端是在 Node.js 上以 JavaScript 為主要語言、Handlebars 為前端模板來進行，採用 MySQL 作為資料庫，使用 Sequelize 操作資料庫。專案完成後部署至 Heroku；前後端分離則是後端製作 API，前端以 Vue.js 做開發。我們這一組選擇全端開發。
 開發流程 專案開始後，組長先在 trello 上建立功能看板，組員則自己選擇樣板來開發。不過，主要的模板，例如資料庫、model 建立、登入登出等專案基礎架構由組長先完成。
@@ -118,10 +118,10 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
     
     <item>
       <title>全端產品專案介紹——記帳本</title>
-      <link>https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</link>
       <pubDate>Wed, 20 Jan 2021 10:00:33 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</guid>
       <description>全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
 以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
  GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
@@ -132,10 +132,10 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
     
     <item>
       <title>ALPHA Camp 自學經驗回顧</title>
-      <link>https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</link>
+      <link>https://jyunyi-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</link>
       <pubDate>Wed, 06 Jan 2021 14:37:31 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</guid>
       <description>前言 進入後端課程之後，每個禮拜都過得十分充實。由於後端是自己平常不論在工作或是私底下的學習都比較沒有涉足到的領悟，所以每一章節都是全新的體驗。每一種體驗都帶給我許多成長，而其中最讓人印象深刻的就是不斷地閱讀原文文章這件事。網路上有著許多翻譯後的前端資源，但當來到後端時，往往都需要看英文的說明或者 google，即使平常對於英文並不排斥，也自認具有良好的閱讀能力，但當一開始閱讀「技術文章」時，還是會遇到許多名詞上的不熟悉而讀得不順暢，或者是不知道怎麼使用確切的關鍵字來在 google 海中撈一根針。這篇文章集結了這個月來自我學習及使用搜尋工具的心得，希望能有所幫助。
 關於學習 確立問題 找到真正的問題點，有時候是一件很傷腦筋的事。因為有時候你甚至不知道問題出在哪裡。尤其剛開始學習一個新的領域時，你必須先建構出該領域的空間，才能去感受內部的變化。所以很重要的是，在思考欲解決的問題之間，先想想遇到這個問題的過程。這種有脈絡地回溯，會讓整體的輪廓更明顯，也就更容易確立問題出在哪。
 當我在思考如何將 select 選單設計成能保存使用者前一次選項時，第一次嘗試了這種思考流程。我先是使用了 Handlebars 的 Built-in Helpers 中的 #if 來試試看，結果發現不可行，於是我跳回到問題發生之前，我想解決的是如何保存選項，而保存選項同義於兩次之間的選項相等，所以我用 handlebars if equal 搜尋，在第一個 stackoverflow 的論壇就找到了答案，但為求更精密的解釋，持續查詢後找到一份有 188 種 handlebars-helpers 的資料，非常有幫助。
@@ -148,10 +148,10 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
     
     <item>
       <title>JavaScript 語法筆記：顛倒字串 split()、reverse()、join()</title>
-      <link>https://chuni-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</link>
+      <link>https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</link>
       <pubDate>Fri, 04 Dec 2020 17:44:52 +0800</pubDate>
       
-      <guid>https://chuni-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</guid>
+      <guid>https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</guid>
       <description>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
 1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
 String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。

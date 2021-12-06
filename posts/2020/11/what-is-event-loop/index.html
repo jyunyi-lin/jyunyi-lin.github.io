@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Chun-i LIN ">
+<meta name="author" content="Jyun-Yi LIN ">
 <meta name="description" content="究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
 名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
 堆疊區（Stack） JavaScript 引擎會將執行的程式放到堆疊區（Stack）中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 引擎將任務先放到堆疊區（Stack）中，然後一行一行地執行。而碰到 return 時，就直接脫離堆疊。  圖片來源
@@ -16,7 +16,7 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console." />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, event loop" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/" />
+<link rel="canonical" href="https://jyunyi-lin.github.io/posts/2020/11/what-is-event-loop/" />
 
 
     <title>
@@ -32,17 +32,17 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console." />
 
 
 
-<link rel="stylesheet" href="https://chuni-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+<link rel="stylesheet" href="https://jyunyi-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://chuni-lin.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://chuni-lin.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://chuni-lin.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://chuni-lin.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://chuni-lin.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://chuni-lin.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jyunyi-lin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jyunyi-lin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jyunyi-lin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://jyunyi-lin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://jyunyi-lin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://jyunyi-lin.github.io/favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
@@ -60,14 +60,14 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console.">
 <meta itemprop="datePublished" content="2020-11-23T21:29:07+08:00" />
 <meta itemprop="dateModified" content="2020-11-23T21:29:07+08:00" />
 <meta itemprop="wordCount" content="161">
-<meta itemprop="image" content="https://chuni-lin.github.io/"/>
+<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
 
 
 
 <meta itemprop="keywords" content="event loop," />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://chuni-lin.github.io/"/>
+<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
 
 <meta name="twitter:title" content="What Is Event Loop?"/>
 <meta name="twitter:description" content="究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
@@ -91,8 +91,8 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console."/>
 拆解 setTimeout 函式的謎題 用範例會更好理解，首先我們輸入：
 setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/" />
-<meta property="og:image" content="https://chuni-lin.github.io/"/>
+<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2020/11/what-is-event-loop/" />
+<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
 <meta property="article:published_time" content="2020-11-23T21:29:07+08:00" />
 <meta property="article:modified_time" content="2020-11-23T21:29:07+08:00" />
 
@@ -116,7 +116,7 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console." />
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://chuni-lin.github.io/" style="text-decoration: none;">
+        <a href="https://jyunyi-lin.github.io/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -134,7 +134,7 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console." />
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://chuni-lin.github.io/about/">About</a></li><li><a href="https://chuni-lin.github.io/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://jyunyi-lin.github.io/about/">About</a></li><li><a href="https://jyunyi-lin.github.io/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -177,7 +177,7 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console." />
 
   <article>
     <h1 class="post-title">
-      <a href="https://chuni-lin.github.io/posts/2020/11/what-is-event-loop/">What Is Event Loop?</a>
+      <a href="https://jyunyi-lin.github.io/posts/2020/11/what-is-event-loop/">What Is Event Loop?</a>
     </h1>
     <hr />
     <aside id="toc">
@@ -263,7 +263,7 @@ delay 0 sec
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/event-loop/">event loop</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/event-loop/">event loop</a></span>
         
     </p>
 
@@ -292,7 +292,7 @@ delay 0 sec
   <hr />
   <div class="sharing-buttons">
     
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f" target="_blank"
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f" target="_blank"
   rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -311,7 +311,7 @@ delay 0 sec
 
 
 
-<a class="resp-sharing-button__link" href="mailto:?subject=What%20Is%20Event%20Loop%3f&amp;body=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f" target="_self"
+<a class="resp-sharing-button__link" href="mailto:?subject=What%20Is%20Event%20Loop%3f&amp;body=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f" target="_self"
   rel="noopener" aria-label="" title="Share via email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -332,7 +332,7 @@ delay 0 sec
 
 
 <a class="resp-sharing-button__link"
-  href="https://reddit.com/submit/?url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f&amp;resubmit=true&amp;title=What%20Is%20Event%20Loop%3f" target="_blank"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f&amp;resubmit=true&amp;title=What%20Is%20Event%20Loop%3f" target="_blank"
   rel="noopener" aria-label="" title="Share on reddit">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -347,7 +347,7 @@ delay 0 sec
 
 
 <a class="resp-sharing-button__link"
-  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f;title=What%20Is%20Event%20Loop%3f" target="_blank" rel="noopener"
+  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f;title=What%20Is%20Event%20Loop%3f" target="_blank" rel="noopener"
   aria-label="" title="Share on xing">
   <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -361,7 +361,7 @@ delay 0 sec
 </a>
 
 
-<a class="resp-sharing-button__link" href="whatsapp://send?text=What%20Is%20Event%20Loop%3f%20https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f" target="_blank"
+<a class="resp-sharing-button__link" href="whatsapp://send?text=What%20Is%20Event%20Loop%3f%20https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f" target="_blank"
   rel="noopener" aria-label="" title="Share on whatsapp">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -376,7 +376,7 @@ delay 0 sec
 
 
 <a class="resp-sharing-button__link"
-  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f&amp;t=What%20Is%20Event%20Loop%3f" target="_blank" rel="noopener"
+  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f&amp;t=What%20Is%20Event%20Loop%3f" target="_blank" rel="noopener"
   aria-label="" title="Share on hacker news">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -390,7 +390,7 @@ delay 0 sec
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=What%20Is%20Event%20Loop%3f&amp;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f"
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=What%20Is%20Event%20Loop%3f&amp;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2020%2f11%2fwhat-is-event-loop%2f"
   target="_blank" rel="noopener" aria-label="" title="Share on telegram">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -414,7 +414,7 @@ delay 0 sec
     <div class="pagination__buttons">
       
       <span class="button previous">
-        <a href="https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-2-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+        <a href="https://jyunyi-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-2-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
           <span class="button__icon">←</span>
           <span class="button__text">ALPHA Camp 學期 2-2 學習心得</span>
         </a>
@@ -423,7 +423,7 @@ delay 0 sec
 
       
       <span class="button next">
-        <a href="https://chuni-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-1-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+        <a href="https://jyunyi-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-1-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
           <span class="button__text">ALPHA Camp 學期 2-1 學習心得</span>
           <span class="button__icon">→</span>
         </a>
@@ -446,11 +446,11 @@ delay 0 sec
         <div class="footer__content">
             <span>&copy; 2021</span>
             
-                <span><a href="https://chuni-lin.github.io/">Chun-i LIN</a></span>
+                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
                 <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://chuni-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -469,7 +469,7 @@ delay 0 sec
 
 
 
-<script type="text/javascript" src="https://chuni-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
 
 
 

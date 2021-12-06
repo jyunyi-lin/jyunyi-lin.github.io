@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Chun-i LIN ">
+<meta name="author" content="Jyun-Yi LIN ">
 <meta name="description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
 以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
  GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
@@ -14,7 +14,7 @@
 <meta name="keywords" content="JavaScript, 程式語言, 生活, 後端開發, 專案介紹, Project Introduction" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/" />
+<link rel="canonical" href="https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/" />
 
 
     <title>
@@ -30,17 +30,17 @@
 
 
 
-<link rel="stylesheet" href="https://chuni-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+<link rel="stylesheet" href="https://jyunyi-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://chuni-lin.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://chuni-lin.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://chuni-lin.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://chuni-lin.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://chuni-lin.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://chuni-lin.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jyunyi-lin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jyunyi-lin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jyunyi-lin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://jyunyi-lin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://jyunyi-lin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://jyunyi-lin.github.io/favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
@@ -56,14 +56,14 @@
 <meta itemprop="datePublished" content="2021-01-20T10:00:33+08:00" />
 <meta itemprop="dateModified" content="2021-01-20T10:00:33+08:00" />
 <meta itemprop="wordCount" content="126">
-<meta itemprop="image" content="https://chuni-lin.github.io/"/>
+<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
 
 
 
 <meta itemprop="keywords" content="後端開發,專案介紹,Project Introduction," />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://chuni-lin.github.io/"/>
+<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
 
 <meta name="twitter:title" content="全端產品專案介紹——記帳本"/>
 <meta name="twitter:description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
@@ -83,8 +83,8 @@
 技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
 使用了什麼技術？ 前端技術  BootStrap &amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/" />
-<meta property="og:image" content="https://chuni-lin.github.io/"/>
+<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/" />
+<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
 <meta property="article:published_time" content="2021-01-20T10:00:33+08:00" />
 <meta property="article:modified_time" content="2021-01-20T10:00:33+08:00" />
 
@@ -108,7 +108,7 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://chuni-lin.github.io/" style="text-decoration: none;">
+        <a href="https://jyunyi-lin.github.io/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -126,7 +126,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://chuni-lin.github.io/about/">About</a></li><li><a href="https://chuni-lin.github.io/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://jyunyi-lin.github.io/about/">About</a></li><li><a href="https://jyunyi-lin.github.io/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -169,7 +169,7 @@
 
   <article>
     <h1 class="post-title">
-      <a href="https://chuni-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/">全端產品專案介紹——記帳本</a>
+      <a href="https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/">全端產品專案介紹——記帳本</a>
     </h1>
     <hr />
     <aside id="toc">
@@ -302,9 +302,9 @@
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/">後端開發</a></span>
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/">專案介紹</a></span>
-        <span class="tag"><a href="https://chuni-lin.github.io/tags/project-introduction/">Project Introduction</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC/">後端開發</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/">專案介紹</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/project-introduction/">Project Introduction</a></span>
         
     </p>
 
@@ -333,7 +333,7 @@
   <hr />
   <div class="sharing-buttons">
     
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_blank"
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_blank"
   rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -352,7 +352,7 @@
 
 
 
-<a class="resp-sharing-button__link" href="mailto:?subject=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac&amp;body=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_self"
+<a class="resp-sharing-button__link" href="mailto:?subject=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac&amp;body=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_self"
   rel="noopener" aria-label="" title="Share via email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -373,7 +373,7 @@
 
 
 <a class="resp-sharing-button__link"
-  href="https://reddit.com/submit/?url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f&amp;resubmit=true&amp;title=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f&amp;resubmit=true&amp;title=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank"
   rel="noopener" aria-label="" title="Share on reddit">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -388,7 +388,7 @@
 
 
 <a class="resp-sharing-button__link"
-  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f;title=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank" rel="noopener"
+  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f;title=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank" rel="noopener"
   aria-label="" title="Share on xing">
   <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -402,7 +402,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="whatsapp://send?text=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac%20https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_blank"
+<a class="resp-sharing-button__link" href="whatsapp://send?text=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac%20https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f" target="_blank"
   rel="noopener" aria-label="" title="Share on whatsapp">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -417,7 +417,7 @@
 
 
 <a class="resp-sharing-button__link"
-  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f&amp;t=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank" rel="noopener"
+  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f&amp;t=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac" target="_blank" rel="noopener"
   aria-label="" title="Share on hacker news">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -431,7 +431,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac&amp;url=https%3a%2f%2fchuni-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f"
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e5%85%a8%e7%ab%af%e7%94%a2%e5%93%81%e5%b0%88%e6%a1%88%e4%bb%8b%e7%b4%b9%e2%80%94%e2%80%94%e8%a8%98%e5%b8%b3%e6%9c%ac&amp;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2021%2f01%2f%25E5%2585%25A8%25E7%25AB%25AF%25E7%2594%25A2%25E5%2593%2581%25E5%25B0%2588%25E6%25A1%2588%25E4%25BB%258B%25E7%25B4%25B9%25E8%25A8%2598%25E5%25B8%25B3%25E6%259C%25AC%2f"
   target="_blank" rel="noopener" aria-label="" title="Share on telegram">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -455,7 +455,7 @@
     <div class="pagination__buttons">
       
       <span class="button previous">
-        <a href="https://chuni-lin.github.io/posts/2021/03/simple-twitter-self-reflection/">
+        <a href="https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/">
           <span class="button__icon">←</span>
           <span class="button__text">Simple Twitter self-reflection</span>
         </a>
@@ -464,7 +464,7 @@
 
       
       <span class="button next">
-        <a href="https://chuni-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
+        <a href="https://jyunyi-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
           <span class="button__text">ALPHA Camp 自學經驗回顧</span>
           <span class="button__icon">→</span>
         </a>
@@ -487,11 +487,11 @@
         <div class="footer__content">
             <span>&copy; 2021</span>
             
-                <span><a href="https://chuni-lin.github.io/">Chun-i LIN</a></span>
+                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
                 <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://chuni-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -510,7 +510,7 @@
 
 
 
-<script type="text/javascript" src="https://chuni-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
 
 
 

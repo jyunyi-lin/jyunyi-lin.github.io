@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Apr 2022 09:19:33 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Core Web Vitals</title>
+      <link>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</link>
+      <pubDate>Thu, 07 Apr 2022 09:19:33 +0800</pubDate>
+      
+      <guid>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</guid>
+      <description>Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+ 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
+網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
+    良好 需要改善 低落     LCP ≤2500ms &amp;gt;4000ms 75   FID ≤100ms &amp;gt;300ms 75   CLS ≤0.1 &amp;gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.</description>
+    </item>
+    
     <item>
       <title>Vue.js 學習筆記 - 3</title>
       <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
@@ -96,7 +110,7 @@ src 資料夾 其中有四個部分，分別是</description>
       <pubDate>Tue, 30 Mar 2021 15:11:54 +0800</pubDate>
       
       <guid>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
-      <description>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
+      <description>使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
 實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
     </item>
     
@@ -144,19 +158,6 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
  馬上看 usage，該份文件的使用方式寫得非常清楚，也告訴你要使用時只需要載入一個主 category，其中就包含多個 helpers。 找到 equal 的同義字，也就是 comparison，看看其中有哪些是符合使用需求的。 選擇了 #is，點進去看它的 code。 藉由 code 來進一步了解用法。  上面的過程其實並沒有需要閱讀到許多文字，只有一開始在找可能解決法的發光點時讀了使用方式，之後大部分都是零星的單字，或者是看 code 來理解。這就跟觀摩同學的作業一樣，你可以選擇先模仿，懂了其中的要領後，再深入發展自己的解釋。
 觀摩他人的 code 很多時候，我需要觀摩同學的作業才能找到自己的癥結點。或者，在 CodePen 上尋找好看的 UI 時，也總是觀摩網路上他人的 code。觀摩和抄襲雖然只有一線之隔，但是學習勢必得從模仿開始。重要的是，觀看他人的 code 時，理解對方為何在此處這樣寫，如此一來便能刺激自己去思考，進而激盪出更好的想法。條條大路通羅馬，每個人寫的 code 都不同，但結果可以完全相同，這也是程式語言有趣之處，它告訴我們，其實一開始這就只是一個工具，像學習開車一樣，有的人撞爛一臺車才學會；有的人一插進鑰匙就會駕駛，但結果是每個人學會了開車之後，就都能使用這個工具，而過程就成為自己的回憶。
 關於課程 後端開發 後端開發使用的語言雖然還是 JavaScript，但隨著執行環境從瀏覽器到伺服器，使用的方式也有所不同，像是 DOM 之類的操作就行不通。接觸 Node.</description>
-    </item>
-    
-    <item>
-      <title>JavaScript 語法筆記：顛倒字串 split()、reverse()、join()</title>
-      <link>https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</link>
-      <pubDate>Fri, 04 Dec 2020 17:44:52 +0800</pubDate>
-      
-      <guid>https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</guid>
-      <description>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
-1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
-String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。</description>
     </item>
     
   </channel>

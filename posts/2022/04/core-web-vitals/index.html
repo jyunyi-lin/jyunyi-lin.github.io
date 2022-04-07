@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jyun-Yi LIN ">
+<meta name="description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+ 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
+網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
+    良好 需要改善 低落     LCP ≤2500ms &amp;gt;4000ms 75   FID ≤100ms &amp;gt;300ms 75   CLS ≤0.1 &amp;gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2." />
+<meta name="keywords" content="JavaScript, 程式語言, 生活, Core Web Vitals" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/" />
+
+
+    <title>
+        
+            Core Web Vitals :: 生活、學習紀錄  — Hello Friend NG Theme
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://jyunyi-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jyunyi-lin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jyunyi-lin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jyunyi-lin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://jyunyi-lin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://jyunyi-lin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://jyunyi-lin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Core Web Vitals">
+<meta itemprop="description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+ 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
+網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
+    良好 需要改善 低落     LCP ≤2500ms &gt;4000ms 75   FID ≤100ms &gt;300ms 75   CLS ≤0.1 &gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.">
+<meta itemprop="datePublished" content="2022-04-07T09:19:33+08:00" />
+<meta itemprop="dateModified" content="2022-04-07T09:19:33+08:00" />
+<meta itemprop="wordCount" content="251">
+<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="Core Web Vitals," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
+
+<meta name="twitter:title" content="Core Web Vitals"/>
+<meta name="twitter:description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+ 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
+網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
+    良好 需要改善 低落     LCP ≤2500ms &gt;4000ms 75   FID ≤100ms &gt;300ms 75   CLS ≤0.1 &gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2."/>
+
+
+
+    <meta property="og:title" content="Core Web Vitals" />
+<meta property="og:description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+ 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
+網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
+    良好 需要改善 低落     LCP ≤2500ms &gt;4000ms 75   FID ≤100ms &gt;300ms 75   CLS ≤0.1 &gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/" />
+<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
+<meta property="article:published_time" content="2022-04-07T09:19:33+08:00" />
+<meta property="article:modified_time" content="2022-04-07T09:19:33+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-04-07 09:19:33 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://jyunyi-lin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#548687;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://jyunyi-lin.github.io/about/">About</a></li><li><a href="https://jyunyi-lin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+
+  <div class="post-info">
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-clock">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      2 minutes
+
+      
+    </p>
+  </div>
+
+  <article>
+    <h1 class="post-title">
+      <a href="https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/">Core Web Vitals</a>
+    </h1>
+    <hr />
+    <aside id="toc">
+      <div class="toc-title">Table of Contents</div>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#使用者體驗-user-experience">使用者體驗 (User Experience)</a></li>
+        <li><a href="#網站體驗核心指標core-web-vitals">網站體驗核心指標（Core Web Vitals）</a></li>
+        <li><a href="#lcp-largest-contentful-paint--顯示最大內容元素所需時間-速度指標">LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標]</a></li>
+        <li><a href="#lcp-會偵測那些項目">LCP 會偵測那些項目？</a></li>
+        <li><a href="#lcp-該如何進行優化">LCP 該如何進行優化？</a></li>
+        <li><a href="#lcp-如何檢測">LCP 如何檢測</a></li>
+        <li><a href="#fid--first-input-delay-首次輸入延遲封鎖時間總計-互動性指標">FID — First Input Delay 首次輸入延遲/封鎖時間總計 [互動性指標]</a></li>
+        <li><a href="#如何優化-fid">如何優化 FID</a></li>
+        <li><a href="#cls--cumulative-layout-shift-累計版面配置轉移-穩定性指標">CLS — Cumulative Layout Shift 累計版面配置轉移 [穩定性指標]</a></li>
+        <li><a href="#頁面內容的意外移動通常是由於">頁面內容的意外移動通常是由於：</a></li>
+        <li><a href="#如何優化-cls">如何優化 CLS</a></li>
+        <li><a href="#cls-檢測">CLS 檢測</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+    <hr />
+
+    
+
+    <div class="post-content">
+      <h1 id="core-web-vitals">Core Web Vitals</h1>
+<blockquote>
+<p>網站體驗核心指標： LCP、FID、CLS，優化使用者體驗</p>
+</blockquote>
+<h3 id="使用者體驗-user-experience">使用者體驗 (User Experience)</h3>
+<p>使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。</p>
+<p>用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。</p>
+<h3 id="網站體驗核心指標core-web-vitals">網站體驗核心指標（Core Web Vitals）</h3>
+<p>2020 年 5 月 28 日， Google 在<a href="https://developers.google.com/search/blog/2020/05/evaluating-page-experience">官方部落格</a>中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。</p>
+<p><img src="https://i.imgur.com/bv8yWq6.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>良好</th>
+<th>需要改善</th>
+<th>低落</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LCP</td>
+<td>≤2500ms</td>
+<td>&gt;4000ms</td>
+<td>75</td>
+</tr>
+<tr>
+<td>FID</td>
+<td>≤100ms</td>
+<td>&gt;300ms</td>
+<td>75</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>≤0.1</td>
+<td>&gt;0.25</td>
+<td>75</td>
+</tr>
+</tbody>
+</table>
+<p>每個核心指標的檢查結果都有<strong>良好、需要改善、不良</strong>三個區間</p>
+<h3 id="lcp-largest-contentful-paint--顯示最大內容元素所需時間-速度指標">LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標]</h3>
+<p>LCP 注重於頁面中<strong>最大元素的載入速度</strong>，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 <strong>2.5 秒</strong>內完成 LCP。</p>
+<h3 id="lcp-會偵測那些項目">LCP 會偵測那些項目？</h3>
+<ul>
+<li><code>&lt;img&gt;</code> elements</li>
+<li>包在 <code>&lt;svg&gt;</code> element 裡面的 <code>&lt;image&gt;</code> elements</li>
+<li><code>&lt;video&gt;</code> elements</li>
+<li>透過 <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/url()">url() 的 CSS 功能</a> 載入 background-image 的 element</li>
+<li>包含 text node 或是 inline-level text elements children 的 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level element</a></li>
+</ul>
+<h3 id="lcp-該如何進行優化">LCP 該如何進行優化？</h3>
+<p>通常 LCP 可以針對以下 4 大點來進行優化</p>
+<ul>
+<li>減少伺服器回應時間
+<ul>
+<li>針對主機進行優化</li>
+<li>使用較近的 CDN 主機</li>
+<li>使用網頁快取</li>
+<li>讓第三方的資源提早載入</li>
+</ul>
+</li>
+<li>排除禁止轉譯的資源
+<ul>
+<li>降低 JavaScript 阻擋時間</li>
+<li>降低 CSS 阻擋時間</li>
+</ul>
+</li>
+<li>加快資源載入的時間
+<ul>
+<li>圖片大小優化</li>
+<li>預先載入重要資源</li>
+<li>將文字檔案進行壓縮</li>
+<li>根據使用者的網路狀態提供不同的內容</li>
+<li>使用 service worker</li>
+</ul>
+</li>
+<li>避免使用客戶端渲染(CSR)
+<ul>
+<li>若必須使用 CSR ，建議優化 JavaScript ，避免渲染時使用太多資源</li>
+<li>盡量在伺服器端完成頁面渲染，讓用戶端取得已渲染好的內容</li>
+</ul>
+</li>
+</ul>
+<h3 id="lcp-如何檢測">LCP 如何檢測</h3>
+<p>可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 檢查整體網站的 LCP 分數。如：</p>
+<p><img src="https://i.imgur.com/h6LUxdU.png" alt=""></p>
+<h3 id="fid--first-input-delay-首次輸入延遲封鎖時間總計-互動性指標">FID — First Input Delay 首次輸入延遲/封鎖時間總計 [互動性指標]</h3>
+<p><strong>當使用者第一次與頁面進行互動，行為完成到瀏覽器成功回應給使用者的時間</strong>，根據 Google 的研究，100 ms 為「良好」的最低標準：如果處理輸入的延遲超過 100 ms，那麼其他處理和渲染步驟就沒有機會及時完成。</p>
+<p>首次輸入 (First Input) 與頁面上的響應元件 (responsive elements) 息息相關。這些響應元件可能是連結、按鈕或是跳出式元素 (pop-ups)。</p>
+<p>輸入延遲 (Input Delay) 通常發生於瀏覽器的主執行序過度繁忙，而導致頁面內容無法正確地與使用者進行互動。舉例來說，可能瀏覽器正在載入一支相當肥大的 JavaScript 檔案，導致其他元素不能被載入而延遲可互動的時間。
+常見延遲的問題有：</p>
+<ul>
+<li>點選連結或按鈕載入內容延遲</li>
+<li>文字對話框無法立即輸入文字</li>
+<li>打開下拉式選單畫面延遲</li>
+<li>無法勾選對話方塊</li>
+</ul>
+<p><img src="https://i.imgur.com/rSpjhsP.png" alt=""></p>
+<h3 id="如何優化-fid">如何優化 FID</h3>
+<ul>
+<li><a href="https://web.dev/bootup-time/">減少 JavaScript 運作的時間</a></li>
+<li><a href="https://web.dev/resource-summary/">降低網站的 request 數並降低檔案大小</a></li>
+<li><a href="https://web.dev/mainthread-work-breakdown/">減少主執行序的工作</a></li>
+<li><a href="https://web.dev/third-party-summary/">降低第三方程式碼的影響</a></li>
+</ul>
+<h3 id="cls--cumulative-layout-shift-累計版面配置轉移-穩定性指標">CLS — Cumulative Layout Shift 累計版面配置轉移 [穩定性指標]</h3>
+<p>指網站在 Loading 讀取時有時會導致<a href="https://web.dev/cls/#expected-vs.-unexpected-layout-shifts">物件位移</a>，會導致使用者點不到想點擊的區塊。CLS 就是用來評估這部分的反應時間及網站的穩定度。應將 CLS 控制在<strong>0.1</strong> 或以下</p>
+<blockquote>
+<p>版面位移分數 (layout shift score) = 影響分數 (impact fraction) * 距離分數 (distance fraction)</p>
+</blockquote>
+<p><a href="https://github.com/WICG/layout-instability#Impact-Fraction">影響分數</a>：造成偏移區塊＋原本區塊所佔螢幕（viewport）比例</p>
+<h3 id="頁面內容的意外移動通常是由於">頁面內容的意外移動通常是由於：</h3>
+<ul>
+<li>圖片缺少初始尺寸，所以等載入後寬高才會長出來</li>
+<li>缺少尺寸的廣告、內嵌（embed）以及 iframe</li>
+<li>動態置入內容</li>
+<li>下載網站字體有機會造成頁面閃爍 FOIT(Flash of Invisible Text)、FOUT(Flash of Unstyled Text)</li>
+<li>更新 DOM 前等待網路回應的動作</li>
+</ul>
+<h3 id="如何優化-cls">如何優化 CLS</h3>
+<ul>
+<li>圖片元素使用固定尺寸或設定寬高比 CSS</li>
+<li>外部嵌入資源設定尺寸 (Ads, embeds, iframes)</li>
+<li>避免使用動態插入內容</li>
+<li>Preload 載入外部字體樣式</li>
+</ul>
+<p><a href="https://web.dev/i18n/zh/optimize-cls/">https://web.dev/i18n/zh/optimize-cls/</a></p>
+<h3 id="cls-檢測">CLS 檢測</h3>
+<p>同樣可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 或 Lighthouse</p>
+<p><img src="https://i.imgur.com/tNdOSd9.png" alt=""></p>
+<p>或是 Chrome DevTools 的 Layout Shift 中查看：</p>
+<p><img src="https://i.imgur.com/Zc28C6l.jpg" alt=""></p>
+
+    </div>
+  </article>
+
+  <hr />
+
+  <div class="post-info">
+    
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/core-web-vitals/">Core Web Vitals</a></span>
+        
+    </p>
+
+    
+
+    
+
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-calendar">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      
+      2022-04-07 09:19
+      
+
+      
+      
+      
+    </p>
+  </div>
+  <hr />
+  <div class="sharing-buttons">
+    
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2022%2f04%2fcore-web-vitals%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Core%20Web%20Vitals&amp;body=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2022%2f04%2fcore-web-vitals%2f" target="_self"
+  rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2022%2f04%2fcore-web-vitals%2f&amp;resubmit=true&amp;title=Core%20Web%20Vitals" target="_blank"
+  rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2022%2f04%2fcore-web-vitals%2f;title=Core%20Web%20Vitals" target="_blank" rel="noopener"
+  aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Core%20Web%20Vitals%20https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2022%2f04%2fcore-web-vitals%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2022%2f04%2fcore-web-vitals%2f&amp;t=Core%20Web%20Vitals" target="_blank" rel="noopener"
+  aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Core%20Web%20Vitals&amp;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2022%2f04%2fcore-web-vitals%2f"
+  target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </div>
+  </div>
+</a>
+  </div>
+
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span class="pagination__title-h"></span>
+      <hr />
+    </div>
+
+    <div class="pagination__buttons">
+      
+
+      
+      <span class="button next">
+        <a href="https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/">
+          <span class="button__text">Vue.js 學習筆記 - 3</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+
+  
+
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

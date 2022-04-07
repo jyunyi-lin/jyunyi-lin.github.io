@@ -6,8 +6,156 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 07 Apr 2022 09:19:33 +0800</lastBuildDate>
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Core Web Vitals</title>
+            <link>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</link>
+            <pubDate>Thu, 07 Apr 2022 09:19:33 +0800</pubDate>
+            
+            <guid>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</guid>
+            <description>Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+ 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
+網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
+    良好 需要改善 低落     LCP ≤2500ms &amp;gt;4000ms 75   FID ≤100ms &amp;gt;300ms 75   CLS ≤0.1 &amp;gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.</description>
+            <content type="html"><![CDATA[<h1 id="core-web-vitals">Core Web Vitals</h1>
+<blockquote>
+<p>網站體驗核心指標： LCP、FID、CLS，優化使用者體驗</p>
+</blockquote>
+<h3 id="使用者體驗-user-experience">使用者體驗 (User Experience)</h3>
+<p>使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。</p>
+<p>用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。</p>
+<h3 id="網站體驗核心指標core-web-vitals">網站體驗核心指標（Core Web Vitals）</h3>
+<p>2020 年 5 月 28 日， Google 在<a href="https://developers.google.com/search/blog/2020/05/evaluating-page-experience">官方部落格</a>中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。</p>
+<p><img src="https://i.imgur.com/bv8yWq6.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>良好</th>
+<th>需要改善</th>
+<th>低落</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LCP</td>
+<td>≤2500ms</td>
+<td>&gt;4000ms</td>
+<td>75</td>
+</tr>
+<tr>
+<td>FID</td>
+<td>≤100ms</td>
+<td>&gt;300ms</td>
+<td>75</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>≤0.1</td>
+<td>&gt;0.25</td>
+<td>75</td>
+</tr>
+</tbody>
+</table>
+<p>每個核心指標的檢查結果都有<strong>良好、需要改善、不良</strong>三個區間</p>
+<h3 id="lcp-largest-contentful-paint--顯示最大內容元素所需時間-速度指標">LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標]</h3>
+<p>LCP 注重於頁面中<strong>最大元素的載入速度</strong>，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 <strong>2.5 秒</strong>內完成 LCP。</p>
+<h3 id="lcp-會偵測那些項目">LCP 會偵測那些項目？</h3>
+<ul>
+<li><code>&lt;img&gt;</code> elements</li>
+<li>包在 <code>&lt;svg&gt;</code> element 裡面的 <code>&lt;image&gt;</code> elements</li>
+<li><code>&lt;video&gt;</code> elements</li>
+<li>透過 <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/url()">url() 的 CSS 功能</a> 載入 background-image 的 element</li>
+<li>包含 text node 或是 inline-level text elements children 的 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level element</a></li>
+</ul>
+<h3 id="lcp-該如何進行優化">LCP 該如何進行優化？</h3>
+<p>通常 LCP 可以針對以下 4 大點來進行優化</p>
+<ul>
+<li>減少伺服器回應時間
+<ul>
+<li>針對主機進行優化</li>
+<li>使用較近的 CDN 主機</li>
+<li>使用網頁快取</li>
+<li>讓第三方的資源提早載入</li>
+</ul>
+</li>
+<li>排除禁止轉譯的資源
+<ul>
+<li>降低 JavaScript 阻擋時間</li>
+<li>降低 CSS 阻擋時間</li>
+</ul>
+</li>
+<li>加快資源載入的時間
+<ul>
+<li>圖片大小優化</li>
+<li>預先載入重要資源</li>
+<li>將文字檔案進行壓縮</li>
+<li>根據使用者的網路狀態提供不同的內容</li>
+<li>使用 service worker</li>
+</ul>
+</li>
+<li>避免使用客戶端渲染(CSR)
+<ul>
+<li>若必須使用 CSR ，建議優化 JavaScript ，避免渲染時使用太多資源</li>
+<li>盡量在伺服器端完成頁面渲染，讓用戶端取得已渲染好的內容</li>
+</ul>
+</li>
+</ul>
+<h3 id="lcp-如何檢測">LCP 如何檢測</h3>
+<p>可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 檢查整體網站的 LCP 分數。如：</p>
+<p><img src="https://i.imgur.com/h6LUxdU.png" alt=""></p>
+<h3 id="fid--first-input-delay-首次輸入延遲封鎖時間總計-互動性指標">FID — First Input Delay 首次輸入延遲/封鎖時間總計 [互動性指標]</h3>
+<p><strong>當使用者第一次與頁面進行互動，行為完成到瀏覽器成功回應給使用者的時間</strong>，根據 Google 的研究，100 ms 為「良好」的最低標準：如果處理輸入的延遲超過 100 ms，那麼其他處理和渲染步驟就沒有機會及時完成。</p>
+<p>首次輸入 (First Input) 與頁面上的響應元件 (responsive elements) 息息相關。這些響應元件可能是連結、按鈕或是跳出式元素 (pop-ups)。</p>
+<p>輸入延遲 (Input Delay) 通常發生於瀏覽器的主執行序過度繁忙，而導致頁面內容無法正確地與使用者進行互動。舉例來說，可能瀏覽器正在載入一支相當肥大的 JavaScript 檔案，導致其他元素不能被載入而延遲可互動的時間。
+常見延遲的問題有：</p>
+<ul>
+<li>點選連結或按鈕載入內容延遲</li>
+<li>文字對話框無法立即輸入文字</li>
+<li>打開下拉式選單畫面延遲</li>
+<li>無法勾選對話方塊</li>
+</ul>
+<p><img src="https://i.imgur.com/rSpjhsP.png" alt=""></p>
+<h3 id="如何優化-fid">如何優化 FID</h3>
+<ul>
+<li><a href="https://web.dev/bootup-time/">減少 JavaScript 運作的時間</a></li>
+<li><a href="https://web.dev/resource-summary/">降低網站的 request 數並降低檔案大小</a></li>
+<li><a href="https://web.dev/mainthread-work-breakdown/">減少主執行序的工作</a></li>
+<li><a href="https://web.dev/third-party-summary/">降低第三方程式碼的影響</a></li>
+</ul>
+<h3 id="cls--cumulative-layout-shift-累計版面配置轉移-穩定性指標">CLS — Cumulative Layout Shift 累計版面配置轉移 [穩定性指標]</h3>
+<p>指網站在 Loading 讀取時有時會導致<a href="https://web.dev/cls/#expected-vs.-unexpected-layout-shifts">物件位移</a>，會導致使用者點不到想點擊的區塊。CLS 就是用來評估這部分的反應時間及網站的穩定度。應將 CLS 控制在<strong>0.1</strong> 或以下</p>
+<blockquote>
+<p>版面位移分數 (layout shift score) = 影響分數 (impact fraction) * 距離分數 (distance fraction)</p>
+</blockquote>
+<p><a href="https://github.com/WICG/layout-instability#Impact-Fraction">影響分數</a>：造成偏移區塊＋原本區塊所佔螢幕（viewport）比例</p>
+<h3 id="頁面內容的意外移動通常是由於">頁面內容的意外移動通常是由於：</h3>
+<ul>
+<li>圖片缺少初始尺寸，所以等載入後寬高才會長出來</li>
+<li>缺少尺寸的廣告、內嵌（embed）以及 iframe</li>
+<li>動態置入內容</li>
+<li>下載網站字體有機會造成頁面閃爍 FOIT(Flash of Invisible Text)、FOUT(Flash of Unstyled Text)</li>
+<li>更新 DOM 前等待網路回應的動作</li>
+</ul>
+<h3 id="如何優化-cls">如何優化 CLS</h3>
+<ul>
+<li>圖片元素使用固定尺寸或設定寬高比 CSS</li>
+<li>外部嵌入資源設定尺寸 (Ads, embeds, iframes)</li>
+<li>避免使用動態插入內容</li>
+<li>Preload 載入外部字體樣式</li>
+</ul>
+<p><a href="https://web.dev/i18n/zh/optimize-cls/">https://web.dev/i18n/zh/optimize-cls/</a></p>
+<h3 id="cls-檢測">CLS 檢測</h3>
+<p>同樣可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 或 Lighthouse</p>
+<p><img src="https://i.imgur.com/tNdOSd9.png" alt=""></p>
+<p>或是 Chrome DevTools 的 Layout Shift 中查看：</p>
+<p><img src="https://i.imgur.com/Zc28C6l.jpg" alt=""></p>
+]]></content>
+        </item>
         
         <item>
             <title>Vue.js 學習筆記 - 3</title>
@@ -363,9 +511,10 @@ src 資料夾 其中有四個部分，分別是</description>
             <pubDate>Tue, 30 Mar 2021 15:11:54 +0800</pubDate>
             
             <guid>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
-            <description>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
+            <description>使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
 實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
-            <content type="html"><![CDATA[<p>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。</p>
+            <content type="html"><![CDATA[<h1 id="使用-filereader-實現圖片預覽">使用 FileReader 實現圖片預覽</h1>
+<p>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。</p>
 <h2 id="實作">實作</h2>
 <ol>
 <li>首先要先創建 FileReader 的對象實例</li>

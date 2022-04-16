@@ -6,8 +6,70 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 07 Apr 2022 09:19:33 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 16 Apr 2022 10:57:55 +0800</lastBuildDate>
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>簡單的開發 Git Flow</title>
+            <link>https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/</link>
+            <pubDate>Sat, 16 Apr 2022 10:57:55 +0800</pubDate>
+            
+            <guid>https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/</guid>
+            <description>簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
+只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp;amp; demo 等等分支來做開發。
+假設你的 feature 或 issue 分支都是從 demo 開出來的，做完後又直接 merge 回 demo，那就有極大的機會遇到上面的窘境。
+轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。
+或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。
+Branch 通常可以由以下幾個主要的 branch 來做版本控管。
+ master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。   不同的專案，可能還會有 pre-prod 等等更多的分支
+ 開發流程 1.</description>
+            <content type="html"><![CDATA[<h1 id="簡單的開發-git-flow">簡單的開發 Git Flow</h1>
+<p>不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺</p>
+<h3 id="只有兩條主線">只有兩條主線</h3>
+<p>一般來說專案都會有正式跟測試環境，比較常見會分由 <code>master</code> &amp; <code>demo</code> 等等分支來做開發。<br>
+假設你的 feature 或 issue 分支都是從 <code>demo</code> 開出來的，做完後又直接 merge 回 <code>demo</code>，那就有極大的機會遇到上面的窘境。</p>
+<p><img src="https://i.imgur.com/E2Us5Ga.png" alt=""></p>
+<h3 id="轉換-base-branch">轉換 Base Branch</h3>
+<p>當然，你可以直接從 <code>master</code> 開 feature 分支來解決這個問題。<br>
+或在比較大型的專案，也可以多一個分支 <code>staging</code> 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。</p>
+<h3 id="branch">Branch</h3>
+<p>通常可以由以下幾個主要的 branch 來做版本控管。</p>
+<ul>
+<li>master / production：正式環境：正式發佈出去的版本。</li>
+<li>staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 <code>master</code> 的內容保持一致。</li>
+<li>demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。</li>
+</ul>
+<blockquote>
+<p>不同的專案，可能還會有 <code>pre-prod</code> 等等更多的分支</p>
+</blockquote>
+<p><img src="https://i.imgur.com/RIblDmR.png" alt=""></p>
+<h3 id="開發流程">開發流程</h3>
+<p><strong>1. 當 issue 被 assign 過來</strong></p>
+<p>可以從 <code>staging</code> 開新的分支： <code>issue/#1</code>、<code>issue/#2</code>，開發完成 merge 進 <code>demo</code> 請 PM 測試。</p>
+<p><strong>2. 確定要上正式機</strong></p>
+<p>當一個或多個 issue 確定要上到正式機，再將他們合進 <code>staging</code>。</p>
+<blockquote>
+<p>這時候如果有多一個上版前的測試環境就可以請 PM 測試。</p>
+</blockquote>
+<p><strong>3. release 新的版號</strong></p>
+<p>如果測試都沒有問題，那就接著 release 新的版號吧！</p>
+<p>這時候會產生一個 tag 可以用來當作版控。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout -b release/版號
+yarn release
+</code></pre></div><blockquote>
+<p>記得也要把 tag 推上遠端喔</p>
+</blockquote>
+<p><strong>4. 發 MR 給 <code>master</code></strong></p>
+<p>可以把 CHANGELOG.md 貼到 MR 的描述裡紀錄這次更版的變動。</p>
+<p><strong>5. Merge</strong></p>
+<p>完成 merge 之後記得把 release branch 也 merge 回 <code>staging</code> 讓版號也回我們的 branch base</p>
+<blockquote>
+<p>上正式機的 issue branch 也記得可以刪除，讓專案的分支保持乾淨喔</p>
+</blockquote>
+<h2 id="commit">commit</h2>
+<p>另外，可以養成在 commit message 後面養成 reference 回 issue 的習慣，方便之後的追蹤跟維護喔。</p>
+]]></content>
+        </item>
         
         <item>
             <title>Core Web Vitals</title>

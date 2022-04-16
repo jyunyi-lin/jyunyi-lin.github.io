@@ -3,23 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jyunyi-lin.github.io/tags/core-web-vitals/</loc>
-    <lastmod>2022-04-07T09:19:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</loc>
-    <lastmod>2022-04-07T09:19:33+08:00</lastmod>
+    <loc>https://jyunyi-lin.github.io/tags/git/</loc>
+    <lastmod>2022-04-16T10:57:55+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://jyunyi-lin.github.io/posts/</loc>
-    <lastmod>2022-04-07T09:19:33+08:00</lastmod>
+    <lastmod>2022-04-16T10:57:55+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://jyunyi-lin.github.io/tags/</loc>
-    <lastmod>2022-04-07T09:19:33+08:00</lastmod>
+    <lastmod>2022-04-16T10:57:55+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -34,7 +29,7 @@
   
   <url>
     <loc>https://jyunyi-lin.github.io/</loc>
-    <lastmod>2022-04-07T09:19:33+08:00</lastmod>
+    <lastmod>2022-04-16T10:57:55+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -45,6 +40,21 @@
                 hreflang="en"
                 href="https://jyunyi-lin.github.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/</loc>
+    <lastmod>2022-04-16T10:57:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jyunyi-lin.github.io/tags/core-web-vitals/</loc>
+    <lastmod>2022-04-07T09:19:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</loc>
+    <lastmod>2022-04-07T09:19:33+08:00</lastmod>
   </url>
   
   <url>

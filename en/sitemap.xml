@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jyunyi-lin.github.io/posts/2024/08/goog/</loc>
-    <lastmod>2024-08-19T22:33:33+08:00</lastmod>
+    <loc>https://jyunyi-lin.github.io/tags/google-maps/</loc>
+    <lastmod>2024-01-06T17:44:01+08:00</lastmod>
   </url><url>
     <loc>https://jyunyi-lin.github.io/posts/</loc>
-    <lastmod>2024-08-19T22:33:33+08:00</lastmod>
+    <lastmod>2024-01-06T17:44:01+08:00</lastmod>
   </url><url>
     <loc>https://jyunyi-lin.github.io/tags/</loc>
-    <lastmod>2024-08-19T22:33:33+08:00</lastmod>
+    <lastmod>2024-01-06T17:44:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
@@ -26,11 +26,11 @@
                 href="https://jyunyi-lin.github.io/tags/"
                 />
   </url><url>
-    <loc>https://jyunyi-lin.github.io/tags/untagged/</loc>
-    <lastmod>2024-08-19T22:33:33+08:00</lastmod>
+    <loc>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</loc>
+    <lastmod>2024-01-06T17:44:01+08:00</lastmod>
   </url><url>
     <loc>https://jyunyi-lin.github.io/</loc>
-    <lastmod>2024-08-19T22:33:33+08:00</lastmod>
+    <lastmod>2024-01-06T17:44:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
@@ -46,12 +46,6 @@
                 hreflang="en"
                 href="https://jyunyi-lin.github.io/"
                 />
-  </url><url>
-    <loc>https://jyunyi-lin.github.io/tags/google-maps/</loc>
-    <lastmod>2024-01-06T17:44:01+08:00</lastmod>
-  </url><url>
-    <loc>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</loc>
-    <lastmod>2024-01-06T17:44:01+08:00</lastmod>
   </url><url>
     <loc>https://jyunyi-lin.github.io/tags/git/</loc>
     <lastmod>2022-04-16T10:57:55+08:00</lastmod>

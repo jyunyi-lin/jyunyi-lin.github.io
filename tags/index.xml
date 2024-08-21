@@ -7,15 +7,8 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 19 Aug 2024 22:33:33 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jan 2024 17:44:01 +0800</lastBuildDate>
     <atom:link href="https://jyunyi-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Untagged</title>
-      <link>https://jyunyi-lin.github.io/tags/untagged/</link>
-      <pubDate>Mon, 19 Aug 2024 22:33:33 +0800</pubDate>
-      <guid>https://jyunyi-lin.github.io/tags/untagged/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Google Maps</title>
       <link>https://jyunyi-lin.github.io/tags/google-maps/</link>
@@ -77,6 +70,13 @@
       <link>https://jyunyi-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
       <pubDate>Thu, 01 Apr 2021 15:29:24 +0800</pubDate>
       <guid>https://jyunyi-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>網頁開發</title>
+      <link>https://jyunyi-lin.github.io/tags/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/</link>
+      <pubDate>Thu, 01 Apr 2021 15:29:24 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/tags/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/</guid>
       <description></description>
     </item>
   </channel>

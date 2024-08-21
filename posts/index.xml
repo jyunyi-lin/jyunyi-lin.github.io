@@ -6,18 +6,8 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-        <lastBuildDate>Mon, 19 Aug 2024 22:33:33 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jan 2024 17:44:01 +0800</lastBuildDate>
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Goog</title>
-            <link>https://jyunyi-lin.github.io/posts/2024/08/goog/</link>
-            <pubDate>Mon, 19 Aug 2024 22:33:33 +0800</pubDate>
-            
-            <guid>https://jyunyi-lin.github.io/posts/2024/08/goog/</guid>
-            <description></description>
-            <content type="html"><![CDATA[]]></content>
-        </item>
         
         <item>
             <title>初探 Google Maps API</title>

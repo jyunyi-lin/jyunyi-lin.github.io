@@ -8,8 +8,8 @@
 <meta name="description" content="昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
 Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
 Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
- accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容  而 initialValue 則是代表第一次要傳入的初始值。
-實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&amp;gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18    No accumulator currentValue currentIndex return value     1 5 1 0 6   2 6 3 1 9   3 9 4 2 13   4 13 5 3 18    可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。" />
+accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容 而 initialValue 則是代表第一次要傳入的初始值。
+實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18 No accumulator currentValue currentIndex return value 1 5 1 0 6 2 6 3 1 9 3 9 4 2 13 4 13 5 3 18 可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。" />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, reduce(), 陣列操作" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -45,44 +45,46 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
 
 
 
-<meta itemprop="name" content="reduce() 是什麼？該如何使用？">
-<meta itemprop="description" content="昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
+
+  <meta itemprop="name" content="reduce() 是什麼？該如何使用？">
+  <meta itemprop="description" content="昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
 Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
 Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
- accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容  而 initialValue 則是代表第一次要傳入的初始值。
-實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18    No accumulator currentValue currentIndex return value     1 5 1 0 6   2 6 3 1 9   3 9 4 2 13   4 13 5 3 18    可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。">
-<meta itemprop="datePublished" content="2021-04-07T15:21:50+08:00" />
-<meta itemprop="dateModified" content="2021-04-07T15:21:50+08:00" />
-<meta itemprop="wordCount" content="187">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容 而 initialValue 則是代表第一次要傳入的初始值。
+實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18 No accumulator currentValue currentIndex return value 1 5 1 0 6 2 6 3 1 9 3 9 4 2 13 4 13 5 3 18 可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。">
+  <meta itemprop="datePublished" content="2021-04-07T15:21:50+08:00">
+  <meta itemprop="dateModified" content="2021-04-07T15:21:50+08:00">
+  <meta itemprop="wordCount" content="187">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="Reduce(),陣列操作">
 
-
-
-<meta itemprop="keywords" content="reduce(),陣列操作," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="reduce() 是什麼？該如何使用？"/>
-<meta name="twitter:description" content="昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="reduce() 是什麼？該如何使用？">
+  <meta name="twitter:description" content="昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
 Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
 Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
- accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容  而 initialValue 則是代表第一次要傳入的初始值。
-實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18    No accumulator currentValue currentIndex return value     1 5 1 0 6   2 6 3 1 9   3 9 4 2 13   4 13 5 3 18    可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。"/>
+accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容 而 initialValue 則是代表第一次要傳入的初始值。
+實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18 No accumulator currentValue currentIndex return value 1 5 1 0 6 2 6 3 1 9 3 9 4 2 13 4 13 5 3 18 可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。">
 
 
 
-    <meta property="og:title" content="reduce() 是什麼？該如何使用？" />
-<meta property="og:description" content="昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="reduce() 是什麼？該如何使用？">
+  <meta property="og:description" content="昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
 Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
 Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
- accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容  而 initialValue 則是代表第一次要傳入的初始值。
-實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18    No accumulator currentValue currentIndex return value     1 5 1 0 6   2 6 3 1 9   3 9 4 2 13   4 13 5 3 18    可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2021-04-07T15:21:50+08:00" />
-<meta property="article:modified_time" content="2021-04-07T15:21:50+08:00" />
+accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容 而 initialValue 則是代表第一次要傳入的初始值。
+實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&gt; { return accumulator &#43; currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18 No accumulator currentValue currentIndex return value 1 5 1 0 6 2 6 3 1 9 3 9 4 2 13 4 13 5 3 18 可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-07T15:21:50+08:00">
+    <meta property="article:modified_time" content="2021-04-07T15:21:50+08:00">
+    <meta property="article:tag" content="Reduce()">
+    <meta property="article:tag" content="陣列操作">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -148,7 +150,6 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -158,11 +159,9 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       One minute
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/">reduce() 是什麼？該如何使用？</a>
@@ -184,15 +183,13 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <p>昨天在面試時突然被問到有沒有使用過 <code>reduce</code>，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。</p>
 <h2 id="arrayprototypereduce">Array.prototype.reduce()</h2>
 <p>根據 MDN 的說明，<code>reduce</code> 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。</p>
 <h3 id="syntax">Syntax</h3>
-<pre><code class="language-javascript=" data-lang="javascript=">array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue)
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue)
 </code></pre><p>其中有 4 個參數，分別代表不同的意思。</p>
 <ul>
 <li>accumulator：累加總計</li>
@@ -202,7 +199,7 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
 </ul>
 <p>而 <code>initialValue</code> 則是代表第一次要傳入的<code>初始值</code>。</p>
 <h3 id="實例-1">實例 1</h3>
-<pre><code class="language-javascript=" data-lang="javascript=">const array = [1, 3, 4, 5]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const array = [1, 3, 4, 5]
 const arrayReduced = array.reduce((accumulator, currentValue) =&gt; {
   return accumulator + currentValue
 }, 5)   //初始值為 5
@@ -252,14 +249,14 @@ console.log(arrayReduced)  // 18
 <p>可以發現當我們的初始值是 5 的時候，<code>accumulator</code> 就是從 5 開始計算，後面接續 <code>currentValue</code> 的值累計。</p>
 <h3 id="實例-2">實例 2</h3>
 <p>reduce() 也可以用來合併陣列。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const array = [[1, 3, 4, 5], [6, 7, 8], [9, 10, 11]]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const array = [[1, 3, 4, 5], [6, 7, 8], [9, 10, 11]]
 const arrayReduced = array.reduce((accumulator, currentValue) =&gt; {
   return accumulator.concat(currentValue)
 }, [])
 
 console.log(arrayReduced) // [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 </code></pre><p>或者來計算相同字串的數量並以物件呈現。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const array = ['apple', 'orange', 'orange', 'apple', 'apple', 'banana']
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const array = [&#39;apple&#39;, &#39;orange&#39;, &#39;orange&#39;, &#39;apple&#39;, &#39;apple&#39;, &#39;banana&#39;]
 const arrayReduced = array.reduce((accumulator, currentValue) =&gt; {
   if (currentValue in accumulator) {
     accumulator[currentValue]++
@@ -279,9 +276,7 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -293,9 +288,7 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -308,7 +301,6 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
       
       2021-04-07 15:21
       
-
       
       
       
@@ -428,14 +420,12 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
       <span class="button previous">
@@ -445,7 +435,6 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
         </a>
       </span>
       
-
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/">
@@ -457,10 +446,7 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -469,23 +455,22 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -494,9 +479,7 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

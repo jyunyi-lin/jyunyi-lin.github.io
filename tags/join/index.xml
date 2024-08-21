@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>join() on 生活、學習紀錄</title>
+    <title>Join() on 生活、學習紀錄</title>
     <link>https://jyunyi-lin.github.io/tags/join/</link>
-    <description>Recent content in join() on 生活、學習紀錄</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 04 Dec 2020 17:44:52 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/tags/join/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Join() on 生活、學習紀錄</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 04 Dec 2020 17:44:52 +0800</lastBuildDate>
+    <atom:link href="https://jyunyi-lin.github.io/tags/join/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript 語法筆記：顛倒字串 split()、reverse()、join()</title>
       <link>https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</link>
       <pubDate>Fri, 04 Dec 2020 17:44:52 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</guid>
-      <description>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
-1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
-String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。</description>
+      <description>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：&#xA;1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！&#xA;String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &amp;rsquo;&amp;rsquo; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。&#xA;const splitted = &amp;#34;Apple is very delicious&amp;#34;.split(&amp;#39;&amp;#39;) console.log(splitted) // [ &amp;#39;A&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39; &amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;s&amp;#39;, &amp;#39; &amp;#39;, &amp;#39;v&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;y&amp;#39;, &amp;#39; &amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;s&amp;#39; ] 那如果在引號中加入空格呢？&#xA;const splitted = &amp;#34;Apple is very delicious&amp;#34;.split(&amp;#39; &amp;#39;) console.log(splitted) // [ &amp;#39;Apple&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;very&amp;#39;, &amp;#39;delicious&amp;#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。</description>
     </item>
-    
   </channel>
 </rss>

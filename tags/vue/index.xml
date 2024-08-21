@@ -4,61 +4,31 @@
     <title>Vue on 生活、學習紀錄</title>
     <link>https://jyunyi-lin.github.io/tags/vue/</link>
     <description>Recent content in Vue on 生活、學習紀錄</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 19 Apr 2021 15:44:43 +0800</lastBuildDate>
+    <atom:link href="https://jyunyi-lin.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vue.js 學習筆記 - 3</title>
       <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
       <pubDate>Mon, 19 Apr 2021 15:44:43 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
-      <description>今天想來聊聊 Vue Router。
-Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
- SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
-  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
- 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
-如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
-vue add router
-在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
-安裝好之後，來觀察看看專案下哪邊變得不同了。
- 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.</description>
+      <description>今天想來聊聊 Vue Router。&#xA;Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。&#xA;SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。&#xA;使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：&#xA;啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面 但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)&#xA;如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。&#xA;vue add router&#xA;在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。&#xA;安裝好之後，來觀察看看專案下哪邊變得不同了。&#xA;網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.js 使用的頁面元件。通常一個路由會對應到一個 views 裡面的 component）的資料夾。 如何設定路由？ 讓我們從 router 資料夾裡面的 index.</description>
     </item>
-    
     <item>
       <title>Vue.js 學習筆記 - 2</title>
       <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
       <pubDate>Thu, 01 Apr 2021 14:37:32 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
-      <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
-常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
-使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
-假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
-&amp;lt;button v-on:click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：
-&amp;lt;button @click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：
-methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
-v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
-使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;
-直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
-&amp;lt;img v-bind:src=&amp;quot;user.avatar&amp;quot; v-bind:data-id=&amp;quot;user.id&amp;quot; &amp;gt; 或者使用簡寫：</description>
+      <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。&#xA;常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。&#xA;使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;&#xA;假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：&#xA;&amp;lt;button v-on:click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：&#xA;&amp;lt;button @click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：&#xA;methods: { alertAfterClick () { window.alert(&amp;#39;點擊到按鈕了&amp;#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！&#xA;v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。&#xA;使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;&#xA;直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：&#xA;&amp;lt;img v-bind:src=&amp;#34;user.avatar&amp;#34; v-bind:data-id=&amp;#34;user.id&amp;#34; &amp;gt; 或者使用簡寫：</description>
     </item>
-    
     <item>
       <title>Vue.js 學習筆記 - 1</title>
       <link>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
       <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
-      <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
-Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
-Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
-初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
- npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
-資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。
-src 資料夾 其中有四個部分，分別是</description>
+      <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。&#xA;Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。&#xA;Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。&#xA;初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。&#xA;npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。&#xA;資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。&#xA;src 資料夾 其中有四個部分，分別是&#xA;assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.</description>
     </item>
-    
   </channel>
 </rss>

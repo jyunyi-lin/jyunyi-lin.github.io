@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Maps on 生活、學習紀錄</title>
+    <link>https://jyunyi-lin.github.io/tags/google-maps/</link>
+    <description>Recent content in Google Maps on 生活、學習紀錄</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 06 Jan 2024 17:44:01 +0800</lastBuildDate>
+    <atom:link href="https://jyunyi-lin.github.io/tags/google-maps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初探 Google Maps API</title>
+      <link>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</link>
+      <pubDate>Sat, 06 Jan 2024 17:44:01 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</guid>
+      <description>當專案需要用到地圖時，應該首選都是 Google Map 提供的 API 服務。本文會先從 API 的介紹開始，慢慢進入如何應用到專案，接著詳細介紹在專案中使用到的 API，最後以一個概論作結。&#xA;Google Maps JavaScript API V3 介紹 因應不同的需求，主要可以分成七大類 API：&#xA;API 說明 範例 ❶Maps 顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。 ❷Drawing on the map 想在地圖上顯示出指定地點的 Marker 或甚至點擊 Marker 後要跳出一個 Info Window 嗎？內容都在這裡。 ❸Street View 街景服務 略 ❹Places 取得地點詳細資訊、經緯度變換地點都得用這組 API，也是本次會重點介紹的項目！ 詳見文章以下介紹 ❺Routes 導航路線相關。 略 ❻Local Context (beta) Local Context 將地圖、路徑規劃、地點 (Maps, Routes, Places) 功能，透過一支 API 全部整合，一次提供 3 種功能，似乎很讚，但還在 beta 中。 略 ❼Journey Sharing (beta) 顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。 略 在之前接觸的專案中，主要使用的主要是 ❶、❷，也就是使用 Google 地圖，並把相關店家的資訊（例如車咕嚕中洗車場地點）放置 Marker 在地圖上，點擊後會跳出店家詳細資訊及預約的 Info Window。 而本文主要想著重介紹的是 ❹，也是最近偉士牌需求中的購車頁優化，會需要依照使用者的 input 去移動到對應的城市，並顯示城市的名稱，其實就是模擬 Google Map 的搜尋功能，但實際做起來需要熟悉 API 的混用。</description>
+    </item>
+  </channel>
+</rss>

@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jyun-Yi LIN ">
-<meta name="description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
+<meta name="description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
 1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
-String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。" />
+String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &rsquo;&rsquo; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
+const splitted = &#34;Apple is very delicious&#34;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
+const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。" />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, JavaScript, string, split(), reverse(), join(), 顛倒字串" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -45,44 +45,50 @@ const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) 
 
 
 
-<meta itemprop="name" content="JavaScript 語法筆記：顛倒字串 split()、reverse()、join()">
-<meta itemprop="description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
+
+  <meta itemprop="name" content="JavaScript 語法筆記：顛倒字串 split()、reverse()、join()">
+  <meta itemprop="description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 “Apple” 時，電腦要回應我 “elppA” ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
 1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
-String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
-const splitted = &quot;Apple is very delicious&quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
-const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。">
-<meta itemprop="datePublished" content="2020-12-04T17:44:52+08:00" />
-<meta itemprop="dateModified" content="2020-12-04T17:44:52+08:00" />
-<meta itemprop="wordCount" content="166">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 ’’ 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
+const splitted = &#34;Apple is very delicious&#34;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
+const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。">
+  <meta itemprop="datePublished" content="2020-12-04T17:44:52+08:00">
+  <meta itemprop="dateModified" content="2020-12-04T17:44:52+08:00">
+  <meta itemprop="wordCount" content="166">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="JavaScript,String,Split(),Reverse(),Join(),顛倒字串">
 
-
-
-<meta itemprop="keywords" content="JavaScript,string,split(),reverse(),join(),顛倒字串," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="JavaScript 語法筆記：顛倒字串 split()、reverse()、join()"/>
-<meta name="twitter:description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="JavaScript 語法筆記：顛倒字串 split()、reverse()、join()">
+  <meta name="twitter:description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 “Apple” 時，電腦要回應我 “elppA” ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
 1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
-String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
-const splitted = &quot;Apple is very delicious&quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
-const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。"/>
+String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 ’’ 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
+const splitted = &#34;Apple is very delicious&#34;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
+const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。">
 
 
 
-    <meta property="og:title" content="JavaScript 語法筆記：顛倒字串 split()、reverse()、join()" />
-<meta property="og:description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="JavaScript 語法筆記：顛倒字串 split()、reverse()、join()">
+  <meta property="og:description" content="一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 “Apple” 時，電腦要回應我 “elppA” ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
 1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
-String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
-const splitted = &quot;Apple is very delicious&quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
-const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2020-12-04T17:44:52+08:00" />
-<meta property="article:modified_time" content="2020-12-04T17:44:52+08:00" />
+String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 ’’ 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
+const splitted = &#34;Apple is very delicious&#34;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
+const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-12-04T17:44:52+08:00">
+    <meta property="article:modified_time" content="2020-12-04T17:44:52+08:00">
+    <meta property="article:tag" content="JavaScript">
+    <meta property="article:tag" content="String">
+    <meta property="article:tag" content="Split()">
+    <meta property="article:tag" content="Reverse()">
+    <meta property="article:tag" content="Join()">
+    <meta property="article:tag" content="顛倒字串">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -148,7 +154,6 @@ const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -158,11 +163,9 @@ const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       One minute
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/">JavaScript 語法筆記：顛倒字串 split()、reverse()、join()</a>
@@ -185,49 +188,47 @@ const splitted = &quot;Apple is very delicious&quot;.split(&#39; &#39;) console.
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <p>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：</p>
 <h2 id="1-使用-splitreversejoin">1. 使用 split()、reverse()、join()</h2>
 <p>首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！</p>
 <h3 id="stringprototypesplit">String.prototype.split()</h3>
-<p>split() 可以<strong>將字串轉為陣列</strong>，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 '' 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的<strong>陣列</strong>回傳。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split('')
+<p>split() 可以<strong>將字串轉為陣列</strong>，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &rsquo;&rsquo; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的<strong>陣列</strong>回傳。</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple is very delicious&#34;.split(&#39;&#39;)
 console.log(splitted)
 // [
-  'A', 'p', 'p', 'l', 'e',
-  ' ', 'i', 's', ' ', 'v',
-  'e', 'r', 'y', ' ', 'd',
-  'e', 'l', 'i', 'c', 'i',
-  'o', 'u', 's'
+  &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;,
+  &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;,
+  &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;,
+  &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;,
+  &#39;o&#39;, &#39;u&#39;, &#39;s&#39;
 ]
 </code></pre><p>那如果在引號中加入空格呢？</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split(' ')
-console.log(splitted) // [ 'Apple', 'is', 'very', 'delicious' ]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;)
+console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ]
 </code></pre><p>神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字<strong>陣列</strong>。</p>
 <h3 id="arrayprototypereverse">Array.prototype.reverse()</h3>
 <p>顧名思義就是將<strong>陣列反轉，最後一個元素變成第一個</strong>。讓我們用剛剛的例子來看看：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split(' ').reverse()
-console.log(splitted) // [ 'delicious', 'very', 'is', 'Apple' ]
-</code></pre><p>如果只有一個單字的時候，記得在 split('') 的引號中不要放入空格喔，這樣才能將每一個字母倒轉。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple&quot;.split('').reverse()
-console.log(splitted) // [ 'e', 'l', 'p', 'p', 'A' ]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;).reverse()
+console.log(splitted) // [ &#39;delicious&#39;, &#39;very&#39;, &#39;is&#39;, &#39;Apple&#39; ]
+</code></pre><p>如果只有一個單字的時候，記得在 split(&rsquo;&rsquo;) 的引號中不要放入空格喔，這樣才能將每一個字母倒轉。</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple&#34;.split(&#39;&#39;).reverse()
+console.log(splitted) // [ &#39;e&#39;, &#39;l&#39;, &#39;p&#39;, &#39;p&#39;, &#39;A&#39; ]
 </code></pre><p>是不是越來越接近我們要的感覺了？</p>
 <h3 id="arrayprototypejoin">Array.prototype.join()</h3>
 <p>與 split() 相反，join() 能將<strong>陣列轉成字串</strong>。而括號內的規則也是相同的。來看看例子吧：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple&quot;.split('').reverse().join('')
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple&#34;.split(&#39;&#39;).reverse().join(&#39;&#39;)
 console.log(splitted) // elppA
 </code></pre><p>我們成功完成題目了，把它寫成一個可以一直使用的函式吧。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
-    return str.split('').reverse().join('')
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
+    return str.split(&#39;&#39;).reverse().join(&#39;&#39;)
 }
 </code></pre><p>句子也可以使用喔，自己試試看吧！</p>
 <h2 id="2-使用-for-迴圈">2. 使用 for 迴圈</h2>
 <p>第二種方式就簡單多了，用 for 迴圈讓它倒著跑回去就可以。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
-  let reversed = ''
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
+  let reversed = &#39;&#39;
   for (let i = str.length -1; i &gt;= 0; i--){
     reversed += str[i]
   }
@@ -238,9 +239,7 @@ console.log(splitted) // elppA
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -256,9 +255,7 @@ console.log(splitted) // elppA
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -271,7 +268,6 @@ console.log(splitted) // elppA
       
       2020-12-04 17:44
       
-
       
       
       
@@ -391,14 +387,12 @@ console.log(splitted) // elppA
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
       <span class="button previous">
@@ -408,7 +402,6 @@ console.log(splitted) // elppA
         </a>
       </span>
       
-
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2020/11/alpha-camp-%E5%AD%B8%E6%9C%9F-2-2-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
@@ -420,10 +413,7 @@ console.log(splitted) // elppA
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -432,23 +422,22 @@ console.log(splitted) // elppA
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -457,9 +446,7 @@ console.log(splitted) // elppA
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

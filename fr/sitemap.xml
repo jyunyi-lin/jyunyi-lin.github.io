@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://jyunyi-lin.github.io/fr/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://jyunyi-lin.github.io/zh-tw/categories/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -14,10 +18,13 @@
                 hreflang="fr"
                 href="https://jyunyi-lin.github.io/fr/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jyunyi-lin.github.io/fr/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://jyunyi-lin.github.io/zh-tw/series/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,10 +35,13 @@
                 hreflang="fr"
                 href="https://jyunyi-lin.github.io/fr/series/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jyunyi-lin.github.io/fr/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://jyunyi-lin.github.io/zh-tw/tags/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,10 +52,13 @@
                 hreflang="fr"
                 href="https://jyunyi-lin.github.io/fr/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jyunyi-lin.github.io/fr/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://jyunyi-lin.github.io/zh-tw/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -57,5 +70,4 @@
                 href="https://jyunyi-lin.github.io/fr/"
                 />
   </url>
-  
 </urlset>

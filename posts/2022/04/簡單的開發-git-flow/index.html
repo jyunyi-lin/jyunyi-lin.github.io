@@ -6,13 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jyun-Yi LIN ">
 <meta name="description" content="簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
-只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp;amp; demo 等等分支來做開發。
+只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp; demo 等等分支來做開發。
 假設你的 feature 或 issue 分支都是從 demo 開出來的，做完後又直接 merge 回 demo，那就有極大的機會遇到上面的窘境。
 轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。
 或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。
 Branch 通常可以由以下幾個主要的 branch 來做版本控管。
- master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。   不同的專案，可能還會有 pre-prod 等等更多的分支
- 開發流程 1." />
+master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。 不同的專案，可能還會有 pre-prod 等等更多的分支
+開發流程 1. 當 issue 被 assign 過來" />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, git" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -48,53 +48,54 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
 
 
 
-<meta itemprop="name" content="簡單的開發 Git Flow">
-<meta itemprop="description" content="簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
+
+  <meta itemprop="name" content="簡單的開發 Git Flow">
+  <meta itemprop="description" content="簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
 只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp; demo 等等分支來做開發。
 假設你的 feature 或 issue 分支都是從 demo 開出來的，做完後又直接 merge 回 demo，那就有極大的機會遇到上面的窘境。
 轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。
 或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。
 Branch 通常可以由以下幾個主要的 branch 來做版本控管。
- master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。   不同的專案，可能還會有 pre-prod 等等更多的分支
- 開發流程 1.">
-<meta itemprop="datePublished" content="2022-04-16T10:57:55+08:00" />
-<meta itemprop="dateModified" content="2022-04-16T10:57:55+08:00" />
-<meta itemprop="wordCount" content="147">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。 不同的專案，可能還會有 pre-prod 等等更多的分支
+開發流程 1. 當 issue 被 assign 過來">
+  <meta itemprop="datePublished" content="2022-04-16T10:57:55+08:00">
+  <meta itemprop="dateModified" content="2022-04-16T10:57:55+08:00">
+  <meta itemprop="wordCount" content="147">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="Git">
 
-
-
-<meta itemprop="keywords" content="git," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="簡單的開發 Git Flow"/>
-<meta name="twitter:description" content="簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="簡單的開發 Git Flow">
+  <meta name="twitter:description" content="簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
 只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp; demo 等等分支來做開發。
 假設你的 feature 或 issue 分支都是從 demo 開出來的，做完後又直接 merge 回 demo，那就有極大的機會遇到上面的窘境。
 轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。
 或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。
 Branch 通常可以由以下幾個主要的 branch 來做版本控管。
- master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。   不同的專案，可能還會有 pre-prod 等等更多的分支
- 開發流程 1."/>
+master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。 不同的專案，可能還會有 pre-prod 等等更多的分支
+開發流程 1. 當 issue 被 assign 過來">
 
 
 
-    <meta property="og:title" content="簡單的開發 Git Flow" />
-<meta property="og:description" content="簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="簡單的開發 Git Flow">
+  <meta property="og:description" content="簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
 只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp; demo 等等分支來做開發。
 假設你的 feature 或 issue 分支都是從 demo 開出來的，做完後又直接 merge 回 demo，那就有極大的機會遇到上面的窘境。
 轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。
 或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。
 Branch 通常可以由以下幾個主要的 branch 來做版本控管。
- master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。   不同的專案，可能還會有 pre-prod 等等更多的分支
- 開發流程 1." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2022-04-16T10:57:55+08:00" />
-<meta property="article:modified_time" content="2022-04-16T10:57:55+08:00" />
+master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。 不同的專案，可能還會有 pre-prod 等等更多的分支
+開發流程 1. 當 issue 被 assign 過來">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-04-16T10:57:55+08:00">
+    <meta property="article:modified_time" content="2022-04-16T10:57:55+08:00">
+    <meta property="article:tag" content="Git">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -160,7 +161,6 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -170,11 +170,9 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       One minute
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/">簡單的開發 Git Flow</a>
@@ -197,16 +195,14 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <h1 id="簡單的開發-git-flow">簡單的開發 Git Flow</h1>
 <p>不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺</p>
 <h3 id="只有兩條主線">只有兩條主線</h3>
 <p>一般來說專案都會有正式跟測試環境，比較常見會分由 <code>master</code> &amp; <code>demo</code> 等等分支來做開發。<br>
 假設你的 feature 或 issue 分支都是從 <code>demo</code> 開出來的，做完後又直接 merge 回 <code>demo</code>，那就有極大的機會遇到上面的窘境。</p>
-<p><img src="https://i.imgur.com/E2Us5Ga.png" alt=""></p>
+<p><img src="https://i.imgur.com/E2Us5Ga.png"></p>
 <h3 id="轉換-base-branch">轉換 Base Branch</h3>
 <p>當然，你可以直接從 <code>master</code> 開 feature 分支來解決這個問題。<br>
 或在比較大型的專案，也可以多一個分支 <code>staging</code> 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。</p>
@@ -220,7 +216,7 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
 <blockquote>
 <p>不同的專案，可能還會有 <code>pre-prod</code> 等等更多的分支</p>
 </blockquote>
-<p><img src="https://i.imgur.com/RIblDmR.png" alt=""></p>
+<p><img src="https://i.imgur.com/RIblDmR.png"></p>
 <h3 id="開發流程">開發流程</h3>
 <p><strong>1. 當 issue 被 assign 過來</strong></p>
 <p>可以從 <code>staging</code> 開新的分支： <code>issue/#1</code>、<code>issue/#2</code>，開發完成 merge 進 <code>demo</code> 請 PM 測試。</p>
@@ -232,9 +228,9 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
 <p><strong>3. release 新的版號</strong></p>
 <p>如果測試都沒有問題，那就接著 release 新的版號吧！</p>
 <p>這時候會產生一個 tag 可以用來當作版控。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout -b release/版號
-yarn release
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git checkout -b release/版號
+</span></span><span style="display:flex;"><span>yarn release
+</span></span></code></pre></div><blockquote>
 <p>記得也要把 tag 推上遠端喔</p>
 </blockquote>
 <p><strong>4. 發 MR 給 <code>master</code></strong></p>
@@ -249,9 +245,7 @@ yarn release
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -262,9 +256,7 @@ yarn release
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -277,7 +269,6 @@ yarn release
       
       2022-04-16 10:57
       
-
       
       
       
@@ -397,17 +388,21 @@ yarn release
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
-
+      <span class="button previous">
+        <a href="https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/">
+          <span class="button__icon">←</span>
+          <span class="button__text">初探 Google Maps API</span>
+        </a>
+      </span>
+      
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/">
@@ -419,10 +414,7 @@ yarn release
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -431,23 +423,22 @@ yarn release
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -456,9 +447,7 @@ yarn release
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

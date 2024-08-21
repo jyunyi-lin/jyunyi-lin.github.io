@@ -9,9 +9,10 @@
 Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
 Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
 初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
- npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
+npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
 資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。
-src 資料夾 其中有四個部分，分別是" />
+src 資料夾 其中有四個部分，分別是
+assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main." />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, Vue, review" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -47,50 +48,55 @@ src 資料夾 其中有四個部分，分別是" />
 
 
 
-<meta itemprop="name" content="Vue.js 學習筆記 - 1">
-<meta itemprop="description" content="學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
+
+  <meta itemprop="name" content="Vue.js 學習筆記 - 1">
+  <meta itemprop="description" content="學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
 Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
 Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
 初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
- npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
+npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
 資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。
-src 資料夾 其中有四個部分，分別是">
-<meta itemprop="datePublished" content="2021-03-31T09:58:16+08:00" />
-<meta itemprop="dateModified" content="2021-03-31T09:58:16+08:00" />
-<meta itemprop="wordCount" content="121">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+src 資料夾 其中有四個部分，分別是
+assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.">
+  <meta itemprop="datePublished" content="2021-03-31T09:58:16+08:00">
+  <meta itemprop="dateModified" content="2021-03-31T09:58:16+08:00">
+  <meta itemprop="wordCount" content="121">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="Vue,Review">
 
-
-
-<meta itemprop="keywords" content="Vue,review," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="Vue.js 學習筆記 - 1"/>
-<meta name="twitter:description" content="學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="Vue.js 學習筆記 - 1">
+  <meta name="twitter:description" content="學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
 Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
 Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
 初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
- npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
+npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
 資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。
-src 資料夾 其中有四個部分，分別是"/>
+src 資料夾 其中有四個部分，分別是
+assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.">
 
 
 
-    <meta property="og:title" content="Vue.js 學習筆記 - 1" />
-<meta property="og:description" content="學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="Vue.js 學習筆記 - 1">
+  <meta property="og:description" content="學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
 Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
 Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
 初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
- npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
+npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
 資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。
-src 資料夾 其中有四個部分，分別是" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2021-03-31T09:58:16+08:00" />
-<meta property="article:modified_time" content="2021-03-31T09:58:16+08:00" />
+src 資料夾 其中有四個部分，分別是
+assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-03-31T09:58:16+08:00">
+    <meta property="article:modified_time" content="2021-03-31T09:58:16+08:00">
+    <meta property="article:tag" content="Vue">
+    <meta property="article:tag" content="Review">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -156,7 +162,6 @@ src 資料夾 其中有四個部分，分別是" />
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -166,11 +171,9 @@ src 資料夾 其中有四個部分，分別是" />
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       One minute
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/">Vue.js 學習筆記 - 1</a>
@@ -193,13 +196,11 @@ src 資料夾 其中有四個部分，分別是" />
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <p>學了 Vue 也已經一段時間，實作了<a href="https://github.com/chuni-lin/forum-front-end-vue">餐廳論壇</a>與簡易的<a href="https://github.com/chuni-lin/user-list-vue">社交平台</a>後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：<strong>由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 <a href="https://vuejs.org/v2/guide/">Vue 官方文件</a>來服用，效果更佳。</strong></p>
 <h2 id="vue-是什麼">Vue 是什麼？</h2>
-<p><img src="https://i.imgur.com/RJAI2TQ.png" alt=""></p>
+<p><img src="https://i.imgur.com/RJAI2TQ.png"></p>
 <p>Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。</p>
 <p>Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。</p>
 <h2 id="初始設置">初始設置</h2>
@@ -218,7 +219,7 @@ src 資料夾 其中有四個部分，分別是" />
 <ol>
 <li>assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 <code>icon</code>、圖檔、<code>css</code> 設定檔。</li>
 <li>components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。</li>
-<li>main.js：這是 JavaScript 的進入點。<code>vue</code> 是 Vue.js 本身，<code>App.vue</code> 是整個專案本身。最底下的 <code>$mount('#app')</code> ，這個動作會把所有和 Vue 有關的內容都放進 public/index.html 裡的 <code>&lt;div id=&quot;app&quot;&gt;</code>。<img src="https://i.imgur.com/E5nkH8n.png" alt=""></li>
+<li>main.js：這是 JavaScript 的進入點。<code>vue</code> 是 Vue.js 本身，<code>App.vue</code> 是整個專案本身。最底下的 <code>$mount('#app')</code> ，這個動作會把所有和 Vue 有關的內容都放進 public/index.html 裡的 <code>&lt;div id=&quot;app&quot;&gt;</code>。<img src="https://i.imgur.com/E5nkH8n.png"></li>
 <li>App.vue：這個檔案裡又分為三個大部分，分別是 template、script、style。
 &ndash; <code>&lt;template&gt;&lt;/template&gt;</code> 裡放 HTML 元素內容
 &ndash; <code>&lt;script&gt;&lt;/script&gt;</code> 內放 JavaScript 語法，大多是和 Vue 有關的資料處理
@@ -230,9 +231,7 @@ src 資料夾 其中有四個部分，分別是" />
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -244,9 +243,7 @@ src 資料夾 其中有四個部分，分別是" />
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -259,7 +256,6 @@ src 資料夾 其中有四個部分，分別是" />
       
       2021-03-31 09:58
       
-
       
       
       
@@ -379,14 +375,12 @@ src 資料夾 其中有四個部分，分別是" />
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
       <span class="button previous">
@@ -396,7 +390,6 @@ src 資料夾 其中有四個部分，分別是" />
         </a>
       </span>
       
-
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/">
@@ -408,10 +401,7 @@ src 資料夾 其中有四個部分，分別是" />
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -420,23 +410,22 @@ src 資料夾 其中有四個部分，分別是" />
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -445,9 +434,7 @@ src 資料夾 其中有四個部分，分別是" />
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

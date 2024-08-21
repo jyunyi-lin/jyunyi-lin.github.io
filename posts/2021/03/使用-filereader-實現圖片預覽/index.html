@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jyun-Yi LIN ">
 <meta name="description" content="使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
-實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!" />
+實作 首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。 const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!" />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, FileReader" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -42,35 +42,36 @@
 
 
 
-<meta itemprop="name" content="使用 FileReader 實現圖片預覽">
-<meta itemprop="description" content="使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
-實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!">
-<meta itemprop="datePublished" content="2021-03-30T15:11:54+08:00" />
-<meta itemprop="dateModified" content="2021-03-30T15:11:54+08:00" />
-<meta itemprop="wordCount" content="105">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+
+  <meta itemprop="name" content="使用 FileReader 實現圖片預覽">
+  <meta itemprop="description" content="使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
+實作 首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。 const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!">
+  <meta itemprop="datePublished" content="2021-03-30T15:11:54+08:00">
+  <meta itemprop="dateModified" content="2021-03-30T15:11:54+08:00">
+  <meta itemprop="wordCount" content="105">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="FileReader">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="使用 FileReader 實現圖片預覽">
+  <meta name="twitter:description" content="使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
+實作 首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。 const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!">
 
 
 
-<meta itemprop="keywords" content="FileReader," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="使用 FileReader 實現圖片預覽"/>
-<meta name="twitter:description" content="使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
-實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!"/>
-
-
-
-    <meta property="og:title" content="使用 FileReader 實現圖片預覽" />
-<meta property="og:description" content="使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
-實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2021-03-30T15:11:54+08:00" />
-<meta property="article:modified_time" content="2021-03-30T15:11:54+08:00" />
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="使用 FileReader 實現圖片預覽">
+  <meta property="og:description" content="使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
+實作 首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。 const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-03-30T15:11:54+08:00">
+    <meta property="article:modified_time" content="2021-03-30T15:11:54+08:00">
+    <meta property="article:tag" content="FileReader">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -136,7 +137,6 @@
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -146,11 +146,9 @@
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       One minute
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/">使用 FileReader 實現圖片預覽</a>
@@ -167,9 +165,7 @@
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <h1 id="使用-filereader-實現圖片預覽">使用 FileReader 實現圖片預覽</h1>
 <p>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。</p>
@@ -179,29 +175,27 @@
 <li>然後設定在 onload 時要做什麼事</li>
 <li>最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。</li>
 </ol>
-<pre><code class="language-javascript=" data-lang="javascript=">  const reader = new FileReader()  //創建 FileReader 的對象實例
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">  const reader = new FileReader()  //創建 FileReader 的對象實例
     reader.onload = (event) =&gt; {   //設定 onload handler
-      if (input.id === 'cover') {
+      if (input.id === &#39;cover&#39;) {
         coverPreview.src = `${event.target.result}`
       }
-      if (input.id === 'avatar') {
+      if (input.id === &#39;avatar&#39;) {
         avatarPreview.src = `${event.target.result}`
       }
     }
     reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容
 </code></pre><h2 id="error">Error!</h2>
 <p>操作到這邊，功能皆正常，但檢查器卻出現一個 error 說 FileReader is not defined。
-<img src="https://i.imgur.com/Cyh2tVg.png" alt=""></p>
+<img src="https://i.imgur.com/Cyh2tVg.png"></p>
 <h2 id="解決方法">解決方法</h2>
 <p>試了很多方法後，發現在 stake overflow 上已經有人提出一樣的疑問。原來問題就出在我們沒指出要在哪裡使用 FileReader。error 會出現是因為 webpack 無法在 Node.js 中找到 FileReader，但我們是要在瀏覽器裡使用 FileReader 實現預覽功能，所以只要加上 window 就可以了：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const reader = new window.FileReader()  //我們是要在瀏覽器中使用 FileReader
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const reader = new window.FileReader()  //我們是要在瀏覽器中使用 FileReader
 </code></pre><p>🥳 恭喜完成預覽功能！</p>
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -212,9 +206,7 @@
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -227,7 +219,6 @@
       
       2021-03-30 15:11
       
-
       
       
       
@@ -347,14 +338,12 @@
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
       <span class="button previous">
@@ -364,7 +353,6 @@
         </a>
       </span>
       
-
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/">
@@ -376,10 +364,7 @@
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -388,23 +373,22 @@
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -413,9 +397,7 @@
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

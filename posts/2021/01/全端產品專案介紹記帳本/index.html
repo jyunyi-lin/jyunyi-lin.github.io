@@ -7,10 +7,10 @@
 <meta name="author" content="Jyun-Yi LIN ">
 <meta name="description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
 以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
- GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+GitHub Heroku 為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
 商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
 技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
-使用了什麼技術？ 前端技術  BootStrap &amp;amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。" />
+使用了什麼技術？ 前端技術 BootStrap &amp; RWD Font Awesome 後端技術 網路伺服器 Node.js： JavaScript 執行環境 Express：伺服器框架 npm packages bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制 資料庫 MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作 部署 Heroku 協作技術 Git 版控 GitHub 哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。" />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, 後端開發, 專案介紹, Project Introduction" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -46,47 +46,50 @@
 
 
 
-<meta itemprop="name" content="全端產品專案介紹——記帳本">
-<meta itemprop="description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+
+  <meta itemprop="name" content="全端產品專案介紹——記帳本">
+  <meta itemprop="description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
 以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
- GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+GitHub Heroku 為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
 商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
 技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
-使用了什麼技術？ 前端技術  BootStrap &amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。">
-<meta itemprop="datePublished" content="2021-01-20T10:00:33+08:00" />
-<meta itemprop="dateModified" content="2021-01-20T10:00:33+08:00" />
-<meta itemprop="wordCount" content="126">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+使用了什麼技術？ 前端技術 BootStrap &amp; RWD Font Awesome 後端技術 網路伺服器 Node.js： JavaScript 執行環境 Express：伺服器框架 npm packages bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制 資料庫 MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作 部署 Heroku 協作技術 Git 版控 GitHub 哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。">
+  <meta itemprop="datePublished" content="2021-01-20T10:00:33+08:00">
+  <meta itemprop="dateModified" content="2021-01-20T10:00:33+08:00">
+  <meta itemprop="wordCount" content="126">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="後端開發,專案介紹,Project Introduction">
 
-
-
-<meta itemprop="keywords" content="後端開發,專案介紹,Project Introduction," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="全端產品專案介紹——記帳本"/>
-<meta name="twitter:description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="全端產品專案介紹——記帳本">
+  <meta name="twitter:description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
 以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
- GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+GitHub Heroku 為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
 商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
 技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
-使用了什麼技術？ 前端技術  BootStrap &amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。"/>
+使用了什麼技術？ 前端技術 BootStrap &amp; RWD Font Awesome 後端技術 網路伺服器 Node.js： JavaScript 執行環境 Express：伺服器框架 npm packages bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制 資料庫 MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作 部署 Heroku 協作技術 Git 版控 GitHub 哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。">
 
 
 
-    <meta property="og:title" content="全端產品專案介紹——記帳本" />
-<meta property="og:description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="全端產品專案介紹——記帳本">
+  <meta property="og:description" content="全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
 以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
- GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+GitHub Heroku 為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
 商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
 技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
-使用了什麼技術？ 前端技術  BootStrap &amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2021-01-20T10:00:33+08:00" />
-<meta property="article:modified_time" content="2021-01-20T10:00:33+08:00" />
+使用了什麼技術？ 前端技術 BootStrap &amp; RWD Font Awesome 後端技術 網路伺服器 Node.js： JavaScript 執行環境 Express：伺服器框架 npm packages bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制 資料庫 MongoDB &amp; Mongoose： NoSQL Database &amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作 部署 Heroku 協作技術 Git 版控 GitHub 哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-01-20T10:00:33+08:00">
+    <meta property="article:modified_time" content="2021-01-20T10:00:33+08:00">
+    <meta property="article:tag" content="後端開發">
+    <meta property="article:tag" content="專案介紹">
+    <meta property="article:tag" content="Project Introduction">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -152,7 +155,6 @@
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -162,11 +164,9 @@
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       One minute
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/">全端產品專案介紹——記帳本</a>
@@ -207,12 +207,10 @@
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <h1 id="全端產品專案介紹記帳本">全端產品專案介紹——記帳本</h1>
-<p><img src="https://i.imgur.com/T44x5kK.png" alt=""></p>
+<p><img src="https://i.imgur.com/T44x5kK.png"></p>
 <p>這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。</p>
 <p>以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：</p>
 <ul>
@@ -294,9 +292,7 @@
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -309,9 +305,7 @@
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -324,7 +318,6 @@
       
       2021-01-20 10:00
       
-
       
       
       
@@ -444,14 +437,12 @@
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
       <span class="button previous">
@@ -461,7 +452,6 @@
         </a>
       </span>
       
-
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2021/01/alpha-camp-%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
@@ -473,10 +463,7 @@
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -485,23 +472,22 @@
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -510,9 +496,7 @@
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

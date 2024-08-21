@@ -4,10 +4,218 @@
         <link>https://jyunyi-lin.github.io/posts/</link>
         <description>Recent content in Posts on 生活、學習紀錄</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-tw</language>
-        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 16 Apr 2022 10:57:55 +0800</lastBuildDate>
+        <language>en</language>
+        <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+        <lastBuildDate>Mon, 19 Aug 2024 22:33:33 +0800</lastBuildDate>
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Goog</title>
+            <link>https://jyunyi-lin.github.io/posts/2024/08/goog/</link>
+            <pubDate>Mon, 19 Aug 2024 22:33:33 +0800</pubDate>
+            
+            <guid>https://jyunyi-lin.github.io/posts/2024/08/goog/</guid>
+            <description></description>
+            <content type="html"><![CDATA[]]></content>
+        </item>
+        
+        <item>
+            <title>初探 Google Maps API</title>
+            <link>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</link>
+            <pubDate>Sat, 06 Jan 2024 17:44:01 +0800</pubDate>
+            
+            <guid>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</guid>
+            <description>當專案需要用到地圖時，應該首選都是 Google Map 提供的 API 服務。本文會先從 API 的介紹開始，慢慢進入如何應用到專案，接著詳細介紹在專案中使用到的 API，最後以一個概論作結。
+Google Maps JavaScript API V3 介紹 因應不同的需求，主要可以分成七大類 API：
+API 說明 範例 ❶Maps 顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。 ❷Drawing on the map 想在地圖上顯示出指定地點的 Marker 或甚至點擊 Marker 後要跳出一個 Info Window 嗎？內容都在這裡。 ❸Street View 街景服務 略 ❹Places 取得地點詳細資訊、經緯度變換地點都得用這組 API，也是本次會重點介紹的項目！ 詳見文章以下介紹 ❺Routes 導航路線相關。 略 ❻Local Context (beta) Local Context 將地圖、路徑規劃、地點 (Maps, Routes, Places) 功能，透過一支 API 全部整合，一次提供 3 種功能，似乎很讚，但還在 beta 中。 略 ❼Journey Sharing (beta) 顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。 略 在之前接觸的專案中，主要使用的主要是 ❶、❷，也就是使用 Google 地圖，並把相關店家的資訊（例如車咕嚕中洗車場地點）放置 Marker 在地圖上，點擊後會跳出店家詳細資訊及預約的 Info Window。 而本文主要想著重介紹的是 ❹，也是最近偉士牌需求中的購車頁優化，會需要依照使用者的 input 去移動到對應的城市，並顯示城市的名稱，其實就是模擬 Google Map 的搜尋功能，但實際做起來需要熟悉 API 的混用。</description>
+            <content type="html"><![CDATA[<p>當專案需要用到地圖時，應該首選都是 Google Map 提供的 API 服務。本文會先從 API 的介紹開始，慢慢進入如何應用到專案，接著詳細介紹在專案中使用到的 API，最後以一個概論作結。</p>
+<h2 id="google-maps-javascript-api-v3-介紹">Google Maps JavaScript API V3 介紹</h2>
+<p>因應不同的需求，主要可以分成七大類 API：</p>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th style="text-align:left">說明</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developers.google.com/maps/documentation/javascript/reference/map">❶Maps</a></td>
+<td style="text-align:left">顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。</td>
+<td><img src="https://i.imgur.com/nWprZ4w.png"></td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/maps/documentation/javascript/reference/marker">❷Drawing on the map</a></td>
+<td style="text-align:left">想在地圖上顯示出指定地點的 Marker 或甚至點擊 Marker 後要跳出一個 Info Window 嗎？內容都在這裡。</td>
+<td><img src="https://i.imgur.com/ioUFTSI.png"></td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/maps/documentation/javascript/reference/street-view">❸Street View</a></td>
+<td style="text-align:left">街景服務</td>
+<td>略</td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/maps/documentation/javascript/reference/places-widget">❹Places</a></td>
+<td style="text-align:left">取得地點詳細資訊、經緯度變換地點都得用這組 API，也是本次會<code>重點介紹的項目</code>！</td>
+<td>詳見文章以下介紹</td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/maps/documentation/javascript/reference/directions">❺Routes</a></td>
+<td style="text-align:left">導航路線相關。</td>
+<td>略</td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/maps/documentation/javascript/reference/local-context-map-view#LocalContextMapViewOptions">❻Local Context (beta)</a></td>
+<td style="text-align:left">Local Context 將地圖、路徑規劃、地點 (Maps, Routes, Places) 功能，透過一支 API 全部整合，一次提供 3 種功能，似乎很讚，但還在 beta 中。</td>
+<td>略</td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/maps/documentation/javascript/reference/journey-sharing-map-view">❼Journey Sharing (beta)</a></td>
+<td style="text-align:left">顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。</td>
+<td>略</td>
+</tr>
+</tbody>
+</table>
+<p>在之前接觸的專案中，主要使用的主要是 ❶、❷，也就是使用 Google 地圖，並把相關店家的資訊（例如車咕嚕中洗車場地點）放置 <code>Marker</code> 在地圖上，點擊後會跳出店家詳細資訊及預約的 <code>Info Window</code>。
+而本文主要想著重介紹的是 ❹，也是最近偉士牌需求中的購車頁優化，會需要依照使用者的 input 去移動到對應的城市，並顯示城市的名稱，其實就是模擬 Google Map 的搜尋功能，但實際做起來需要熟悉 API 的混用。</p>
+<h2 id="需求">需求</h2>
+<ol>
+<li>輸入 Enter 後將地圖定位至該縣市／區域並在列表顯示該搜尋區域<strong>所在縣市</strong>的名稱及所有分店。</li>
+<li>移動地圖至其他縣市時，地圖：顯示可見地區的分店地標；列表：顯示地圖中心<strong>所在縣市</strong>的所有分店</li>
+</ol>
+<p>我們來拆解一下這個需求的實作步驟看看。</p>
+<h3 id="需求--拆解">需求 ❶ 拆解</h3>
+<ol>
+<li>使用者輸入欲搜尋的區域，例如「豐原」、「綠島」</li>
+<li>把這個 input 傳給 API，得到 response</li>
+<li>response 應該就有郵遞區號，直接用這個去 mapping 城市表找出豐原是在臺中市；綠島是在臺東縣</li>
+<li>地圖上呈現以豐原為中心的畫面、列表上印出臺中市</li>
+</ol>
+<h3 id="需求--拆解-1">需求 ❷ 拆解</h3>
+<ol>
+<li>使用者從 A 縣市拖曳到 B 縣市</li>
+<li>監聽 DragEnd，發現地圖中心有改變就取得現在中心的經緯度丟到 API</li>
+<li>從 response 整理出目前是在哪一個縣市</li>
+<li>畫面改變</li>
+</ol>
+<h2 id="實作">實作</h2>
+<p>首先，遵循 <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">guide</a> 取得一組 API Key。
+由於 Google Maps Platform 只提供原生 JS 或 TS，我們可以直接使用好心人士包裝成 <a href="https://www.npmjs.com/package/@react-google-maps/api">React 專用的套件</a>。</p>
+<h3 id="基礎建設">基礎建設</h3>
+<p><strong>※ 程式碼會省略 input 的 component</strong></p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">import React, { useState } from &#39;react&#39;
+import { GoogleMap, useLoadScript } from &#39;@react-google-maps/api&#39;
+
+const CustomGoogleMap = () =&gt; {
+  // 載入 Places API 所需要的 libraries
+  const [libraries] = useState([&#39;places&#39;])
+
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: GOOGLE_MAP_API_KEY,
+    libraries,
+  })
+
+  // 定義地圖的 style、各種控制等
+  const renderMap = () =&gt; {
+    const options = {
+      disableDefaultUI: true,
+      zoomControl: true,
+      scaleControl: true,
+      styles: mapStyle,
+    }
+
+   //todo1 處理使用者輸入的資料，實現需求❶
+   //todo2：處理拖曳結束後的事件，實現需求❷
+
+    return (
+      &lt;&gt;
+        &lt;GoogleMap
+          mapContainerStyle={{
+            width: &#39;100%&#39;,
+            height: &#39;320px&#39;,
+          }}
+          center={center}
+          zoom={12}
+          options={options}
+          onLoad={handleLoad}
+          onDragEnd={handleCenterChanged}
+        /&gt;
+      &lt;/&gt;
+    )
+  }
+
+  if (loadError) {
+    return &lt;h1&gt;Map cannot be loaded right now, sorry.&lt;/h1&gt;
+  }
+
+  return isLoaded ? renderMap() : null
+}
+</code></pre><!-- raw HTML omitted -->
+<h3 id="需求-">需求 ❶</h3>
+<p>做好前置作業後，來實作需求 ❶ 吧！這邊我們需要運用到 Places 裡 <a href="https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service">Autocomplete()</a> 來取得預測值，接著再將這個值丟給 <a href="https://developers.google.com/maps/documentation/javascript/reference/geocoder">Geocoder()</a> 轉換成經緯度，才能夠將中心點設為 input 的區域。如下圖 1：</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">// 處理使用者輸入的資料，實現需求❶
+const handleKeyPress = event =&gt; {
+	if (event.key === &#39;Enter&#39;) {
+		const maps = window.google.maps;
+		const sessionToken = new maps.places.AutocompleteSessionToken();
+		const service = new maps.places.AutocompleteService();
+		const request = {
+			input: userInput,
+			sessionToken,
+			language: &#39;zh-TW&#39;, // 限定回傳語言為臺灣繁體中文
+			types: [
+				&#39;administrative_area_level_1&#39;,
+				&#39;administrative_area_level_2&#39;,
+				&#39;administrative_area_level_3&#39;,
+			], // 限定回傳區域為 1~3 級行政區
+		};
+		service.getPlacePredictions(request, predictions =&gt; {
+			const geocoder = new window.google.maps.Geocoder();
+			geocoder.geocode({ placeId: predictions[0].place_id }, responses =&gt; {
+				// 取得 input data 的經緯度後將地圖中間設為該值
+				setCenter({
+					lat: responses[0].geometry.location.lat(),
+					lng: responses[0].geometry.location.lng(),
+				});
+
+				// 取得郵遞區號以用來 mapping 城市，例如 110 則對應到臺北市信義區
+				setZipCode(responses[0].address_components.slice(-1)[0].long_name);
+			});
+		});
+		// 使用 webview 開啟時需再按下 enter 後使用 blur() 以讓 portable device 鍵盤自動收起
+		event.target.blur();
+	}
+};
+</code></pre><!-- raw HTML omitted -->
+<p>這樣第一個需求就完成囉～可以回顧上面的影片。</p>
+<h3 id="需求--1">需求 ❷</h3>
+<p>做完第一項之後，這個就很好理解了！直接看 code。</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const handleCenterChanged = () =&gt; {
+	// ❶將拖曳結束後的中心點放到 Geocoder(） 取得經緯度
+	// ❷將資料處理後得到郵遞區號去做城市 mapping
+};
+
+//....
+
+&lt;GoogleMap onDragEnd={handleCenterChanged}&gt;
+</code></pre><!-- raw HTML omitted -->
+<p>🎉🎉🎉🎉🎉 完成囉！ 🎉🎉🎉🎉🎉</p>
+<h2 id="可以再優化的部分">可以再優化的部分</h2>
+<ul>
+<li>當 response 沒有回傳郵遞區號時，該如何去找到對應的城市？</li>
+<li>如果使用者輸入非 1~3 級行政區（例如：陽明山），是否需提示 Alert？</li>
+</ul>
+<h2 id="結語">結語</h2>
+<p>當初這個功能其實摸索了很久，主要在於 Google <del>很有商業頭腦地</del>把每一隻 API 回傳的 data 區分的很細，導致你要去組合兩三隻才能夠得到你要的結果。</p>
+<p>每一隻 API 都是<a href="https://mapsplatform.google.com/intl/ja_ALL/pricing/">分開計費</a>的！如有專案需求可能會需要在開發前與 PM 討論，確認客戶接不接受收費方式，畢竟如果每一個拖曳都要打 API，即使有豐沛的免費額度也不得不注意～</p>
+<h2 id="參考資料">參考資料</h2>
+<blockquote>
+<p><a href="https://developers.google.com/maps/documentation/javascript/reference">Google Maps JavaScript API V3 Reference</a> &gt; <a href="https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service">Places Autocomplete Service</a> &gt; <a href="https://developers.google.com/maps/documentation/javascript/reference/geocoder">Geocoder</a> &gt; <a href="https://www.npmjs.com/package/@react-google-maps/api">@react-google-maps/api</a></p>
+</blockquote>
+<p><strong>PS: 以上程式碼如果凌亂或不符合大家的 code 標準請多多指教 🙏</strong></p>
+]]></content>
+        </item>
         
         <item>
             <title>簡單的開發 Git Flow</title>
@@ -21,14 +229,14 @@
 轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。
 或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。
 Branch 通常可以由以下幾個主要的 branch 來做版本控管。
- master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。   不同的專案，可能還會有 pre-prod 等等更多的分支
- 開發流程 1.</description>
+master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。 不同的專案，可能還會有 pre-prod 等等更多的分支
+開發流程 1. 當 issue 被 assign 過來</description>
             <content type="html"><![CDATA[<h1 id="簡單的開發-git-flow">簡單的開發 Git Flow</h1>
 <p>不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺</p>
 <h3 id="只有兩條主線">只有兩條主線</h3>
 <p>一般來說專案都會有正式跟測試環境，比較常見會分由 <code>master</code> &amp; <code>demo</code> 等等分支來做開發。<br>
 假設你的 feature 或 issue 分支都是從 <code>demo</code> 開出來的，做完後又直接 merge 回 <code>demo</code>，那就有極大的機會遇到上面的窘境。</p>
-<p><img src="https://i.imgur.com/E2Us5Ga.png" alt=""></p>
+<p><img src="https://i.imgur.com/E2Us5Ga.png"></p>
 <h3 id="轉換-base-branch">轉換 Base Branch</h3>
 <p>當然，你可以直接從 <code>master</code> 開 feature 分支來解決這個問題。<br>
 或在比較大型的專案，也可以多一個分支 <code>staging</code> 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。</p>
@@ -42,7 +250,7 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
 <blockquote>
 <p>不同的專案，可能還會有 <code>pre-prod</code> 等等更多的分支</p>
 </blockquote>
-<p><img src="https://i.imgur.com/RIblDmR.png" alt=""></p>
+<p><img src="https://i.imgur.com/RIblDmR.png"></p>
 <h3 id="開發流程">開發流程</h3>
 <p><strong>1. 當 issue 被 assign 過來</strong></p>
 <p>可以從 <code>staging</code> 開新的分支： <code>issue/#1</code>、<code>issue/#2</code>，開發完成 merge 進 <code>demo</code> 請 PM 測試。</p>
@@ -54,9 +262,9 @@ Branch 通常可以由以下幾個主要的 branch 來做版本控管。
 <p><strong>3. release 新的版號</strong></p>
 <p>如果測試都沒有問題，那就接著 release 新的版號吧！</p>
 <p>這時候會產生一個 tag 可以用來當作版控。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout -b release/版號
-yarn release
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git checkout -b release/版號
+</span></span><span style="display:flex;"><span>yarn release
+</span></span></code></pre></div><blockquote>
 <p>記得也要把 tag 推上遠端喔</p>
 </blockquote>
 <p><strong>4. 發 MR 給 <code>master</code></strong></p>
@@ -77,12 +285,13 @@ yarn release
             <pubDate>Thu, 07 Apr 2022 09:19:33 +0800</pubDate>
             
             <guid>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</guid>
-            <description>Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
- 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+            <description>Core Web Vitals 網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
 用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
 網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
-    良好 需要改善 低落     LCP ≤2500ms &amp;gt;4000ms 75   FID ≤100ms &amp;gt;300ms 75   CLS ≤0.1 &amp;gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
-LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.</description>
+良好 需要改善 低落 LCP ≤2500ms &amp;gt;4000ms 75 FID ≤100ms &amp;gt;300ms 75 CLS ≤0.1 &amp;gt;0.25 75 每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.5 秒內完成 LCP。
+LCP 會偵測那些項目？ &amp;lt;img&amp;gt; elements 包在 &amp;lt;svg&amp;gt; element 裡面的 &amp;lt;image&amp;gt; elements &amp;lt;video&amp;gt; elements 透過 url() 的 CSS 功能 載入 background-image 的 element 包含 text node 或是 inline-level text elements children 的 block-level element LCP 該如何進行優化？ 通常 LCP 可以針對以下 4 大點來進行優化</description>
             <content type="html"><![CDATA[<h1 id="core-web-vitals">Core Web Vitals</h1>
 <blockquote>
 <p>網站體驗核心指標： LCP、FID、CLS，優化使用者體驗</p>
@@ -92,7 +301,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 <p>用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。</p>
 <h3 id="網站體驗核心指標core-web-vitals">網站體驗核心指標（Core Web Vitals）</h3>
 <p>2020 年 5 月 28 日， Google 在<a href="https://developers.google.com/search/blog/2020/05/evaluating-page-experience">官方部落格</a>中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。</p>
-<p><img src="https://i.imgur.com/bv8yWq6.png" alt=""></p>
+<p><img src="https://i.imgur.com/bv8yWq6.png"></p>
 <table>
 <thead>
 <tr>
@@ -169,7 +378,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 </ul>
 <h3 id="lcp-如何檢測">LCP 如何檢測</h3>
 <p>可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 檢查整體網站的 LCP 分數。如：</p>
-<p><img src="https://i.imgur.com/h6LUxdU.png" alt=""></p>
+<p><img src="https://i.imgur.com/h6LUxdU.png"></p>
 <h3 id="fid--first-input-delay-首次輸入延遲封鎖時間總計-互動性指標">FID — First Input Delay 首次輸入延遲/封鎖時間總計 [互動性指標]</h3>
 <p><strong>當使用者第一次與頁面進行互動，行為完成到瀏覽器成功回應給使用者的時間</strong>，根據 Google 的研究，100 ms 為「良好」的最低標準：如果處理輸入的延遲超過 100 ms，那麼其他處理和渲染步驟就沒有機會及時完成。</p>
 <p>首次輸入 (First Input) 與頁面上的響應元件 (responsive elements) 息息相關。這些響應元件可能是連結、按鈕或是跳出式元素 (pop-ups)。</p>
@@ -181,7 +390,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 <li>打開下拉式選單畫面延遲</li>
 <li>無法勾選對話方塊</li>
 </ul>
-<p><img src="https://i.imgur.com/rSpjhsP.png" alt=""></p>
+<p><img src="https://i.imgur.com/rSpjhsP.png"></p>
 <h3 id="如何優化-fid">如何優化 FID</h3>
 <ul>
 <li><a href="https://web.dev/bootup-time/">減少 JavaScript 運作的時間</a></li>
@@ -213,9 +422,9 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 <p><a href="https://web.dev/i18n/zh/optimize-cls/">https://web.dev/i18n/zh/optimize-cls/</a></p>
 <h3 id="cls-檢測">CLS 檢測</h3>
 <p>同樣可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 或 Lighthouse</p>
-<p><img src="https://i.imgur.com/tNdOSd9.png" alt=""></p>
+<p><img src="https://i.imgur.com/tNdOSd9.png"></p>
 <p>或是 Chrome DevTools 的 Layout Shift 中查看：</p>
-<p><img src="https://i.imgur.com/Zc28C6l.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/Zc28C6l.jpg"></p>
 ]]></content>
         </item>
         
@@ -227,14 +436,14 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
             <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
             <description>今天想來聊聊 Vue Router。
 Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
- SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
-  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
- 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
+SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
+使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
+啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面 但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
 如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
 vue add router
 在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
 安裝好之後，來觀察看看專案下哪邊變得不同了。
- 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.</description>
+網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.js 使用的頁面元件。通常一個路由會對應到一個 views 裡面的 component）的資料夾。 如何設定路由？ 讓我們從 router 資料夾裡面的 index.</description>
             <content type="html"><![CDATA[<p>今天想來聊聊 Vue Router。</p>
 <p>Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。</p>
 <blockquote>
@@ -254,7 +463,7 @@ vue add router
 <p><code>vue add router</code></p>
 <p>在安裝的過程中，會出現是否選擇 History Mode 的選項。
 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 <strong>Hash Mode</strong>。</p>
-<p><img src="https://i.imgur.com/9lRzVkT.png" alt="圖片來自 ALPHA Camp"></p>
+<p><img alt="圖片來自 ALPHA Camp" src="https://i.imgur.com/9lRzVkT.png"></p>
 <p>安裝好之後，來觀察看看專案下哪邊變得不同了。</p>
 <ol>
 <li>網址多了 <code>#</code> 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。</li>
@@ -264,12 +473,12 @@ vue add router
 <h2 id="如何設定路由">如何設定路由？</h2>
 <p>讓我們從 router 資料夾裡面的 index.js 開始著手。</p>
 <p>將這個檔案打開後，可以看到有一個 routes 陣列。裡面可以設定路由，而設定的方法就是寫下 path(網址)、name(路由名稱)、component(對應到的元件名稱)。</p>
-<p><img src="https://i.imgur.com/Vyxg5of.png" alt=""></p>
+<p><img src="https://i.imgur.com/Vyxg5of.png"></p>
 <p>這裡你可能會發現到在程式碼中，透過 <code>import</code> 載入 <code>Home</code> 頁面和載入 <code>About</code> 頁面的方式不太一樣，<code>Home.vue</code> 的載入路徑寫在檔案的最上方，這代表 <code>Home.vue</code> 在每次載入路由時，都會一併載入。</p>
 <p>而 <code>About.vue</code> 的情況，是把 <code>import</code> 寫在 <code>component</code> 屬性內，在有人到達 <code>/about</code> 這組路由時，才會執行 <code>component</code> 裡的 function，動態載入需要的檔案。這樣的寫法可以減少不必要的流量：如果使用者沒有到達這裡、那就不用預先載入這頁的組件內容。</p>
 <p>在 <code>App.vue</code> 這個檔案中的 <code>&lt;router-veiw /&gt;</code> 也就是透過 view-router 渲染之元件所顯示的位置。</p>
 <p><code>router-link</code> 的用途則是與 <code>&lt;a herf=””&gt;</code> 標籤有點相似，但是是透過 View Router 去尋找對應連結。</p>
-<p><img src="https://i.imgur.com/ScUTUCD.png" alt=""></p>
+<p><img src="https://i.imgur.com/ScUTUCD.png"></p>
 <h2 id="補充hash-mode-和-history-mode">補充：Hash Mode 和 History Mode</h2>
 <h3 id="hash-mode">Hash Mode</h3>
 <p>使用 Hash Mode 時，當連結有變動，會觸發 <code>onhashchange</code> 事件，vue 就會渲染對應的 component。在此模式下，瀏覽器會向<strong>根目錄</strong>發出請求，再透過 <code>#</code> 分辨不同的路由，且<strong>不會重新載入</strong>。每當改變 <code>#</code> 後面的部分時，會在瀏覽器的訪問歷史中增加紀錄，如此一來我們就可以透過上一頁的按鈕，重返上一頁。</p>
@@ -290,13 +499,13 @@ vue add router
             <description>昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
 Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
 Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
- accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容  而 initialValue 則是代表第一次要傳入的初始值。
-實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&amp;gt; { return accumulator + currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18    No accumulator currentValue currentIndex return value     1 5 1 0 6   2 6 3 1 9   3 9 4 2 13   4 13 5 3 18    可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。</description>
+accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容 而 initialValue 則是代表第一次要傳入的初始值。
+實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&amp;gt; { return accumulator + currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18 No accumulator currentValue currentIndex return value 1 5 1 0 6 2 6 3 1 9 3 9 4 2 13 4 13 5 3 18 可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。</description>
             <content type="html"><![CDATA[<p>昨天在面試時突然被問到有沒有使用過 <code>reduce</code>，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。</p>
 <h2 id="arrayprototypereduce">Array.prototype.reduce()</h2>
 <p>根據 MDN 的說明，<code>reduce</code> 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。</p>
 <h3 id="syntax">Syntax</h3>
-<pre><code class="language-javascript=" data-lang="javascript=">array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue)
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue)
 </code></pre><p>其中有 4 個參數，分別代表不同的意思。</p>
 <ul>
 <li>accumulator：累加總計</li>
@@ -306,7 +515,7 @@ Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),ini
 </ul>
 <p>而 <code>initialValue</code> 則是代表第一次要傳入的<code>初始值</code>。</p>
 <h3 id="實例-1">實例 1</h3>
-<pre><code class="language-javascript=" data-lang="javascript=">const array = [1, 3, 4, 5]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const array = [1, 3, 4, 5]
 const arrayReduced = array.reduce((accumulator, currentValue) =&gt; {
   return accumulator + currentValue
 }, 5)   //初始值為 5
@@ -356,14 +565,14 @@ console.log(arrayReduced)  // 18
 <p>可以發現當我們的初始值是 5 的時候，<code>accumulator</code> 就是從 5 開始計算，後面接續 <code>currentValue</code> 的值累計。</p>
 <h3 id="實例-2">實例 2</h3>
 <p>reduce() 也可以用來合併陣列。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const array = [[1, 3, 4, 5], [6, 7, 8], [9, 10, 11]]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const array = [[1, 3, 4, 5], [6, 7, 8], [9, 10, 11]]
 const arrayReduced = array.reduce((accumulator, currentValue) =&gt; {
   return accumulator.concat(currentValue)
 }, [])
 
 console.log(arrayReduced) // [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 </code></pre><p>或者來計算相同字串的數量並以物件呈現。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const array = ['apple', 'orange', 'orange', 'apple', 'apple', 'banana']
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const array = [&#39;apple&#39;, &#39;orange&#39;, &#39;orange&#39;, &#39;apple&#39;, &#39;apple&#39;, &#39;banana&#39;]
 const arrayReduced = array.reduce((accumulator, currentValue) =&gt; {
   if (currentValue in accumulator) {
     accumulator[currentValue]++
@@ -392,11 +601,11 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
             <description>從 2020 年 9 月一直到現在，整整半年的時間，終於是寫畢業部落格的時機了。還記得剛開始接觸 JavaScript 時笨拙得連函式都搞不太清楚，物件跟陣列分不出個所以然的自己。一路走來真是有種浴火重生，現在才要開始的感慨。完全沒有後悔過這個選擇，因為不論上完課程後是否要轉職，過程中所得到的收穫是比這個結果還要更重要、更能影響我的。
 還記得一開始寫 AC 要求的技術文章時，覺得有點麻煩之外，又想說怎麼會有人來看呢，滿心都是一個想逃避的態度。後來寫著寫著不知為何就啟動某個開關，其實根本不需要真的有人來閱讀，只要我還有在讀自己的文章，這些被記錄下的事就是有價值的。現在很感謝 AC 的這種作業形式，讓我更能反覆的反省、思考不足之處。
 我想大略談談每個學期的感受，雖然之前已經有兩篇學期心得文，還是不厭煩的來總結一下。
- 2-1 剛開始接觸 JavaScript，即使稍微有點 HTML，CSS 的觀念，還是很難應付這個全新的東西。好像在新手村還沒辦法轉職的初心者，只能默默打怪，然後等待出頭天的時候來臨。
+2-1 剛開始接觸 JavaScript，即使稍微有點 HTML，CSS 的觀念，還是很難應付這個全新的東西。好像在新手村還沒辦法轉職的初心者，只能默默打怪，然後等待出頭天的時候來臨。
 2-2 終於可以轉職了，進入前端世界，學習新技能：DOM 與 Ajax。學了新技能後好像發現新世界，自己居然可以靠著簡單的語法完成一個簡單的社群名單還有翻牌遊戲，讓人大開眼界。
 2-3 由淺入深的後端世界。這時已經可以自己單打獨鬥，但還是會因為一時的疏忽而跑出墓碑。最讓人有成就感的就是終於可以把自己的作品跟別人分享了，部署技能 get。還學了一些護身法術，像是 git 之類的。
 3 巫師的磨練。這關是要與同伴並肩作戰打敗 Simple Twitter 魔王的。俗話說的好，三個臭皮匠，勝過一個諸葛亮。在組隊加持下，即使途中遭遇無數次困難，也都能扭轉乾坤，順利過關。
- 大概就是這樣的感覺了。學期三作為最後一個學期，其內容之縝密、任務之精實。任務結束後的各種反思主題讓人印象深刻，就是透過這樣不斷地內化，才能打造更堅強不可摧的心靈。做好一件事，不只是表面上看起來完成，裡面也要結實纍纍，這樣才禁得起未來的困難。這是對我來說感受最深的一課。
+大概就是這樣的感覺了。學期三作為最後一個學期，其內容之縝密、任務之精實。任務結束後的各種反思主題讓人印象深刻，就是透過這樣不斷地內化，才能打造更堅強不可摧的心靈。做好一件事，不只是表面上看起來完成，裡面也要結實纍纍，這樣才禁得起未來的困難。這是對我來說感受最深的一課。
 即使課程告一段落了，但人生的旅程才正要開始，繼續學習新技能，穩扎穩打，目標不是有一天能單挑大魔王，而是能與一群夥伴一起走過一個充實的人生。</description>
             <content type="html"><![CDATA[<p>從 2020 年 9 月一直到現在，整整半年的時間，終於是寫畢業部落格的時機了。還記得剛開始接觸 JavaScript 時笨拙得連函式都搞不太清楚，物件跟陣列分不出個所以然的自己。一路走來真是有種浴火重生，現在才要開始的感慨。完全沒有後悔過這個選擇，因為不論上完課程後是否要轉職，過程中所得到的收穫是比這個結果還要更重要、更能影響我的。</p>
 <p>還記得一開始寫 AC 要求的技術文章時，覺得有點麻煩之外，又想說怎麼會有人來看呢，滿心都是一個想逃避的態度。後來寫著寫著不知為何就啟動某個開關，其實根本不需要真的有人來閱讀，只要我還有在讀自己的文章，這些被記錄下的事就是有價值的。現在很感謝 AC 的這種作業形式，讓我更能反覆的反省、思考不足之處。</p>
@@ -426,13 +635,13 @@ console.log(arrayReduced) // {apple: 3, orange: 2, banana: 1}
 常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
 使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
 假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
-&amp;lt;button v-on:click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：
-&amp;lt;button @click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：
-methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
+&amp;lt;button v-on:click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：
+&amp;lt;button @click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：
+methods: { alertAfterClick () { window.alert(&amp;#39;點擊到按鈕了&amp;#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
 v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
 使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;
 直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
-&amp;lt;img v-bind:src=&amp;quot;user.avatar&amp;quot; v-bind:data-id=&amp;quot;user.id&amp;quot; &amp;gt; 或者使用簡寫：</description>
+&amp;lt;img v-bind:src=&amp;#34;user.avatar&amp;#34; v-bind:data-id=&amp;#34;user.id&amp;#34; &amp;gt; 或者使用簡寫：</description>
             <content type="html"><![CDATA[<p>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的<a href="https://chuni-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/">文章</a>喔。</p>
 <h2 id="常用指令">常用指令</h2>
 <h3 id="v-on-事件監聽">v-on 事件監聽</h3>
@@ -440,13 +649,13 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <p>使用方法為：<code>v-on:事件動作=&quot;事件動作執行後要用的 method&quot;</code>
 可以簡寫為：<code>@事件動作=&quot;事件動作執行後要用的 method&quot;</code></p>
 <p>假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：</p>
-<pre><code class="language-html=" data-lang="html=">&lt;button v-on:click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;button v-on:click=&#34;alertAfterClick&#34;&gt;點擊按鈕&lt;/button&gt;
 </code></pre><p>或者使用簡寫：</p>
-<pre><code class="language-html=" data-lang="html=">&lt;button @click=&quot;alertAfterClick&quot;&gt;點擊按鈕&lt;/button&gt;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;button @click=&#34;alertAfterClick&#34;&gt;點擊按鈕&lt;/button&gt;
 </code></pre><p>觸發事件後會執行的方法寫在 method 裡面：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">methods: {
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">methods: {
     alertAfterClick () {
-      window.alert('點擊到按鈕了')
+      window.alert(&#39;點擊到按鈕了&#39;)
     }
 }
 </code></pre><p>如此一來視窗就會順利出現相對應得 Alert 囉！</p>
@@ -455,14 +664,14 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <p>使用方法為：<code>v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;</code>
 可以簡寫為：<code>:屬性名稱或要被使用之資料現在使用時要用的名稱=&quot;屬性值(主要會用 true 和 false 操控)或資料名稱&quot;</code></p>
 <p>直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：</p>
-<pre><code class="language-html=" data-lang="html=">&lt;img
-  v-bind:src=&quot;user.avatar&quot;
-  v-bind:data-id=&quot;user.id&quot;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;img
+  v-bind:src=&#34;user.avatar&#34;
+  v-bind:data-id=&#34;user.id&#34;
 &gt;
 </code></pre><p>或者使用簡寫：</p>
-<pre><code class="language-html=" data-lang="html=">&lt;img
-  :src=&quot;user.avatar&quot;
-  :data-id=&quot;user.id&quot;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;img
+  :src=&#34;user.avatar&#34;
+  :data-id=&#34;user.id&#34;
 &gt;
 </code></pre><p>大功告成！</p>
 <h3 id="v-for-迴圈">v-for 迴圈</h3>
@@ -472,47 +681,47 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 <p>加上 key 的原因是因為 Vue 會用 key 值判斷資料有無被修改，有 key 值的時候，在渲染資料時，就可以避免因為資料所造成的渲染問題。</p>
 </blockquote>
 <p>看看範例怎麼寫：</p>
-<pre><code class="language-html=" data-lang="html=">&lt;UserList
-  v-for=&quot;user in users&quot;
-  :key=&quot;user.id&quot;
-  :user=&quot;user&quot;
-  @afterToggleFollow=&quot;afterToggleFollow&quot;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;UserList
+  v-for=&#34;user in users&#34;
+  :key=&#34;user.id&#34;
+  :user=&#34;user&#34;
+  @afterToggleFollow=&#34;afterToggleFollow&#34;
 /&gt;
 </code></pre><p>我們在 UserList 這個 component 傳入 user 的迴圈，同時綁定 key 值，這樣設定後，就會依照資料數量來渲染 user 的卡片數。</p>
 <h3 id="v-model-雙向綁定">v-model 雙向綁定</h3>
 <p>雙向綁定可以讓我們在操作資料時更方便與彈性，如果沒有將資料雙向綁定，就只能單方面地從後端資料庫更改內容，但要是做了雙向綁定，當使用者在輸入時也能一定更改資料內容喔！可以想成是你在更改帳號名稱的時候，我們就會做雙向綁定來取得你的新名稱。</p>
 <p>使用方法為：<code>v-model=&quot;要綁定的資料&quot;</code></p>
 <p>範例：</p>
-<pre><code class="language-html=" data-lang="html=">&lt;input v-model=&quot;search&quot;&gt;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;input v-model=&#34;search&#34;&gt;
 </code></pre><p>我們在 input 上做資料的雙向綁定是為了要取得使用者想查詢的內容是什麼，如此才能使用這個內容再撈資料回傳給使用者。</p>
 <h3 id="v-if-v-else-v-else-if-條件設定">v-if, v-else, v-else-if 條件設定</h3>
 <p>這個條件是判斷就跟 JavaScript 中的一樣，設定一個條件，來決定是否渲染這部分的 HTML。如果為 true，就會出現 HTML；如果為 false，就不渲染 HTML</p>
 <p>使用方法為：<code>v-if=&quot;條件內容&quot;，可以搭配 v-else 使用，若多條件則再加 v-else-if</code></p>
 <p>範例：</p>
-<pre><code class="language-html=" data-lang="html=">&lt;template v-if=&quot;mode === 'card'&quot;&gt;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;template v-if=&#34;mode === &#39;card&#39;&#34;&gt;
   &lt;UserCard
-    v-for=&quot;(user, index) in users&quot;
-    :key=&quot;user.id&quot;
-    :user=&quot;user&quot;
+    v-for=&#34;(user, index) in users&#34;
+    :key=&#34;user.id&#34;
+    :user=&#34;user&#34;
   /&gt;
 &lt;/template&gt;
 
 &lt;template v-else&gt;
   &lt;UserList
-    v-for=&quot;user in users&quot;
-    :key=&quot;user.id&quot;
-    :user=&quot;user&quot;
+    v-for=&#34;user in users&#34;
+    :key=&#34;user.id&#34;
+    :user=&#34;user&#34;
   /&gt;
  &lt;/template&gt;
 </code></pre><p>當現在的 mode 是卡片時則顯示 UserCard 的元件；否則顯示 UserList。</p>
 <h3 id="v-show">v-show</h3>
 <p>跟 v-if 很像，都可以用 true 和 false 來控制是否顯示指定部分的內容，不同的地方是，v-if 會決定是否渲染，而 v-show 不管是 true 還是 false 都會渲染出來，只是會用 CSS hidden 讓這部分被隱藏，所以從開發者工具查看的話，不管是 true 還是 false 的 HTML 都會被顯示在上面。</p>
 <p>使用方法為：<code>v-show=&quot;條件內容&quot;</code></p>
-<pre><code class="language-html=" data-lang="html=">&lt;template v-show=&quot;mode === 'card'&quot;&gt;
+<pre tabindex="0"><code class="language-html=" data-lang="html=">&lt;template v-show=&#34;mode === &#39;card&#39;&#34;&gt;
   &lt;UserCard
-    v-for=&quot;(user, index) in users&quot;
-    :key=&quot;user.id&quot;
-    :user=&quot;user&quot;
+    v-for=&#34;(user, index) in users&#34;
+    :key=&#34;user.id&#34;
+    :user=&#34;user&#34;
   /&gt;
 &lt;/template&gt;
 </code></pre><p>當 mode 是 card 時會被渲染在畫面上，但即使不等於時這一段 HTML 也會在開發者工具出現，只是會被設定 <code>display: none</code>。</p>
@@ -531,12 +740,13 @@ v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可�
 Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
 Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
 初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
- npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
+npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
 資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。
-src 資料夾 其中有四個部分，分別是</description>
+src 資料夾 其中有四個部分，分別是
+assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.</description>
             <content type="html"><![CDATA[<p>學了 Vue 也已經一段時間，實作了<a href="https://github.com/chuni-lin/forum-front-end-vue">餐廳論壇</a>與簡易的<a href="https://github.com/chuni-lin/user-list-vue">社交平台</a>後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：<strong>由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 <a href="https://vuejs.org/v2/guide/">Vue 官方文件</a>來服用，效果更佳。</strong></p>
 <h2 id="vue-是什麼">Vue 是什麼？</h2>
-<p><img src="https://i.imgur.com/RJAI2TQ.png" alt=""></p>
+<p><img src="https://i.imgur.com/RJAI2TQ.png"></p>
 <p>Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。</p>
 <p>Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。</p>
 <h2 id="初始設置">初始設置</h2>
@@ -555,7 +765,7 @@ src 資料夾 其中有四個部分，分別是</description>
 <ol>
 <li>assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 <code>icon</code>、圖檔、<code>css</code> 設定檔。</li>
 <li>components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。</li>
-<li>main.js：這是 JavaScript 的進入點。<code>vue</code> 是 Vue.js 本身，<code>App.vue</code> 是整個專案本身。最底下的 <code>$mount('#app')</code> ，這個動作會把所有和 Vue 有關的內容都放進 public/index.html 裡的 <code>&lt;div id=&quot;app&quot;&gt;</code>。<img src="https://i.imgur.com/E5nkH8n.png" alt=""></li>
+<li>main.js：這是 JavaScript 的進入點。<code>vue</code> 是 Vue.js 本身，<code>App.vue</code> 是整個專案本身。最底下的 <code>$mount('#app')</code> ，這個動作會把所有和 Vue 有關的內容都放進 public/index.html 裡的 <code>&lt;div id=&quot;app&quot;&gt;</code>。<img src="https://i.imgur.com/E5nkH8n.png"></li>
 <li>App.vue：這個檔案裡又分為三個大部分，分別是 template、script、style。
 &ndash; <code>&lt;template&gt;&lt;/template&gt;</code> 裡放 HTML 元素內容
 &ndash; <code>&lt;script&gt;&lt;/script&gt;</code> 內放 JavaScript 語法，大多是和 Vue 有關的資料處理
@@ -574,7 +784,7 @@ src 資料夾 其中有四個部分，分別是</description>
             
             <guid>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
             <description>使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
-實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
+實作 首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。 const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &amp;#39;cover&amp;#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &amp;#39;avatar&amp;#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
             <content type="html"><![CDATA[<h1 id="使用-filereader-實現圖片預覽">使用 FileReader 實現圖片預覽</h1>
 <p>如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。</p>
 <h2 id="實作">實作</h2>
@@ -583,22 +793,22 @@ src 資料夾 其中有四個部分，分別是</description>
 <li>然後設定在 onload 時要做什麼事</li>
 <li>最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。</li>
 </ol>
-<pre><code class="language-javascript=" data-lang="javascript=">  const reader = new FileReader()  //創建 FileReader 的對象實例
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">  const reader = new FileReader()  //創建 FileReader 的對象實例
     reader.onload = (event) =&gt; {   //設定 onload handler
-      if (input.id === 'cover') {
+      if (input.id === &#39;cover&#39;) {
         coverPreview.src = `${event.target.result}`
       }
-      if (input.id === 'avatar') {
+      if (input.id === &#39;avatar&#39;) {
         avatarPreview.src = `${event.target.result}`
       }
     }
     reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容
 </code></pre><h2 id="error">Error!</h2>
 <p>操作到這邊，功能皆正常，但檢查器卻出現一個 error 說 FileReader is not defined。
-<img src="https://i.imgur.com/Cyh2tVg.png" alt=""></p>
+<img src="https://i.imgur.com/Cyh2tVg.png"></p>
 <h2 id="解決方法">解決方法</h2>
 <p>試了很多方法後，發現在 stake overflow 上已經有人提出一樣的疑問。原來問題就出在我們沒指出要在哪裡使用 FileReader。error 會出現是因為 webpack 無法在 Node.js 中找到 FileReader，但我們是要在瀏覽器裡使用 FileReader 實現預覽功能，所以只要加上 window 就可以了：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const reader = new window.FileReader()  //我們是要在瀏覽器中使用 FileReader
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const reader = new window.FileReader()  //我們是要在瀏覽器中使用 FileReader
 </code></pre><p>🥳 恭喜完成預覽功能！</p>
 ]]></content>
         </item>
@@ -617,7 +827,7 @@ src 資料夾 其中有四個部分，分別是</description>
 使用者功能 主要實作諸如取得使用者頁面、使用者回覆紀錄、使用者按讚紀錄、使用者資訊修改等功能與頁面。其中遇到比較大的問題是，題目規定使用者的關注清單，排序依照追蹤紀錄成立的時間，愈新的在愈前面，一開始以 sequelize 的 order 來做，試了好幾次都無法成功，最後參考此篇文章中以 Array 的 sort() 方法成功解決。
 results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.createdAt) 團隊協作 三個人開發與一個人開發的過程截然不同。這也顯現了溝通的重要性。畢竟有些容易重疊的功能，或者是相互依賴的功能（沒有你就沒有我），這時候就會出現「如果隊友沒有完成某一功能，我這邊也無法測試」的狀況。又或者是發 PR 後出現 conflict，就要討論如何保留取捨。同時，我也深刻理解到 git commit message 的重要性，如何讓人看到 commit 就一目了然這是實作什麼功能在開發時間有限的專案中非常關鍵，畢竟一分一秒都彌足珍貴。幸好隊友都非常給力，組長也幾乎是有問必答，整體算是順利。
 收穫與學習 最大的收穫就是理解到自己不論是在技術層面或是溝通上都還有許多可以學習的地方。在開發過程中我們遇到許多自動化測試未過，但本地功能卻正常的問題，一直到尾聲我們才驚覺根本是自己沒看清楚自動化測試中定義好的規格，深刻體會到細節就藏在魔鬼中這句話的真理。同時，也在團隊協作中意識到如何更能引導隊友、更激勵團隊士氣的方法，我想在往後的職涯是非常有幫助的。寫 code 中最難能可貴的，與其說是專研與通透各項技術，我倒認為是一群志同道合、互助學習的好夥伴。</description>
-            <content type="html"><![CDATA[<p><img src="https://i.imgur.com/qceJAv4.jpg" alt=""></p>
+            <content type="html"><![CDATA[<p><img src="https://i.imgur.com/qceJAv4.jpg"></p>
 <p>兩個禮拜的開發過程一下就過了。期間經歷了團隊合作、自動化測試 Debug、尋找技術文件、協作開發遇到的各種 git 問題等，讓人成長許多。凡走過必留下痕跡，這篇文章便是希望能寫下一些開發時遇到的插曲，留給以後的自己回味外，或許在之後遇到問題後也能回首來尋找答案。</p>
 <h2 id="專案介紹">專案介紹</h2>
 <p>ALPHA Camp 的畢業專案是復刻一個 Twitter 功能的 Web Application。協作能以全端或前後端分離來進行，全端是在 Node.js 上以 JavaScript 為主要語言、Handlebars 為前端模板來進行，採用 MySQL 作為資料庫，使用 Sequelize 操作資料庫。專案完成後部署至 Heroku；前後端分離則是後端製作 API，前端以 Vue.js 做開發。我們這一組選擇全端開發。</p>
@@ -630,7 +840,7 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
 <p>專案有設定好必須要有的種子資料，像是用戶有分為一般使用者與管理者，在設計時為了簡化程式，使用了條件（三元）運算子來取代 if&hellip;else，除了更簡潔之外，也佔用較少的行數而讓閱讀更容易。</p>
 <h3 id="使用者功能">使用者功能</h3>
 <p>主要實作諸如取得使用者頁面、使用者回覆紀錄、使用者按讚紀錄、使用者資訊修改等功能與頁面。其中遇到比較大的問題是，題目規定使用者的關注清單，排序依照追蹤紀錄成立的時間，愈新的在愈前面，一開始以 sequelize 的 order 來做，試了好幾次都無法成功，最後參考<a href="https://realdennis.medium.com/javascript-%E5%BE%9Earray%E7%9A%84sort%E6%96%B9%E6%B3%95-%E8%81%8A%E5%88%B0%E5%90%84%E5%AE%B6%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E5%AF%A6%E4%BD%9C%E7%AE%97%E6%B3%95-c23a335b1b80">此篇文章</a>中以 Array 的 sort() 方法成功解決。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">results.Followers.sort((a, b) =&gt; b.Followship.createdAt - a.Followship.createdAt)
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">results.Followers.sort((a, b) =&gt; b.Followship.createdAt - a.Followship.createdAt)
 </code></pre><h3 id="團隊協作">團隊協作</h3>
 <p>三個人開發與一個人開發的過程截然不同。這也顯現了溝通的重要性。畢竟有些容易重疊的功能，或者是相互依賴的功能（沒有你就沒有我），這時候就會出現「如果隊友沒有完成某一功能，我這邊也無法測試」的狀況。又或者是發 PR 後出現 conflict，就要討論如何保留取捨。同時，我也深刻理解到 <a href="https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html">git commit message</a> 的重要性，如何讓人看到 commit 就一目了然這是實作什麼功能在開發時間有限的專案中非常關鍵，畢竟一分一秒都彌足珍貴。幸好隊友都非常給力，組長也幾乎是有問必答，整體算是順利。</p>
 <h2 id="收穫與學習">收穫與學習</h2>
@@ -646,12 +856,12 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
             <guid>https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</guid>
             <description>全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
 以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
- GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
+GitHub Heroku 為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
 商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
 技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
-使用了什麼技術？ 前端技術  BootStrap &amp;amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</description>
+使用了什麼技術？ 前端技術 BootStrap &amp;amp; RWD Font Awesome 後端技術 網路伺服器 Node.js： JavaScript 執行環境 Express：伺服器框架 npm packages bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制 資料庫 MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作 部署 Heroku 協作技術 Git 版控 GitHub 哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</description>
             <content type="html"><![CDATA[<h1 id="全端產品專案介紹記帳本">全端產品專案介紹——記帳本</h1>
-<p><img src="https://i.imgur.com/T44x5kK.png" alt=""></p>
+<p><img src="https://i.imgur.com/T44x5kK.png"></p>
 <p>這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。</p>
 <p>以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：</p>
 <ul>
@@ -744,7 +954,7 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
 當我在思考如何將 select 選單設計成能保存使用者前一次選項時，第一次嘗試了這種思考流程。我先是使用了 Handlebars 的 Built-in Helpers 中的 #if 來試試看，結果發現不可行，於是我跳回到問題發生之前，我想解決的是如何保存選項，而保存選項同義於兩次之間的選項相等，所以我用 handlebars if equal 搜尋，在第一個 stackoverflow 的論壇就找到了答案，但為求更精密的解釋，持續查詢後找到一份有 188 種 handlebars-helpers 的資料，非常有幫助。
 當問題確立了之後，尋找到的參考答案也會比較容易理解。
 閱讀文件 找到了看起來可能的解答後，接著就要有效率地從一大片草地中找出埋藏寶藏的位置，而且這不是一片普通的草地，而是外國的草地。一開始覺得閱讀英文文件有些困難，但隨著掌握一些訣竅之後，其實都會如同倒吃甘蔗，越來越順。這邊就以上述 188 種 handlebars-helpers 的資料為例，來闡述我的閱讀過程。
- 馬上看 usage，該份文件的使用方式寫得非常清楚，也告訴你要使用時只需要載入一個主 category，其中就包含多個 helpers。 找到 equal 的同義字，也就是 comparison，看看其中有哪些是符合使用需求的。 選擇了 #is，點進去看它的 code。 藉由 code 來進一步了解用法。  上面的過程其實並沒有需要閱讀到許多文字，只有一開始在找可能解決法的發光點時讀了使用方式，之後大部分都是零星的單字，或者是看 code 來理解。這就跟觀摩同學的作業一樣，你可以選擇先模仿，懂了其中的要領後，再深入發展自己的解釋。
+馬上看 usage，該份文件的使用方式寫得非常清楚，也告訴你要使用時只需要載入一個主 category，其中就包含多個 helpers。 找到 equal 的同義字，也就是 comparison，看看其中有哪些是符合使用需求的。 選擇了 #is，點進去看它的 code。 藉由 code 來進一步了解用法。 上面的過程其實並沒有需要閱讀到許多文字，只有一開始在找可能解決法的發光點時讀了使用方式，之後大部分都是零星的單字，或者是看 code 來理解。這就跟觀摩同學的作業一樣，你可以選擇先模仿，懂了其中的要領後，再深入發展自己的解釋。
 觀摩他人的 code 很多時候，我需要觀摩同學的作業才能找到自己的癥結點。或者，在 CodePen 上尋找好看的 UI 時，也總是觀摩網路上他人的 code。觀摩和抄襲雖然只有一線之隔，但是學習勢必得從模仿開始。重要的是，觀看他人的 code 時，理解對方為何在此處這樣寫，如此一來便能刺激自己去思考，進而激盪出更好的想法。條條大路通羅馬，每個人寫的 code 都不同，但結果可以完全相同，這也是程式語言有趣之處，它告訴我們，其實一開始這就只是一個工具，像學習開車一樣，有的人撞爛一臺車才學會；有的人一插進鑰匙就會駕駛，但結果是每個人學會了開車之後，就都能使用這個工具，而過程就成為自己的回憶。
 關於課程 後端開發 後端開發使用的語言雖然還是 JavaScript，但隨著執行環境從瀏覽器到伺服器，使用的方式也有所不同，像是 DOM 之類的操作就行不通。接觸 Node.</description>
             <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -783,48 +993,48 @@ results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.cr
             <guid>https://jyunyi-lin.github.io/posts/2020/12/javascript-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E9%A1%9B%E5%80%92%E5%AD%97%E4%B8%B2-splitreversejoin/</guid>
             <description>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &amp;ldquo;Apple&amp;rdquo; 時，電腦要回應我 &amp;ldquo;elppA&amp;rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：
 1. 使用 split()、reverse()、join() 首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！
-String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &#39;&#39; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39;&#39;) console.log(splitted) // [ &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;, &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;, &#39;s&#39; ] 那如果在引號中加入空格呢？
-const splitted = &amp;quot;Apple is very delicious&amp;quot;.split(&#39; &#39;) console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。</description>
+String.prototype.split() split() 可以將字串轉為陣列，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &amp;rsquo;&amp;rsquo; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的陣列回傳。
+const splitted = &amp;#34;Apple is very delicious&amp;#34;.split(&amp;#39;&amp;#39;) console.log(splitted) // [ &amp;#39;A&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39; &amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;s&amp;#39;, &amp;#39; &amp;#39;, &amp;#39;v&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;y&amp;#39;, &amp;#39; &amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;s&amp;#39; ] 那如果在引號中加入空格呢？
+const splitted = &amp;#34;Apple is very delicious&amp;#34;.split(&amp;#39; &amp;#39;) console.log(splitted) // [ &amp;#39;Apple&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;very&amp;#39;, &amp;#39;delicious&amp;#39; ] 神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字陣列。</description>
             <content type="html"><![CDATA[<p>一開始學習 JavaScript 的語法時，總會不知道要在什麼情況下使用。在課程中雖然都懂得如何運用，但如果沒有真正融會貫通，下次碰到題目時也不知道原來有這些方法可以用。這次藉由「顛倒字串」這個題目，也就是當我輸入 &ldquo;Apple&rdquo; 時，電腦要回應我 &ldquo;elppA&rdquo; ，來加強之前學到的陣列及字串處理語法。這邊介紹可以達成這道題目的兩種方法：</p>
 <h2 id="1-使用-splitreversejoin">1. 使用 split()、reverse()、join()</h2>
 <p>首先，先來認識這些語法的使用方式。每一個語法名稱的第一個單字代表他是處理什麼的意思。String 就是處理字串的語法；而 Array 就是處理陣列的語法。使用上要注意不要將用在陣列的語法放到字串上囉！</p>
 <h3 id="stringprototypesplit">String.prototype.split()</h3>
-<p>split() 可以<strong>將字串轉為陣列</strong>，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 '' 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的<strong>陣列</strong>回傳。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split('')
+<p>split() 可以<strong>將字串轉為陣列</strong>，在 () 中以一個指定的分割方式來決定分割的位置。例如，在括號的引號 &rsquo;&rsquo; 中沒有輸入任何字符（包括空格），就會以「每一個字串每一個字串」的<strong>陣列</strong>回傳。</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple is very delicious&#34;.split(&#39;&#39;)
 console.log(splitted)
 // [
-  'A', 'p', 'p', 'l', 'e',
-  ' ', 'i', 's', ' ', 'v',
-  'e', 'r', 'y', ' ', 'd',
-  'e', 'l', 'i', 'c', 'i',
-  'o', 'u', 's'
+  &#39;A&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;,
+  &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39; &#39;, &#39;v&#39;,
+  &#39;e&#39;, &#39;r&#39;, &#39;y&#39;, &#39; &#39;, &#39;d&#39;,
+  &#39;e&#39;, &#39;l&#39;, &#39;i&#39;, &#39;c&#39;, &#39;i&#39;,
+  &#39;o&#39;, &#39;u&#39;, &#39;s&#39;
 ]
 </code></pre><p>那如果在引號中加入空格呢？</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split(' ')
-console.log(splitted) // [ 'Apple', 'is', 'very', 'delicious' ]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;)
+console.log(splitted) // [ &#39;Apple&#39;, &#39;is&#39;, &#39;very&#39;, &#39;delicious&#39; ]
 </code></pre><p>神奇的事發生了！JavaScript 引擎會幫我們用空格來當分割點，回傳給我們一個一個的單字<strong>陣列</strong>。</p>
 <h3 id="arrayprototypereverse">Array.prototype.reverse()</h3>
 <p>顧名思義就是將<strong>陣列反轉，最後一個元素變成第一個</strong>。讓我們用剛剛的例子來看看：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple is very delicious&quot;.split(' ').reverse()
-console.log(splitted) // [ 'delicious', 'very', 'is', 'Apple' ]
-</code></pre><p>如果只有一個單字的時候，記得在 split('') 的引號中不要放入空格喔，這樣才能將每一個字母倒轉。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple&quot;.split('').reverse()
-console.log(splitted) // [ 'e', 'l', 'p', 'p', 'A' ]
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple is very delicious&#34;.split(&#39; &#39;).reverse()
+console.log(splitted) // [ &#39;delicious&#39;, &#39;very&#39;, &#39;is&#39;, &#39;Apple&#39; ]
+</code></pre><p>如果只有一個單字的時候，記得在 split(&rsquo;&rsquo;) 的引號中不要放入空格喔，這樣才能將每一個字母倒轉。</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple&#34;.split(&#39;&#39;).reverse()
+console.log(splitted) // [ &#39;e&#39;, &#39;l&#39;, &#39;p&#39;, &#39;p&#39;, &#39;A&#39; ]
 </code></pre><p>是不是越來越接近我們要的感覺了？</p>
 <h3 id="arrayprototypejoin">Array.prototype.join()</h3>
 <p>與 split() 相反，join() 能將<strong>陣列轉成字串</strong>。而括號內的規則也是相同的。來看看例子吧：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">const splitted = &quot;Apple&quot;.split('').reverse().join('')
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const splitted = &#34;Apple&#34;.split(&#39;&#39;).reverse().join(&#39;&#39;)
 console.log(splitted) // elppA
 </code></pre><p>我們成功完成題目了，把它寫成一個可以一直使用的函式吧。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
-    return str.split('').reverse().join('')
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
+    return str.split(&#39;&#39;).reverse().join(&#39;&#39;)
 }
 </code></pre><p>句子也可以使用喔，自己試試看吧！</p>
 <h2 id="2-使用-for-迴圈">2. 使用 for 迴圈</h2>
 <p>第二種方式就簡單多了，用 for 迴圈讓它倒著跑回去就可以。</p>
-<pre><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
-  let reversed = ''
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">function reverseString(str) {
+  let reversed = &#39;&#39;
   for (let i = str.length -1; i &gt;= 0; i--){
     reversed += str[i]
   }
@@ -872,12 +1082,13 @@ DECISIONAL 培養書寫技術文章的能力是我現在想開始進行的。觀
             <guid>https://jyunyi-lin.github.io/posts/2020/11/what-is-event-loop/</guid>
             <description>究竟什麼是 event loop？ Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。
 名詞解釋 單執行緒（Single-Threaded） JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。
-堆疊區（Stack） JavaScript 引擎會將執行的程式放到堆疊區（Stack）中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 引擎將任務先放到堆疊區（Stack）中，然後一行一行地執行。而碰到 return 時，就直接脫離堆疊。  圖片來源
- 事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。  圖片來源
- 所以，到底什麼是 event loop？ JavaScript 在執行程式的順序是這樣的：
- 將函式放到堆疊區（Stack）中 如果有非同步的處理程式，例如上述的 setTimeout、event 監聽器、Ajax，會先被放到事件佇列(Callback Queue) 在堆疊區（Stack）中的一般函式被執行 等到堆疊區（Stack）中執行完畢後，再將事件佇列(Callback Queue)中等待執行的任務丟到堆疊區（Stack）中 執行完堆疊區（Stack）中的任務後，再回到事件佇列(Callback Queue)查看是否還有任務要做  這個過程就是 event loop！ 第 4 步驟是我們下一步解題的關鍵，多閱讀幾次，放到你心中。
+堆疊區（Stack） JavaScript 引擎會將執行的程式放到堆疊區（Stack）中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 引擎將任務先放到堆疊區（Stack）中，然後一行一行地執行。而碰到 return 時，就直接脫離堆疊。 圖片來源
+事件佇列（Task Queue, Callback Queue） 有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。 圖片來源
+所以，到底什麼是 event loop？ JavaScript 在執行程式的順序是這樣的：
+將函式放到堆疊區（Stack）中 如果有非同步的處理程式，例如上述的 setTimeout、event 監聽器、Ajax，會先被放到事件佇列(Callback Queue) 在堆疊區（Stack）中的一般函式被執行 等到堆疊區（Stack）中執行完畢後，再將事件佇列(Callback Queue)中等待執行的任務丟到堆疊區（Stack）中 執行完堆疊區（Stack）中的任務後，再回到事件佇列(Callback Queue)查看是否還有任務要做 這個過程就是 event loop！ 第 4 步驟是我們下一步解題的關鍵，多閱讀幾次，放到你心中。
 拆解 setTimeout 函式的謎題 用範例會更好理解，首先我們輸入：
-setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console.</description>
+setTimeout(function() {console.log(&amp;#39;delay 0 sec&amp;#39;)}, 0) console.log(&amp;#39;Hello!&amp;#39;) 得到這樣的結果：
+Hello! delay 0 sec 可以發現 Hello!</description>
             <content type="html"><![CDATA[<h1 id="究竟什麼是-event-loop">究竟什麼是 event loop？</h1>
 <p>Event loop 就字面上的意思來解釋就是「事件圈」。用我的理解來說就是事件的發生順序。但在 JavaScript 中，事件的發生順序卻與我們所以為的有那麼一點不同。而這也就是這篇筆記的主旨，讓我們來好好來了解究竟 event loop 是如何發生在 JavaScript 執行程序中的。進入正題之前，先來認識幾個有點陌生的單字。</p>
 <h2 id="名詞解釋">名詞解釋</h2>
@@ -885,13 +1096,13 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console.</descrip
 <p>JavaScript 是單執行緒的程式語言，白話來說就是由上而下一行一行地執行、一次只做一件事。</p>
 <h3 id="堆疊區stack">堆疊區（Stack）</h3>
 <p>JavaScript 引擎會將執行的程式放到堆疊區（Stack）中，代表他目前正處理到哪個段落。如下圖所示，JavaScript 引擎將任務先放到堆疊區（Stack）中，然後一行一行地執行。而碰到 return 時，就直接脫離堆疊。
-<img src="https://i.imgur.com/Jx00yaG.png" alt=""></p>
+<img src="https://i.imgur.com/Jx00yaG.png"></p>
 <blockquote>
-<p><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&amp;feature=emb_title">圖片來源</a></p>
+<p><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&feature=emb_title">圖片來源</a></p>
 </blockquote>
 <h3 id="事件佇列task-queue-callback-queue">事件佇列（Task Queue, Callback Queue）</h3>
 <p>有一些無法預期什麼時候會被執行的操作，像是 setTimeout、event 監聽器、Ajax，在 JavaScript 中都會以非同步的方式被處理。也就是先被放到事件佇列，等到同步執行的程式碼執行完，再回過頭來處理那些被放到佇列中的任務。
-<img src="https://miro.medium.com/max/1400/1*iHhUyO4DliDwa6x_cO5E3A.gif" alt=""></p>
+<img src="https://miro.medium.com/max/1400/1*iHhUyO4DliDwa6x_cO5E3A.gif"></p>
 <blockquote>
 <p><a href="https://medium.com/@Rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd">圖片來源</a></p>
 </blockquote>
@@ -908,10 +1119,10 @@ setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0) console.</descrip
 <strong>第 4 步驟是我們下一步解題的關鍵，多閱讀幾次，放到你心中。</strong></p>
 <h2 id="拆解-settimeout-函式的謎題">拆解 setTimeout 函式的謎題</h2>
 <p>用範例會更好理解，首先我們輸入：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">setTimeout(function() {console.log('delay 0 sec')}, 0)
-console.log('Hello!')
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">setTimeout(function() {console.log(&#39;delay 0 sec&#39;)}, 0)
+console.log(&#39;Hello!&#39;)
 </code></pre><p>得到這樣的結果：</p>
-<pre><code class="language-javascript=" data-lang="javascript=">Hello!
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">Hello!
 delay 0 sec
 </code></pre><p>可以發現 Hello! 比起設置了 0 秒的 setTimeout 函式更早出現，為什麼呢？讓我們套用上述的流程，就可以一覽無遺。</p>
 <ol>
@@ -926,7 +1137,7 @@ delay 0 sec
 <p><strong>由上面的過程，我們可以推論「setTimeout 設定的等待時間，其實並不能保證它會在設定的時間一到就被執行，JavaScript 引擎要先確定堆疊區（Stack）中的任務都執行完後，才會再回過頭來處理事件佇列(Callback Queue)中的任務。假設我們設定時間為 0sec，只能說它會在大於等於 0sec 後才會執行。」</strong></p>
 <h2 id="參考資料">參考資料</h2>
 <blockquote>
-<p><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&amp;feature=emb_title">What the heck is the event loop anyway? | Philip Roberts | JSConf EU</a> &gt; <a href="https://pjchender.blogspot.com/2017/08/javascript-learn-event-loop-stack-queue.html">[筆記] 理解 JavaScript 中的事件循環、堆疊、佇列和併發模式（Learn event loop, stack, queue, and concurrency mode of JavaScript in depth）</a> &gt; <a href="https://medium.com/@Rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd">Understanding Event Loop, Call Stack, Event &amp; Job Queue in Javascript</a> &gt; <a href="https://medium.com/@jonathan_wong/what-are-javascript-event-loops-30c72a6ab674">What are Event Loops and What Does It Have to Do with JavaScript?</a> &gt; <a href="https://ithelp.ithome.com.tw/articles/10200054">單執行緒&amp;非同步發生的血案</a></p>
+<p><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&feature=emb_title">What the heck is the event loop anyway? | Philip Roberts | JSConf EU</a> &gt; <a href="https://pjchender.blogspot.com/2017/08/javascript-learn-event-loop-stack-queue.html">[筆記] 理解 JavaScript 中的事件循環、堆疊、佇列和併發模式（Learn event loop, stack, queue, and concurrency mode of JavaScript in depth）</a> &gt; <a href="https://medium.com/@Rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd">Understanding Event Loop, Call Stack, Event &amp; Job Queue in Javascript</a> &gt; <a href="https://medium.com/@jonathan_wong/what-are-javascript-event-loops-30c72a6ab674">What are Event Loops and What Does It Have to Do with JavaScript?</a> &gt; <a href="https://ithelp.ithome.com.tw/articles/10200054">單執行緒&amp;非同步發生的血案</a></p>
 </blockquote>
 ]]></content>
         </item>

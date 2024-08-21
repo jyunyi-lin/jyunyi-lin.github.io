@@ -4,39 +4,24 @@
     <title>專案介紹 on 生活、學習紀錄</title>
     <link>https://jyunyi-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/</link>
     <description>Recent content in 專案介紹 on 生活、學習紀錄</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 18 Mar 2021 22:36:28 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 18 Mar 2021 22:36:28 +0800</lastBuildDate>
+    <atom:link href="https://jyunyi-lin.github.io/tags/%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple Twitter self-reflection</title>
       <link>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</link>
       <pubDate>Thu, 18 Mar 2021 22:36:28 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</guid>
-      <description>兩個禮拜的開發過程一下就過了。期間經歷了團隊合作、自動化測試 Debug、尋找技術文件、協作開發遇到的各種 git 問題等，讓人成長許多。凡走過必留下痕跡，這篇文章便是希望能寫下一些開發時遇到的插曲，留給以後的自己回味外，或許在之後遇到問題後也能回首來尋找答案。
-專案介紹 ALPHA Camp 的畢業專案是復刻一個 Twitter 功能的 Web Application。協作能以全端或前後端分離來進行，全端是在 Node.js 上以 JavaScript 為主要語言、Handlebars 為前端模板來進行，採用 MySQL 作為資料庫，使用 Sequelize 操作資料庫。專案完成後部署至 Heroku；前後端分離則是後端製作 API，前端以 Vue.js 做開發。我們這一組選擇全端開發。
-開發流程 專案開始後，組長先在 trello 上建立功能看板，組員則自己選擇樣板來開發。不過，主要的模板，例如資料庫、model 建立、登入登出等專案基礎架構由組長先完成。
-負責項目 我主要負責種子資料的設計、使用者相關功能如更改個人資訊、個人 Twitter 的頁面等的路由及前端頁面。
-開發紀錄 種子資料 專案有設定好必須要有的種子資料，像是用戶有分為一般使用者與管理者，在設計時為了簡化程式，使用了條件（三元）運算子來取代 if&amp;hellip;else，除了更簡潔之外，也佔用較少的行數而讓閱讀更容易。
-使用者功能 主要實作諸如取得使用者頁面、使用者回覆紀錄、使用者按讚紀錄、使用者資訊修改等功能與頁面。其中遇到比較大的問題是，題目規定使用者的關注清單，排序依照追蹤紀錄成立的時間，愈新的在愈前面，一開始以 sequelize 的 order 來做，試了好幾次都無法成功，最後參考此篇文章中以 Array 的 sort() 方法成功解決。
-results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.createdAt) 團隊協作 三個人開發與一個人開發的過程截然不同。這也顯現了溝通的重要性。畢竟有些容易重疊的功能，或者是相互依賴的功能（沒有你就沒有我），這時候就會出現「如果隊友沒有完成某一功能，我這邊也無法測試」的狀況。又或者是發 PR 後出現 conflict，就要討論如何保留取捨。同時，我也深刻理解到 git commit message 的重要性，如何讓人看到 commit 就一目了然這是實作什麼功能在開發時間有限的專案中非常關鍵，畢竟一分一秒都彌足珍貴。幸好隊友都非常給力，組長也幾乎是有問必答，整體算是順利。
-收穫與學習 最大的收穫就是理解到自己不論是在技術層面或是溝通上都還有許多可以學習的地方。在開發過程中我們遇到許多自動化測試未過，但本地功能卻正常的問題，一直到尾聲我們才驚覺根本是自己沒看清楚自動化測試中定義好的規格，深刻體會到細節就藏在魔鬼中這句話的真理。同時，也在團隊協作中意識到如何更能引導隊友、更激勵團隊士氣的方法，我想在往後的職涯是非常有幫助的。寫 code 中最難能可貴的，與其說是專研與通透各項技術，我倒認為是一群志同道合、互助學習的好夥伴。</description>
+      <description>兩個禮拜的開發過程一下就過了。期間經歷了團隊合作、自動化測試 Debug、尋找技術文件、協作開發遇到的各種 git 問題等，讓人成長許多。凡走過必留下痕跡，這篇文章便是希望能寫下一些開發時遇到的插曲，留給以後的自己回味外，或許在之後遇到問題後也能回首來尋找答案。&#xA;專案介紹 ALPHA Camp 的畢業專案是復刻一個 Twitter 功能的 Web Application。協作能以全端或前後端分離來進行，全端是在 Node.js 上以 JavaScript 為主要語言、Handlebars 為前端模板來進行，採用 MySQL 作為資料庫，使用 Sequelize 操作資料庫。專案完成後部署至 Heroku；前後端分離則是後端製作 API，前端以 Vue.js 做開發。我們這一組選擇全端開發。&#xA;開發流程 專案開始後，組長先在 trello 上建立功能看板，組員則自己選擇樣板來開發。不過，主要的模板，例如資料庫、model 建立、登入登出等專案基礎架構由組長先完成。&#xA;負責項目 我主要負責種子資料的設計、使用者相關功能如更改個人資訊、個人 Twitter 的頁面等的路由及前端頁面。&#xA;開發紀錄 種子資料 專案有設定好必須要有的種子資料，像是用戶有分為一般使用者與管理者，在設計時為了簡化程式，使用了條件（三元）運算子來取代 if&amp;hellip;else，除了更簡潔之外，也佔用較少的行數而讓閱讀更容易。&#xA;使用者功能 主要實作諸如取得使用者頁面、使用者回覆紀錄、使用者按讚紀錄、使用者資訊修改等功能與頁面。其中遇到比較大的問題是，題目規定使用者的關注清單，排序依照追蹤紀錄成立的時間，愈新的在愈前面，一開始以 sequelize 的 order 來做，試了好幾次都無法成功，最後參考此篇文章中以 Array 的 sort() 方法成功解決。&#xA;results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.createdAt) 團隊協作 三個人開發與一個人開發的過程截然不同。這也顯現了溝通的重要性。畢竟有些容易重疊的功能，或者是相互依賴的功能（沒有你就沒有我），這時候就會出現「如果隊友沒有完成某一功能，我這邊也無法測試」的狀況。又或者是發 PR 後出現 conflict，就要討論如何保留取捨。同時，我也深刻理解到 git commit message 的重要性，如何讓人看到 commit 就一目了然這是實作什麼功能在開發時間有限的專案中非常關鍵，畢竟一分一秒都彌足珍貴。幸好隊友都非常給力，組長也幾乎是有問必答，整體算是順利。&#xA;收穫與學習 最大的收穫就是理解到自己不論是在技術層面或是溝通上都還有許多可以學習的地方。在開發過程中我們遇到許多自動化測試未過，但本地功能卻正常的問題，一直到尾聲我們才驚覺根本是自己沒看清楚自動化測試中定義好的規格，深刻體會到細節就藏在魔鬼中這句話的真理。同時，也在團隊協作中意識到如何更能引導隊友、更激勵團隊士氣的方法，我想在往後的職涯是非常有幫助的。寫 code 中最難能可貴的，與其說是專研與通透各項技術，我倒認為是一群志同道合、互助學習的好夥伴。</description>
     </item>
-    
     <item>
       <title>全端產品專案介紹——記帳本</title>
       <link>https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</link>
       <pubDate>Wed, 20 Jan 2021 10:00:33 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</guid>
-      <description>全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
-以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
- GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
-商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
-技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
-使用了什麼技術？ 前端技術  BootStrap &amp;amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</description>
+      <description>全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。&#xA;以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：&#xA;GitHub Heroku 為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。&#xA;商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。&#xA;技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。&#xA;使用了什麼技術？ 前端技術 BootStrap &amp;amp; RWD Font Awesome 後端技術 網路伺服器 Node.js： JavaScript 執行環境 Express：伺服器框架 npm packages bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制 資料庫 MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作 部署 Heroku 協作技術 Git 版控 GitHub 哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</description>
     </item>
-    
   </channel>
 </rss>

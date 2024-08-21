@@ -4,161 +4,80 @@
     <title>生活、學習紀錄</title>
     <link>https://jyunyi-lin.github.io/</link>
     <description>Recent content on 生活、學習紀錄</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 16 Apr 2022 10:57:55 +0800</lastBuildDate><atom:link href="https://jyunyi-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 19 Aug 2024 22:33:33 +0800</lastBuildDate>
+    <atom:link href="https://jyunyi-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goog</title>
+      <link>https://jyunyi-lin.github.io/posts/2024/08/goog/</link>
+      <pubDate>Mon, 19 Aug 2024 22:33:33 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/posts/2024/08/goog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>初探 Google Maps API</title>
+      <link>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</link>
+      <pubDate>Sat, 06 Jan 2024 17:44:01 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/posts/2024/01/%E5%88%9D%E6%8E%A2-google-maps-api/</guid>
+      <description>當專案需要用到地圖時，應該首選都是 Google Map 提供的 API 服務。本文會先從 API 的介紹開始，慢慢進入如何應用到專案，接著詳細介紹在專案中使用到的 API，最後以一個概論作結。&#xA;Google Maps JavaScript API V3 介紹 因應不同的需求，主要可以分成七大類 API：&#xA;API 說明 範例 ❶Maps 顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。 ❷Drawing on the map 想在地圖上顯示出指定地點的 Marker 或甚至點擊 Marker 後要跳出一個 Info Window 嗎？內容都在這裡。 ❸Street View 街景服務 略 ❹Places 取得地點詳細資訊、經緯度變換地點都得用這組 API，也是本次會重點介紹的項目！ 詳見文章以下介紹 ❺Routes 導航路線相關。 略 ❻Local Context (beta) Local Context 將地圖、路徑規劃、地點 (Maps, Routes, Places) 功能，透過一支 API 全部整合，一次提供 3 種功能，似乎很讚，但還在 beta 中。 略 ❼Journey Sharing (beta) 顧名思義就是呼喚出那張地圖時所要使用的。自訂地圖樣式等。 略 在之前接觸的專案中，主要使用的主要是 ❶、❷，也就是使用 Google 地圖，並把相關店家的資訊（例如車咕嚕中洗車場地點）放置 Marker 在地圖上，點擊後會跳出店家詳細資訊及預約的 Info Window。 而本文主要想著重介紹的是 ❹，也是最近偉士牌需求中的購車頁優化，會需要依照使用者的 input 去移動到對應的城市，並顯示城市的名稱，其實就是模擬 Google Map 的搜尋功能，但實際做起來需要熟悉 API 的混用。</description>
+    </item>
     <item>
       <title>簡單的開發 Git Flow</title>
       <link>https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/</link>
       <pubDate>Sat, 16 Apr 2022 10:57:55 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2022/04/%E7%B0%A1%E5%96%AE%E7%9A%84%E9%96%8B%E7%99%BC-git-flow/</guid>
-      <description>簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺
-只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp;amp; demo 等等分支來做開發。
-假設你的 feature 或 issue 分支都是從 demo 開出來的，做完後又直接 merge 回 demo，那就有極大的機會遇到上面的窘境。
-轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。
-或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。
-Branch 通常可以由以下幾個主要的 branch 來做版本控管。
- master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。   不同的專案，可能還會有 pre-prod 等等更多的分支
- 開發流程 1.</description>
+      <description>簡單的開發 Git Flow 不知道有沒有人遇到過做好的 feature A、B、C 都依序上了測試機，PM 卻說只要把 feature C 先上正式機的情況，這時候如果你的開發分支沒有管理好的話，就會非常 🥺&#xA;只有兩條主線 一般來說專案都會有正式跟測試環境，比較常見會分由 master &amp;amp; demo 等等分支來做開發。&#xA;假設你的 feature 或 issue 分支都是從 demo 開出來的，做完後又直接 merge 回 demo，那就有極大的機會遇到上面的窘境。&#xA;轉換 Base Branch 當然，你可以直接從 master 開 feature 分支來解決這個問題。&#xA;或在比較大型的專案，也可以多一個分支 staging 來當作開 branch 的 base，另外跟 PM 爭取多開一個上正式機前的測試環境，方便我們或 PM 測試每次上版的內容。&#xA;Branch 通常可以由以下幾個主要的 branch 來做版本控管。&#xA;master / production：正式環境：正式發佈出去的版本。 staging / stage：上正式機前的測試環境：可以把它當作開分支的基底，基本上內容要跟 master 的內容保持一致。 demo / develop：測試環境：會包含最多的功能開發以及 bug 修復。 不同的專案，可能還會有 pre-prod 等等更多的分支&#xA;開發流程 1. 當 issue 被 assign 過來</description>
     </item>
-    
     <item>
       <title>Core Web Vitals</title>
       <link>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</link>
       <pubDate>Thu, 07 Apr 2022 09:19:33 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</guid>
-      <description>Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
- 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
-用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
-網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
-    良好 需要改善 低落     LCP ≤2500ms &amp;gt;4000ms 75   FID ≤100ms &amp;gt;300ms 75   CLS ≤0.1 &amp;gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
-LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.</description>
+      <description>Core Web Vitals 網站體驗核心指標： LCP、FID、CLS，優化使用者體驗&#xA;使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。&#xA;用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。&#xA;網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。&#xA;良好 需要改善 低落 LCP ≤2500ms &amp;gt;4000ms 75 FID ≤100ms &amp;gt;300ms 75 CLS ≤0.1 &amp;gt;0.25 75 每個核心指標的檢查結果都有良好、需要改善、不良三個區間&#xA;LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.5 秒內完成 LCP。&#xA;LCP 會偵測那些項目？ &amp;lt;img&amp;gt; elements 包在 &amp;lt;svg&amp;gt; element 裡面的 &amp;lt;image&amp;gt; elements &amp;lt;video&amp;gt; elements 透過 url() 的 CSS 功能 載入 background-image 的 element 包含 text node 或是 inline-level text elements children 的 block-level element LCP 該如何進行優化？ 通常 LCP 可以針對以下 4 大點來進行優化</description>
     </item>
-    
     <item>
       <title>Vue.js 學習筆記 - 3</title>
       <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</link>
       <pubDate>Mon, 19 Apr 2021 15:44:43 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/</guid>
-      <description>今天想來聊聊 Vue Router。
-Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
- SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
-  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
- 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
-如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
-vue add router
-在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
-安裝好之後，來觀察看看專案下哪邊變得不同了。
- 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.</description>
+      <description>今天想來聊聊 Vue Router。&#xA;Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。&#xA;SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。&#xA;使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：&#xA;啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面 但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)&#xA;如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。&#xA;vue add router&#xA;在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。&#xA;安裝好之後，來觀察看看專案下哪邊變得不同了。&#xA;網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.js 使用的頁面元件。通常一個路由會對應到一個 views 裡面的 component）的資料夾。 如何設定路由？ 讓我們從 router 資料夾裡面的 index.</description>
     </item>
-    
     <item>
       <title>reduce() 是什麼？該如何使用？</title>
       <link>https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 07 Apr 2021 15:21:50 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</guid>
-      <description>昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。
-Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。
-Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。
- accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容  而 initialValue 則是代表第一次要傳入的初始值。
-實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&amp;gt; { return accumulator + currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18    No accumulator currentValue currentIndex return value     1 5 1 0 6   2 6 3 1 9   3 9 4 2 13   4 13 5 3 18    可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。</description>
+      <description>昨天在面試時突然被問到有沒有使用過 reduce，一時之間腦內跑馬燈走過，有聽過這個字但好像沒有實際使用過，於是模稜兩可的給了一個很爛的回答，讓人後悔至極，應該大方承認自己沒有相關使用經驗，至少還比較有臺階可下。不過也因為如此，讓我發現自己對這個陣列的操作方法還不熟，趕緊來補強一下。&#xA;Array.prototype.reduce() 根據 MDN 的說明，reduce 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。其實這個描述挺寫實的，不過我們搭配實作來看會更清楚。&#xA;Syntax array.reduce(function(accumulator, currentValue, currentIndex, array),initialValue) 其中有 4 個參數，分別代表不同的意思。&#xA;accumulator：累加總計 currentValue：目前值 currentIndex（optional）：這一輪迭代的索引（index） array（optional）：陣列內容 而 initialValue 則是代表第一次要傳入的初始值。&#xA;實例 1 const array = [1, 3, 4, 5] const arrayReduced = array.reduce((accumulator, currentValue) =&amp;gt; { return accumulator + currentValue }, 5) //初始值為 5 console.log(arrayReduced) // 18 No accumulator currentValue currentIndex return value 1 5 1 0 6 2 6 3 1 9 3 9 4 2 13 4 13 5 3 18 可以發現當我們的初始值是 5 的時候，accumulator 就是從 5 開始計算，後面接續 currentValue 的值累計。</description>
     </item>
-    
     <item>
       <title>ALPHA Camp 畢業心得</title>
       <link>https://jyunyi-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
       <pubDate>Thu, 01 Apr 2021 15:29:24 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/04/alpha-camp-%E7%95%A2%E6%A5%AD%E5%BF%83%E5%BE%97/</guid>
-      <description>從 2020 年 9 月一直到現在，整整半年的時間，終於是寫畢業部落格的時機了。還記得剛開始接觸 JavaScript 時笨拙得連函式都搞不太清楚，物件跟陣列分不出個所以然的自己。一路走來真是有種浴火重生，現在才要開始的感慨。完全沒有後悔過這個選擇，因為不論上完課程後是否要轉職，過程中所得到的收穫是比這個結果還要更重要、更能影響我的。
-還記得一開始寫 AC 要求的技術文章時，覺得有點麻煩之外，又想說怎麼會有人來看呢，滿心都是一個想逃避的態度。後來寫著寫著不知為何就啟動某個開關，其實根本不需要真的有人來閱讀，只要我還有在讀自己的文章，這些被記錄下的事就是有價值的。現在很感謝 AC 的這種作業形式，讓我更能反覆的反省、思考不足之處。
-我想大略談談每個學期的感受，雖然之前已經有兩篇學期心得文，還是不厭煩的來總結一下。
- 2-1 剛開始接觸 JavaScript，即使稍微有點 HTML，CSS 的觀念，還是很難應付這個全新的東西。好像在新手村還沒辦法轉職的初心者，只能默默打怪，然後等待出頭天的時候來臨。
-2-2 終於可以轉職了，進入前端世界，學習新技能：DOM 與 Ajax。學了新技能後好像發現新世界，自己居然可以靠著簡單的語法完成一個簡單的社群名單還有翻牌遊戲，讓人大開眼界。
-2-3 由淺入深的後端世界。這時已經可以自己單打獨鬥，但還是會因為一時的疏忽而跑出墓碑。最讓人有成就感的就是終於可以把自己的作品跟別人分享了，部署技能 get。還學了一些護身法術，像是 git 之類的。
-3 巫師的磨練。這關是要與同伴並肩作戰打敗 Simple Twitter 魔王的。俗話說的好，三個臭皮匠，勝過一個諸葛亮。在組隊加持下，即使途中遭遇無數次困難，也都能扭轉乾坤，順利過關。
- 大概就是這樣的感覺了。學期三作為最後一個學期，其內容之縝密、任務之精實。任務結束後的各種反思主題讓人印象深刻，就是透過這樣不斷地內化，才能打造更堅強不可摧的心靈。做好一件事，不只是表面上看起來完成，裡面也要結實纍纍，這樣才禁得起未來的困難。這是對我來說感受最深的一課。
-即使課程告一段落了，但人生的旅程才正要開始，繼續學習新技能，穩扎穩打，目標不是有一天能單挑大魔王，而是能與一群夥伴一起走過一個充實的人生。</description>
+      <description>從 2020 年 9 月一直到現在，整整半年的時間，終於是寫畢業部落格的時機了。還記得剛開始接觸 JavaScript 時笨拙得連函式都搞不太清楚，物件跟陣列分不出個所以然的自己。一路走來真是有種浴火重生，現在才要開始的感慨。完全沒有後悔過這個選擇，因為不論上完課程後是否要轉職，過程中所得到的收穫是比這個結果還要更重要、更能影響我的。&#xA;還記得一開始寫 AC 要求的技術文章時，覺得有點麻煩之外，又想說怎麼會有人來看呢，滿心都是一個想逃避的態度。後來寫著寫著不知為何就啟動某個開關，其實根本不需要真的有人來閱讀，只要我還有在讀自己的文章，這些被記錄下的事就是有價值的。現在很感謝 AC 的這種作業形式，讓我更能反覆的反省、思考不足之處。&#xA;我想大略談談每個學期的感受，雖然之前已經有兩篇學期心得文，還是不厭煩的來總結一下。&#xA;2-1 剛開始接觸 JavaScript，即使稍微有點 HTML，CSS 的觀念，還是很難應付這個全新的東西。好像在新手村還沒辦法轉職的初心者，只能默默打怪，然後等待出頭天的時候來臨。&#xA;2-2 終於可以轉職了，進入前端世界，學習新技能：DOM 與 Ajax。學了新技能後好像發現新世界，自己居然可以靠著簡單的語法完成一個簡單的社群名單還有翻牌遊戲，讓人大開眼界。&#xA;2-3 由淺入深的後端世界。這時已經可以自己單打獨鬥，但還是會因為一時的疏忽而跑出墓碑。最讓人有成就感的就是終於可以把自己的作品跟別人分享了，部署技能 get。還學了一些護身法術，像是 git 之類的。&#xA;3 巫師的磨練。這關是要與同伴並肩作戰打敗 Simple Twitter 魔王的。俗話說的好，三個臭皮匠，勝過一個諸葛亮。在組隊加持下，即使途中遭遇無數次困難，也都能扭轉乾坤，順利過關。&#xA;大概就是這樣的感覺了。學期三作為最後一個學期，其內容之縝密、任務之精實。任務結束後的各種反思主題讓人印象深刻，就是透過這樣不斷地內化，才能打造更堅強不可摧的心靈。做好一件事，不只是表面上看起來完成，裡面也要結實纍纍，這樣才禁得起未來的困難。這是對我來說感受最深的一課。&#xA;即使課程告一段落了，但人生的旅程才正要開始，繼續學習新技能，穩扎穩打，目標不是有一天能單挑大魔王，而是能與一群夥伴一起走過一個充實的人生。</description>
     </item>
-    
     <item>
       <title>Vue.js 學習筆記 - 2</title>
       <link>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</link>
       <pubDate>Thu, 01 Apr 2021 14:37:32 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
-      <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。
-常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。
-使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;
-假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：
-&amp;lt;button v-on:click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：
-&amp;lt;button @click=&amp;quot;alertAfterClick&amp;quot;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：
-methods: { alertAfterClick () { window.alert(&#39;點擊到按鈕了&#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！
-v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。
-使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;
-直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：
-&amp;lt;img v-bind:src=&amp;quot;user.avatar&amp;quot; v-bind:data-id=&amp;quot;user.id&amp;quot; &amp;gt; 或者使用簡寫：</description>
+      <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。&#xA;常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。&#xA;使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;&#xA;假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：&#xA;&amp;lt;button v-on:click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：&#xA;&amp;lt;button @click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：&#xA;methods: { alertAfterClick () { window.alert(&amp;#39;點擊到按鈕了&amp;#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！&#xA;v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。&#xA;使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;&#xA;直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：&#xA;&amp;lt;img v-bind:src=&amp;#34;user.avatar&amp;#34; v-bind:data-id=&amp;#34;user.id&amp;#34; &amp;gt; 或者使用簡寫：</description>
     </item>
-    
     <item>
       <title>Vue.js 學習筆記 - 1</title>
       <link>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
       <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
-      <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。
-Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。
-Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。
-初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。
- npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server  完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。
-資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。
-src 資料夾 其中有四個部分，分別是</description>
+      <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。&#xA;Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。&#xA;Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。&#xA;初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。&#xA;npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。&#xA;資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。&#xA;src 資料夾 其中有四個部分，分別是&#xA;assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.</description>
     </item>
-    
     <item>
       <title>使用 FileReader 實現圖片預覽</title>
       <link>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</link>
       <pubDate>Tue, 30 Mar 2021 15:11:54 +0800</pubDate>
-      
       <guid>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
-      <description>使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。
-實作  首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。  const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &#39;cover&#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &#39;avatar&#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
+      <description>使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。&#xA;實作 首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。 const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &amp;#39;cover&amp;#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &amp;#39;avatar&amp;#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
     </item>
-    
-    <item>
-      <title>Simple Twitter self-reflection</title>
-      <link>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</link>
-      <pubDate>Thu, 18 Mar 2021 22:36:28 +0800</pubDate>
-      
-      <guid>https://jyunyi-lin.github.io/posts/2021/03/simple-twitter-self-reflection/</guid>
-      <description>兩個禮拜的開發過程一下就過了。期間經歷了團隊合作、自動化測試 Debug、尋找技術文件、協作開發遇到的各種 git 問題等，讓人成長許多。凡走過必留下痕跡，這篇文章便是希望能寫下一些開發時遇到的插曲，留給以後的自己回味外，或許在之後遇到問題後也能回首來尋找答案。
-專案介紹 ALPHA Camp 的畢業專案是復刻一個 Twitter 功能的 Web Application。協作能以全端或前後端分離來進行，全端是在 Node.js 上以 JavaScript 為主要語言、Handlebars 為前端模板來進行，採用 MySQL 作為資料庫，使用 Sequelize 操作資料庫。專案完成後部署至 Heroku；前後端分離則是後端製作 API，前端以 Vue.js 做開發。我們這一組選擇全端開發。
-開發流程 專案開始後，組長先在 trello 上建立功能看板，組員則自己選擇樣板來開發。不過，主要的模板，例如資料庫、model 建立、登入登出等專案基礎架構由組長先完成。
-負責項目 我主要負責種子資料的設計、使用者相關功能如更改個人資訊、個人 Twitter 的頁面等的路由及前端頁面。
-開發紀錄 種子資料 專案有設定好必須要有的種子資料，像是用戶有分為一般使用者與管理者，在設計時為了簡化程式，使用了條件（三元）運算子來取代 if&amp;hellip;else，除了更簡潔之外，也佔用較少的行數而讓閱讀更容易。
-使用者功能 主要實作諸如取得使用者頁面、使用者回覆紀錄、使用者按讚紀錄、使用者資訊修改等功能與頁面。其中遇到比較大的問題是，題目規定使用者的關注清單，排序依照追蹤紀錄成立的時間，愈新的在愈前面，一開始以 sequelize 的 order 來做，試了好幾次都無法成功，最後參考此篇文章中以 Array 的 sort() 方法成功解決。
-results.Followers.sort((a, b) =&amp;gt; b.Followship.createdAt - a.Followship.createdAt) 團隊協作 三個人開發與一個人開發的過程截然不同。這也顯現了溝通的重要性。畢竟有些容易重疊的功能，或者是相互依賴的功能（沒有你就沒有我），這時候就會出現「如果隊友沒有完成某一功能，我這邊也無法測試」的狀況。又或者是發 PR 後出現 conflict，就要討論如何保留取捨。同時，我也深刻理解到 git commit message 的重要性，如何讓人看到 commit 就一目了然這是實作什麼功能在開發時間有限的專案中非常關鍵，畢竟一分一秒都彌足珍貴。幸好隊友都非常給力，組長也幾乎是有問必答，整體算是順利。
-收穫與學習 最大的收穫就是理解到自己不論是在技術層面或是溝通上都還有許多可以學習的地方。在開發過程中我們遇到許多自動化測試未過，但本地功能卻正常的問題，一直到尾聲我們才驚覺根本是自己沒看清楚自動化測試中定義好的規格，深刻體會到細節就藏在魔鬼中這句話的真理。同時，也在團隊協作中意識到如何更能引導隊友、更激勵團隊士氣的方法，我想在往後的職涯是非常有幫助的。寫 code 中最難能可貴的，與其說是專研與通透各項技術，我倒認為是一群志同道合、互助學習的好夥伴。</description>
-    </item>
-    
-    <item>
-      <title>全端產品專案介紹——記帳本</title>
-      <link>https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</link>
-      <pubDate>Wed, 20 Jan 2021 10:00:33 +0800</pubDate>
-      
-      <guid>https://jyunyi-lin.github.io/posts/2021/01/%E5%85%A8%E7%AB%AF%E7%94%A2%E5%93%81%E5%B0%88%E6%A1%88%E4%BB%8B%E7%B4%B9%E8%A8%98%E5%B8%B3%E6%9C%AC/</guid>
-      <description>全端產品專案介紹——記帳本 這是一個提供記帳功能的網路軟體，使用者可以計入自己的開支。除了傳統的註冊之外，也提供 Facebook 登入功能，讓註冊認證程序更容易。登入後，首頁有搜尋、類別篩選、月份篩選、明細及總消費金額的顯示功能。
-以下介紹將以循序漸進的方式，藉由起承轉合來講述開發的過程與從中所學之經驗、技術。作品詳細資訊：
- GitHub Heroku  為何會選擇這個專案？ 日常所需 這幾年興起的記帳風潮，除了手機 app 的蓬勃發展所帶動之外，大環境經濟因素也使得人不得不好好控管支出，免得當月光族。記帳，不只能將花費具體地呈現，還能培養一種「持續」的能力，在這個瞬息萬變的社會，持之以恆逐漸變得困難，但我們卻可以從日常小事來加以鍛鍊。無論從哪個方面看來，記帳這件事都具有許多益處，而使用一個自己親手打造、磨練的網路帳本，又更增加使用的意願。
-商業考量 記帳本屬於使用頻率非常高的網路軟體，加上現在社會傾向一種「個人化」，也就是大家保有相當程度的自我空間、自由，所以這類自我管理用的軟體更有機會受到青睞。為自己負責，是一種安全感最大化的表現。可以大膽假設這是一個在當前，即使是在未來更深入的數位時代，都非常具有潛力及前瞻性的產品。
-技能鍛鍊 此專案是以 Node.js 的 Express 框架為基礎所製作的全端產品，對於伺服器的概念及應用、RESTful API 的操作、CRUD 資料操作、使用者驗證等都能有深入淺出的認識，很適合鍛鍊全端開發的基礎能力。除此之外，也訓練了查資料、閱讀資料的關鍵能力。
-使用了什麼技術？ 前端技術  BootStrap &amp;amp; RWD Font Awesome  後端技術  網路伺服器   Node.js： JavaScript 執行環境 Express：伺服器框架  npm packages   bcryptjs：密碼雜湊加密 body-parser：取得表單（form）資訊 connect-flash：訊息提示 dotenv：管理敏感資訊與環境變數 express-handlebars：樣板引擎(template engine) express-session：儲存認證結果，保留使用者登入狀態 handlebars-helpers：樣版引擎輔助 method-override：RESTful 路由 passport : 根據 session 資訊，驗證使用者 passport-facebook、passport-local：本地與第三方登入機制  資料庫   MongoDB &amp;amp; Mongoose： NoSQL Database &amp;amp; ODM 資料庫 Data Schema 資料設計 CRUD 操作  部署   Heroku  協作技術  Git 版控 GitHub  哪部分你相對能掌握？ 基本的 CRUD 開發、路由大綱與建構、樣版引擎的使用、使用者認證功能及伺服器與資料庫架設是相對比較容易理解與操作的部分。</description>
-    </item>
-    
   </channel>
 </rss>

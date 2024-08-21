@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jyun-Yi LIN ">
-<meta name="description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
- 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+<meta name="description" content="Core Web Vitals 網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
 用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
 網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
-    良好 需要改善 低落     LCP ≤2500ms &amp;gt;4000ms 75   FID ≤100ms &amp;gt;300ms 75   CLS ≤0.1 &amp;gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
-LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2." />
+良好 需要改善 低落 LCP ≤2500ms &gt;4000ms 75 FID ≤100ms &gt;300ms 75 CLS ≤0.1 &gt;0.25 75 每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.5 秒內完成 LCP。
+LCP 會偵測那些項目？ &lt;img&gt; elements 包在 &lt;svg&gt; element 裡面的 &lt;image&gt; elements &lt;video&gt; elements 透過 url() 的 CSS 功能 載入 background-image 的 element 包含 text node 或是 inline-level text elements children 的 block-level element LCP 該如何進行優化？ 通常 LCP 可以針對以下 4 大點來進行優化" />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, Core Web Vitals" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -46,47 +47,51 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 
 
 
-<meta itemprop="name" content="Core Web Vitals">
-<meta itemprop="description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
- 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+
+  <meta itemprop="name" content="Core Web Vitals">
+  <meta itemprop="description" content="Core Web Vitals 網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
 用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
 網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
-    良好 需要改善 低落     LCP ≤2500ms &gt;4000ms 75   FID ≤100ms &gt;300ms 75   CLS ≤0.1 &gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
-LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.">
-<meta itemprop="datePublished" content="2022-04-07T09:19:33+08:00" />
-<meta itemprop="dateModified" content="2022-04-07T09:19:33+08:00" />
-<meta itemprop="wordCount" content="251">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+良好 需要改善 低落 LCP ≤2500ms &gt;4000ms 75 FID ≤100ms &gt;300ms 75 CLS ≤0.1 &gt;0.25 75 每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.5 秒內完成 LCP。
+LCP 會偵測那些項目？ &lt;img&gt; elements 包在 &lt;svg&gt; element 裡面的 &lt;image&gt; elements &lt;video&gt; elements 透過 url() 的 CSS 功能 載入 background-image 的 element 包含 text node 或是 inline-level text elements children 的 block-level element LCP 該如何進行優化？ 通常 LCP 可以針對以下 4 大點來進行優化">
+  <meta itemprop="datePublished" content="2022-04-07T09:19:33+08:00">
+  <meta itemprop="dateModified" content="2022-04-07T09:19:33+08:00">
+  <meta itemprop="wordCount" content="251">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="Core Web Vitals">
 
-
-
-<meta itemprop="keywords" content="Core Web Vitals," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="Core Web Vitals"/>
-<meta name="twitter:description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
- 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="Core Web Vitals">
+  <meta name="twitter:description" content="Core Web Vitals 網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
 用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
 網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
-    良好 需要改善 低落     LCP ≤2500ms &gt;4000ms 75   FID ≤100ms &gt;300ms 75   CLS ≤0.1 &gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
-LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2."/>
+良好 需要改善 低落 LCP ≤2500ms &gt;4000ms 75 FID ≤100ms &gt;300ms 75 CLS ≤0.1 &gt;0.25 75 每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.5 秒內完成 LCP。
+LCP 會偵測那些項目？ &lt;img&gt; elements 包在 &lt;svg&gt; element 裡面的 &lt;image&gt; elements &lt;video&gt; elements 透過 url() 的 CSS 功能 載入 background-image 的 element 包含 text node 或是 inline-level text elements children 的 block-level element LCP 該如何進行優化？ 通常 LCP 可以針對以下 4 大點來進行優化">
 
 
 
-    <meta property="og:title" content="Core Web Vitals" />
-<meta property="og:description" content="Core Web Vitals  網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
- 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="Core Web Vitals">
+  <meta property="og:description" content="Core Web Vitals 網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
 用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
 網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
-    良好 需要改善 低落     LCP ≤2500ms &gt;4000ms 75   FID ≤100ms &gt;300ms 75   CLS ≤0.1 &gt;0.25 75    每個核心指標的檢查結果都有良好、需要改善、不良三個區間
-LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2022-04-07T09:19:33+08:00" />
-<meta property="article:modified_time" content="2022-04-07T09:19:33+08:00" />
+良好 需要改善 低落 LCP ≤2500ms &gt;4000ms 75 FID ≤100ms &gt;300ms 75 CLS ≤0.1 &gt;0.25 75 每個核心指標的檢查結果都有良好、需要改善、不良三個區間
+LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.5 秒內完成 LCP。
+LCP 會偵測那些項目？ &lt;img&gt; elements 包在 &lt;svg&gt; element 裡面的 &lt;image&gt; elements &lt;video&gt; elements 透過 url() 的 CSS 功能 載入 background-image 的 element 包含 text node 或是 inline-level text elements children 的 block-level element LCP 該如何進行優化？ 通常 LCP 可以針對以下 4 大點來進行優化">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-04-07T09:19:33+08:00">
+    <meta property="article:modified_time" content="2022-04-07T09:19:33+08:00">
+    <meta property="article:tag" content="Core Web Vitals">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -152,7 +157,6 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -162,11 +166,9 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       2 minutes
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/">Core Web Vitals</a>
@@ -196,9 +198,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <h1 id="core-web-vitals">Core Web Vitals</h1>
 <blockquote>
@@ -209,7 +209,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 <p>用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。</p>
 <h3 id="網站體驗核心指標core-web-vitals">網站體驗核心指標（Core Web Vitals）</h3>
 <p>2020 年 5 月 28 日， Google 在<a href="https://developers.google.com/search/blog/2020/05/evaluating-page-experience">官方部落格</a>中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。</p>
-<p><img src="https://i.imgur.com/bv8yWq6.png" alt=""></p>
+<p><img src="https://i.imgur.com/bv8yWq6.png"></p>
 <table>
 <thead>
 <tr>
@@ -286,7 +286,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 </ul>
 <h3 id="lcp-如何檢測">LCP 如何檢測</h3>
 <p>可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 檢查整體網站的 LCP 分數。如：</p>
-<p><img src="https://i.imgur.com/h6LUxdU.png" alt=""></p>
+<p><img src="https://i.imgur.com/h6LUxdU.png"></p>
 <h3 id="fid--first-input-delay-首次輸入延遲封鎖時間總計-互動性指標">FID — First Input Delay 首次輸入延遲/封鎖時間總計 [互動性指標]</h3>
 <p><strong>當使用者第一次與頁面進行互動，行為完成到瀏覽器成功回應給使用者的時間</strong>，根據 Google 的研究，100 ms 為「良好」的最低標準：如果處理輸入的延遲超過 100 ms，那麼其他處理和渲染步驟就沒有機會及時完成。</p>
 <p>首次輸入 (First Input) 與頁面上的響應元件 (responsive elements) 息息相關。這些響應元件可能是連結、按鈕或是跳出式元素 (pop-ups)。</p>
@@ -298,7 +298,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 <li>打開下拉式選單畫面延遲</li>
 <li>無法勾選對話方塊</li>
 </ul>
-<p><img src="https://i.imgur.com/rSpjhsP.png" alt=""></p>
+<p><img src="https://i.imgur.com/rSpjhsP.png"></p>
 <h3 id="如何優化-fid">如何優化 FID</h3>
 <ul>
 <li><a href="https://web.dev/bootup-time/">減少 JavaScript 運作的時間</a></li>
@@ -330,15 +330,13 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 <p><a href="https://web.dev/i18n/zh/optimize-cls/">https://web.dev/i18n/zh/optimize-cls/</a></p>
 <h3 id="cls-檢測">CLS 檢測</h3>
 <p>同樣可以使用 <a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a> 或 Lighthouse</p>
-<p><img src="https://i.imgur.com/tNdOSd9.png" alt=""></p>
+<p><img src="https://i.imgur.com/tNdOSd9.png"></p>
 <p>或是 Chrome DevTools 的 Layout Shift 中查看：</p>
-<p><img src="https://i.imgur.com/Zc28C6l.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/Zc28C6l.jpg"></p>
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -349,9 +347,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -364,7 +360,6 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
       
       2022-04-07 09:19
       
-
       
       
       
@@ -484,14 +479,12 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
       <span class="button previous">
@@ -501,7 +494,6 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
         </a>
       </span>
       
-
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/">
@@ -513,10 +505,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -525,23 +514,22 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -550,9 +538,7 @@ LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度�
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

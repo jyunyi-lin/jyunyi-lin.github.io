@@ -7,14 +7,14 @@
 <meta name="author" content="Jyun-Yi LIN ">
 <meta name="description" content="今天想來聊聊 Vue Router。
 Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
- SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
-  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
- 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
+SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
+使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
+啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面 但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
 如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
 vue add router
 在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
 安裝好之後，來觀察看看專案下哪邊變得不同了。
- 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index." />
+網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.js 使用的頁面元件。通常一個路由會對應到一個 views 裡面的 component）的資料夾。 如何設定路由？ 讓我們從 router 資料夾裡面的 index." />
 <meta name="keywords" content="JavaScript, 程式語言, 生活, Vue, review" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -50,59 +50,61 @@ vue add router
 
 
 
-<meta itemprop="name" content="Vue.js 學習筆記 - 3">
-<meta itemprop="description" content="今天想來聊聊 Vue Router。
+
+  <meta itemprop="name" content="Vue.js 學習筆記 - 3">
+  <meta itemprop="description" content="今天想來聊聊 Vue Router。
 Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
- SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
-  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
- 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
+SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
+使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
+啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面 但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
 如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
 vue add router
 在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
 安裝好之後，來觀察看看專案下哪邊變得不同了。
- 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.">
-<meta itemprop="datePublished" content="2021-04-19T15:44:43+08:00" />
-<meta itemprop="dateModified" content="2021-04-19T15:44:43+08:00" />
-<meta itemprop="wordCount" content="166">
-<meta itemprop="image" content="https://jyunyi-lin.github.io/"/>
+網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.js 使用的頁面元件。通常一個路由會對應到一個 views 裡面的 component）的資料夾。 如何設定路由？ 讓我們從 router 資料夾裡面的 index.">
+  <meta itemprop="datePublished" content="2021-04-19T15:44:43+08:00">
+  <meta itemprop="dateModified" content="2021-04-19T15:44:43+08:00">
+  <meta itemprop="wordCount" content="166">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="Vue,Review">
 
-
-
-<meta itemprop="keywords" content="Vue,review," />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jyunyi-lin.github.io/"/>
-
-<meta name="twitter:title" content="Vue.js 學習筆記 - 3"/>
-<meta name="twitter:description" content="今天想來聊聊 Vue Router。
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="Vue.js 學習筆記 - 3">
+  <meta name="twitter:description" content="今天想來聊聊 Vue Router。
 Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
- SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
-  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
- 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
+SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
+使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
+啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面 但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
 如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
 vue add router
 在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
 安裝好之後，來觀察看看專案下哪邊變得不同了。
- 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index."/>
+網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.js 使用的頁面元件。通常一個路由會對應到一個 views 裡面的 component）的資料夾。 如何設定路由？ 讓我們從 router 資料夾裡面的 index.">
 
 
 
-    <meta property="og:title" content="Vue.js 學習筆記 - 3" />
-<meta property="og:description" content="今天想來聊聊 Vue Router。
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="Vue.js 學習筆記 - 3">
+  <meta property="og:description" content="今天想來聊聊 Vue Router。
 Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。
- SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
-  使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
- 啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面  但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
+SPA 為 Single-page Application 的簡寫。指的是「不跳頁」的網頁設計原則，例如著名的 Gmail。所以你在用 Gmail 的時候，會感覺好像「在用一個 App」而不是在用「網頁」，因為頁面之間跳轉的很流暢，而不像一般網站一樣在操作過程需要不斷重整頁面。
+使用 Vue Router 時，當我們想變更路由，會經過以下的步驟：
+啟動 Vue Router 藉由 JavaScript 動態更改網址 載入對應的 component 渲染顯示頁面 但是當需要使用到資料的增刪改查（CRUD）的動作時，就需要進一步透過網路，向後端伺服器發送請求(也就是串接後端 API)
 如何開始用 Vue Router？ 當你已經開了一個 vue 專案後，可以透過以下指令安裝 Vue Router。
 vue add router
 在安裝的過程中，會出現是否選擇 History Mode 的選項。 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 Hash Mode。
 安裝好之後，來觀察看看專案下哪邊變得不同了。
- 網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/" />
-<meta property="og:image" content="https://jyunyi-lin.github.io/"/>
-<meta property="article:published_time" content="2021-04-19T15:44:43+08:00" />
-<meta property="article:modified_time" content="2021-04-19T15:44:43+08:00" />
+網址多了 # 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。 網頁最上方多了可以切換路由的導覽列 專案多了 router（使用裡面的 index.js 檔案來設定路由）、views（擺放可以被 index.js 使用的頁面元件。通常一個路由會對應到一個 views 裡面的 component）的資料夾。 如何設定路由？ 讓我們從 router 資料夾裡面的 index.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-19T15:44:43+08:00">
+    <meta property="article:modified_time" content="2021-04-19T15:44:43+08:00">
+    <meta property="article:tag" content="Vue">
+    <meta property="article:tag" content="Review">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
 
 
 
@@ -168,7 +170,6 @@ vue add router
             <div class="content">
                 
 <main class="post">
-
   <div class="post-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -178,11 +179,9 @@ vue add router
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
       One minute
-
       
     </p>
   </div>
-
   <article>
     <h1 class="post-title">
       <a href="https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-3/">Vue.js 學習筆記 - 3</a>
@@ -205,9 +204,7 @@ vue add router
 </nav>
     </aside>
     <hr />
-
     
-
     <div class="post-content">
       <p>今天想來聊聊 Vue Router。</p>
 <p>Vue Router 是由前端實作的路由，有了它，就可以透過前端操控路由，打造一個前端 SPA*。在過往路由需要先經過網路（Internet），並透過後端伺服器，進行請求與回應的動作，才能顯示路由指定的頁面，但是透過 Vue Router，就不一定需要網路與後端，也能渲染這個路由指定的頁面。</p>
@@ -228,7 +225,7 @@ vue add router
 <p><code>vue add router</code></p>
 <p>在安裝的過程中，會出現是否選擇 History Mode 的選項。
 若選擇否，則會套用 Hash Mode。這兩種模式的差異，等等會詳細說明，建議先選擇 <strong>Hash Mode</strong>。</p>
-<p><img src="https://i.imgur.com/9lRzVkT.png" alt="圖片來自 ALPHA Camp"></p>
+<p><img alt="圖片來自 ALPHA Camp" src="https://i.imgur.com/9lRzVkT.png"></p>
 <p>安裝好之後，來觀察看看專案下哪邊變得不同了。</p>
 <ol>
 <li>網址多了 <code>#</code> 符號，此處與設定 Hash Mode 有關，詳看頁尾解釋。</li>
@@ -238,12 +235,12 @@ vue add router
 <h2 id="如何設定路由">如何設定路由？</h2>
 <p>讓我們從 router 資料夾裡面的 index.js 開始著手。</p>
 <p>將這個檔案打開後，可以看到有一個 routes 陣列。裡面可以設定路由，而設定的方法就是寫下 path(網址)、name(路由名稱)、component(對應到的元件名稱)。</p>
-<p><img src="https://i.imgur.com/Vyxg5of.png" alt=""></p>
+<p><img src="https://i.imgur.com/Vyxg5of.png"></p>
 <p>這裡你可能會發現到在程式碼中，透過 <code>import</code> 載入 <code>Home</code> 頁面和載入 <code>About</code> 頁面的方式不太一樣，<code>Home.vue</code> 的載入路徑寫在檔案的最上方，這代表 <code>Home.vue</code> 在每次載入路由時，都會一併載入。</p>
 <p>而 <code>About.vue</code> 的情況，是把 <code>import</code> 寫在 <code>component</code> 屬性內，在有人到達 <code>/about</code> 這組路由時，才會執行 <code>component</code> 裡的 function，動態載入需要的檔案。這樣的寫法可以減少不必要的流量：如果使用者沒有到達這裡、那就不用預先載入這頁的組件內容。</p>
 <p>在 <code>App.vue</code> 這個檔案中的 <code>&lt;router-veiw /&gt;</code> 也就是透過 view-router 渲染之元件所顯示的位置。</p>
 <p><code>router-link</code> 的用途則是與 <code>&lt;a herf=””&gt;</code> 標籤有點相似，但是是透過 View Router 去尋找對應連結。</p>
-<p><img src="https://i.imgur.com/ScUTUCD.png" alt=""></p>
+<p><img src="https://i.imgur.com/ScUTUCD.png"></p>
 <h2 id="補充hash-mode-和-history-mode">補充：Hash Mode 和 History Mode</h2>
 <h3 id="hash-mode">Hash Mode</h3>
 <p>使用 Hash Mode 時，當連結有變動，會觸發 <code>onhashchange</code> 事件，vue 就會渲染對應的 component。在此模式下，瀏覽器會向<strong>根目錄</strong>發出請求，再透過 <code>#</code> 分辨不同的路由，且<strong>不會重新載入</strong>。每當改變 <code>#</code> 後面的部分時，會在瀏覽器的訪問歷史中增加紀錄，如此一來我們就可以透過上一頁的按鈕，重返上一頁。</p>
@@ -255,9 +252,7 @@ vue add router
 
     </div>
   </article>
-
   <hr />
-
   <div class="post-info">
     
     <p>
@@ -269,9 +264,7 @@ vue add router
     </p>
 
     
-
     
-
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -284,7 +277,6 @@ vue add router
       
       2021-04-19 15:44
       
-
       
       
       
@@ -404,14 +396,12 @@ vue add router
   </div>
 </a>
   </div>
-
   
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h"></span>
       <hr />
     </div>
-
     <div class="pagination__buttons">
       
       <span class="button previous">
@@ -421,7 +411,6 @@ vue add router
         </a>
       </span>
       
-
       
       <span class="button next">
         <a href="https://jyunyi-lin.github.io/posts/2021/04/reduce-%E6%98%AF%E4%BB%80%E9%BA%BC%E8%A9%B2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/">
@@ -433,10 +422,7 @@ vue add router
     </div>
   </div>
   
-
-
   
-
 </main>
 
             </div>
@@ -445,23 +431,22 @@ vue add router
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2024</span>
             
-                <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
             
             
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://jyunyi-lin.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-          </div>
+        </div>
     </div>
 </footer>
-
             
         </div>
 
@@ -470,9 +455,7 @@ vue add router
 
 
 
-<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
 
     </body>
 </html>

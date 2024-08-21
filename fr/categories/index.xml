@@ -4,8 +4,9 @@
     <title>Categories on 生活、學習紀錄</title>
     <link>https://jyunyi-lin.github.io/fr/categories/</link>
     <description>Recent content in Categories on 生活、學習紀錄</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><atom:link href="https://jyunyi-lin.github.io/fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>fr</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://jyunyi-lin.github.io/fr/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

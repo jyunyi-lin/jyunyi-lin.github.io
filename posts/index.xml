@@ -6,8 +6,98 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-        <lastBuildDate>Sat, 06 Jan 2024 17:44:01 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 24 Aug 2024 21:59:52 +0800</lastBuildDate>
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Google Analytics</title>
+            <link>https://jyunyi-lin.github.io/posts/2024/08/google-analytics/</link>
+            <pubDate>Sat, 24 Aug 2024 21:59:52 +0800</pubDate>
+            
+            <guid>https://jyunyi-lin.github.io/posts/2024/08/google-analytics/</guid>
+            <description>前端開發者的 GA 基礎知識入門 前言 在開發專案時，客戶經常會要求進行網站數據分析，像是頁面瀏覽排行、取消訂閱次數、文件下載排名、站內搜尋關鍵字統計等。團隊在討論後，選擇了 Google Analytics (GA) 作為分析工具，此時 PM 通常會尋求開發者的協助來決定哪些數據需要前端的配合、需要進行哪些設定以及如何在程式碼中埋設追蹤事件。
+假設我們是第一次接觸 GA，可能會開始尋找相關資料，瞭解 GA 的設置流程、如何設定以滿足客戶需求。然而，大部分資料都是介紹 GA 後台的使用或數據分析技巧，從開發者角度出發的指南相對稀少。要從大量資料中找到合適的內容並不容易，尤其是在專案中需要快速作出決策時。
+因此，這篇文章將從前端開發者的角度，介紹 GA 的基本概念，並不會過多介紹 GA 的詳細功能，而是提供一個大方向，幫助前端工程師瞭解如何在 GA 的框架下進行有效的協作，使專案更為出色。
+備註：本文的範例皆基於 GA4 版本。
+在認識 GA 之前，先理解資料分析的基本概念 GA 的功能相當豐富，剛接觸 GA 時，看到大量的圖表和資料，可能會讓人感到困惑：應該從哪裡開始？哪些部分是前端要處理的？哪些是其他人要處理的？如果要嵌入程式碼，應該怎麼做？這些問題的答案在哪裡找到？在搞清楚這些問題前，我們應該先暫時擱置 GA，回到資料分析的基本概念上。
+在日常生活中，我們經常接觸到資料統計，比如投票就是一種資料搜集，記帳也是資料搜集。撇除網站和程式的結構，如果我們想進行資料統計，會如何做？可能會用紙筆記錄，或是使用記帳本，甚至使用方便的軟體工具。
+簡單來說，資料統計可以拆解成兩個步驟：搜集資料 和 分析資料。每次使用者的行為會觸發一筆記錄，而這些記錄最終會被處理和分析。從這個角度來看，GA 的運作也離不開這兩件事，分別是 搜集事件 和 分析資料。
+從程式角度思考 GA 的運作方式 如果你寫過 React，並使用過 Redux 進行狀態管理，那麼應該會對 dispatch 和 reducer 不陌生。dispatch 發送 action 後，reducer 接收到 action，並依據 action 對 state 進行變更。
+GA 的運作與此類似。GA 中每次資料的搜集都被稱為一次 事件 (event)，而這些事件透過 GA 的 API 發送到 GA 後台進行處理。GA 的 API 結構與 Redux 的 action 相似，我們知道 action 會有 action type 和 action payload，事件 (event) 也會有 event name 和 payload。</description>
+            <content type="html"><![CDATA[<h1 id="前端開發者的-ga-基礎知識入門">前端開發者的 GA 基礎知識入門</h1>
+<h3 id="前言">前言</h3>
+<p>在開發專案時，客戶經常會要求進行網站數據分析，像是頁面瀏覽排行、取消訂閱次數、文件下載排名、站內搜尋關鍵字統計等。團隊在討論後，選擇了 Google Analytics (GA) 作為分析工具，此時 PM 通常會尋求開發者的協助來決定哪些數據需要前端的配合、需要進行哪些設定以及如何在程式碼中埋設追蹤事件。</p>
+<p>假設我們是第一次接觸 GA，可能會開始尋找相關資料，瞭解 GA 的設置流程、如何設定以滿足客戶需求。然而，大部分資料都是介紹 GA 後台的使用或數據分析技巧，從開發者角度出發的指南相對稀少。要從大量資料中找到合適的內容並不容易，尤其是在專案中需要快速作出決策時。</p>
+<p>因此，這篇文章將從前端開發者的角度，介紹 GA 的基本概念，並不會過多介紹 GA 的詳細功能，而是提供一個大方向，幫助前端工程師瞭解如何在 GA 的框架下進行有效的協作，使專案更為出色。</p>
+<blockquote>
+<p><strong>備註</strong>：本文的範例皆基於 GA4 版本。</p>
+</blockquote>
+<h2 id="在認識-ga-之前先理解資料分析的基本概念">在認識 GA 之前，先理解資料分析的基本概念</h2>
+<p>GA 的功能相當豐富，剛接觸 GA 時，看到大量的圖表和資料，可能會讓人感到困惑：應該從哪裡開始？哪些部分是前端要處理的？哪些是其他人要處理的？如果要嵌入程式碼，應該怎麼做？這些問題的答案在哪裡找到？在搞清楚這些問題前，我們應該先暫時擱置 GA，回到資料分析的基本概念上。</p>
+<p>在日常生活中，我們經常接觸到資料統計，比如投票就是一種資料搜集，記帳也是資料搜集。撇除網站和程式的結構，如果我們想進行資料統計，會如何做？可能會用紙筆記錄，或是使用記帳本，甚至使用方便的軟體工具。</p>
+<p>簡單來說，資料統計可以拆解成兩個步驟：<strong>搜集資料</strong> 和 <strong>分析資料</strong>。每次使用者的行為會觸發一筆記錄，而這些記錄最終會被處理和分析。從這個角度來看，GA 的運作也離不開這兩件事，分別是 <strong>搜集事件</strong> 和 <strong>分析資料</strong>。</p>
+<h2 id="從程式角度思考-ga-的運作方式">從程式角度思考 GA 的運作方式</h2>
+<p>如果你寫過 React，並使用過 Redux 進行狀態管理，那麼應該會對 <code>dispatch</code> 和 <code>reducer</code> 不陌生。<code>dispatch</code> 發送 action 後，<code>reducer</code> 接收到 action，並依據 action 對 state 進行變更。</p>
+<p>GA 的運作與此類似。GA 中每次資料的搜集都被稱為一次 <strong>事件 (event)</strong>，而這些事件透過 GA 的 API 發送到 GA 後台進行處理。GA 的 API 結構與 Redux 的 action 相似，我們知道 action 會有 action type 和 action payload，事件 (event) 也會有 event name 和 payload。</p>
+<pre tabindex="0"><code class="language-javascript!" data-lang="javascript!">// GA API 架構
+gtag(&#34;event&#34;, &lt;event-name&gt;, &lt;event-payload&gt;);
+
+// 範例
+gtag(&#34;event&#34;, &#34;search&#34;, {
+  search_term: &#34;t-shirts&#34;
+});
+</code></pre><p>前端開發者需要處理的就是事件 (event) 的觸發（資料搜集），而 GA 後台則專注於資料的分析。只要瞭解 GA API 的使用方式，我們就能根據專案需求，設置適當的事件來達成目標。</p>
+<h2 id="進入-ga-之前的準備工作">進入 GA 之前的準備工作</h2>
+<p>在開始使用 GA API 進行資料統計之前，有一些前置作業需要處理：</p>
+<ol>
+<li><strong>建立 Google Analytics 4 帳戶及資產 (property)</strong>： 這一步驟需要建立 GA 帳戶，這個帳戶將用來登入 GA 後台。實際上就是註冊一個帳號而已。</li>
+<li><strong>為網站創建 Web 資料串流 (data stream)</strong>： GA 後台可以同時管理多個網站的數據分析，當有新網站需要加入 GA 時，需將該網站登錄到 GA 後台。</li>
+<li><strong>在網站上嵌入 Google 標籤 (Google Tag)</strong>： 在 GA 後台提供的 JavaScript 程式碼片段，嵌入到專案中。完成這一步後，就可以在專案中使用 gtag (GA API) 方法了。</li>
+</ol>
+<p>完成前置作業後，GA 通常需要 1-2 天的時間才會開始搜集數據，並在後台顯示資料。</p>
+<h2 id="ga-事件-event-的基本概念">GA 事件 (Event) 的基本概念</h2>
+<p>GA 對前端開發者最重要的部分在於如何觸發正確的事件 (event)。GA 官方將事件分為四種類型：</p>
+<ul>
+<li>自動收集事件</li>
+<li>加強評估事件</li>
+<li>建議事件</li>
+<li>自訂事件</li>
+</ul>
+<h3 id="自動收集事件">自動收集事件</h3>
+<p>這些事件在完成前置作業後即會自動運作，無需開發者手動嵌入程式碼。常見的自動收集事件包含：</p>
+<ul>
+<li>廣告相關事件：<code>ad_impression</code>、<code>ad_click</code></li>
+<li>App Store 相關事件：<code>app_store_subscription_cancel</code>、<code>app_update</code></li>
+</ul>
+<h3 id="加強評估事件">加強評估事件</h3>
+<p>這些事件針對 Web 網站進行資料收集，需要在 GA 後台手動開啟。常見的加強評估事件包括：</p>
+<ul>
+<li><code>page_view</code>：每次網頁載入或瀏覽器記錄狀態變更時</li>
+<li><code>scroll</code>：使用者第一次滾動到網頁底部時</li>
+<li><code>click</code>：使用者點擊的連結將其帶離目前網域時</li>
+</ul>
+<h3 id="建議事件">建議事件</h3>
+<p>這些事件針對「客戶」的操作進行資料收集，並需要前端開發者嵌入程式碼來觸發。常見的建議事件包括：</p>
+<ul>
+<li><code>sign_up</code>：使用者註冊</li>
+<li><code>login</code>：使用者登入</li>
+<li><code>add_to_cart</code>：使用者將商品加入購物車</li>
+</ul>
+<h3 id="自訂事件">自訂事件</h3>
+<p>當預設和建議事件無法滿足需求時，開發者可以使用自訂事件來搜集自定義的資料。例如，搜集「取消訂閱」按鈕被點擊的次數，可以定義一個自訂事件 <code>unsubscribe</code> 並將其嵌入程式碼中。</p>
+<pre tabindex="0"><code class="language-javascript!" data-lang="javascript!">// 自訂事件範例
+const MySubscribe = ( ) =&gt; (
+    &lt;button onClick={() =&gt; gtag(&#39;event&#39;, &#39;unsubscribe&#39;)}&gt;取消訂閱&lt;/button&gt;
+);
+
+export default MySubscribe;
+</code></pre><h2 id="資料分析">資料分析</h2>
+<p>當事件被觸發並發送到 GA 後台後，可以在 GA 後台中進行資料分析。如果是自訂事件，需要在後台新增事件，並設定分析規則。</p>
+<h2 id="總結">總結</h2>
+<p>GA 的核心在於資料的搜集與分析。對前端開發者來說，關注的重點在於 GA API 的使用，只要處理好事件的觸發，剩下的就交給 GA 後台的分析設定。</p>
+<p>希望這篇文章能幫助前端開發者快速入門 GA，理解如何在專案中有效利用 GA 來達成資料分析的目標。</p>
+]]></content>
+        </item>
         
         <item>
             <title>初探 Google Maps API</title>

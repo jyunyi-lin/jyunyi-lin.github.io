@@ -10,12 +10,12 @@
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Google Analytics</title>
-            <link>https://jyunyi-lin.github.io/posts/2024/08/google-analytics/</link>
+            <title>前端開發者的 GA 基礎知識入門</title>
+            <link>https://jyunyi-lin.github.io/posts/2024/08/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84-ga-%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E5%85%A5%E9%96%80/</link>
             <pubDate>Sat, 24 Aug 2024 21:59:52 +0800</pubDate>
             
-            <guid>https://jyunyi-lin.github.io/posts/2024/08/google-analytics/</guid>
-            <description>前端開發者的 GA 基礎知識入門 前言 在開發專案時，客戶經常會要求進行網站數據分析，像是頁面瀏覽排行、取消訂閱次數、文件下載排名、站內搜尋關鍵字統計等。團隊在討論後，選擇了 Google Analytics (GA) 作為分析工具，此時 PM 通常會尋求開發者的協助來決定哪些數據需要前端的配合、需要進行哪些設定以及如何在程式碼中埋設追蹤事件。
+            <guid>https://jyunyi-lin.github.io/posts/2024/08/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84-ga-%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E5%85%A5%E9%96%80/</guid>
+            <description>前言 在開發專案時，客戶經常會要求進行網站數據分析，像是頁面瀏覽排行、取消訂閱次數、文件下載排名、站內搜尋關鍵字統計等。團隊在討論後，選擇了 Google Analytics (GA) 作為分析工具，此時 PM 通常會尋求開發者的協助來決定哪些數據需要前端的配合、需要進行哪些設定以及如何在程式碼中埋設追蹤事件。
 假設我們是第一次接觸 GA，可能會開始尋找相關資料，瞭解 GA 的設置流程、如何設定以滿足客戶需求。然而，大部分資料都是介紹 GA 後台的使用或數據分析技巧，從開發者角度出發的指南相對稀少。要從大量資料中找到合適的內容並不容易，尤其是在專案中需要快速作出決策時。
 因此，這篇文章將從前端開發者的角度，介紹 GA 的基本概念，並不會過多介紹 GA 的詳細功能，而是提供一個大方向，幫助前端工程師瞭解如何在 GA 的框架下進行有效的協作，使專案更為出色。
 備註：本文的範例皆基於 GA4 版本。
@@ -24,8 +24,7 @@
 簡單來說，資料統計可以拆解成兩個步驟：搜集資料 和 分析資料。每次使用者的行為會觸發一筆記錄，而這些記錄最終會被處理和分析。從這個角度來看，GA 的運作也離不開這兩件事，分別是 搜集事件 和 分析資料。
 從程式角度思考 GA 的運作方式 如果你寫過 React，並使用過 Redux 進行狀態管理，那麼應該會對 dispatch 和 reducer 不陌生。dispatch 發送 action 後，reducer 接收到 action，並依據 action 對 state 進行變更。
 GA 的運作與此類似。GA 中每次資料的搜集都被稱為一次 事件 (event)，而這些事件透過 GA 的 API 發送到 GA 後台進行處理。GA 的 API 結構與 Redux 的 action 相似，我們知道 action 會有 action type 和 action payload，事件 (event) 也會有 event name 和 payload。</description>
-            <content type="html"><![CDATA[<h1 id="前端開發者的-ga-基礎知識入門">前端開發者的 GA 基礎知識入門</h1>
-<h3 id="前言">前言</h3>
+            <content type="html"><![CDATA[<h3 id="前言">前言</h3>
 <p>在開發專案時，客戶經常會要求進行網站數據分析，像是頁面瀏覽排行、取消訂閱次數、文件下載排名、站內搜尋關鍵字統計等。團隊在討論後，選擇了 Google Analytics (GA) 作為分析工具，此時 PM 通常會尋求開發者的協助來決定哪些數據需要前端的配合、需要進行哪些設定以及如何在程式碼中埋設追蹤事件。</p>
 <p>假設我們是第一次接觸 GA，可能會開始尋找相關資料，瞭解 GA 的設置流程、如何設定以滿足客戶需求。然而，大部分資料都是介紹 GA 後台的使用或數據分析技巧，從開發者角度出發的指南相對稀少。要從大量資料中找到合適的內容並不容易，尤其是在專案中需要快速作出決策時。</p>
 <p>因此，這篇文章將從前端開發者的角度，介紹 GA 的基本概念，並不會過多介紹 GA 的詳細功能，而是提供一個大方向，幫助前端工程師瞭解如何在 GA 的框架下進行有效的協作，使專案更為出色。</p>
@@ -365,15 +364,14 @@ master / production：正式環境：正式發佈出去的版本。 staging / st
             <pubDate>Thu, 07 Apr 2022 09:19:33 +0800</pubDate>
             
             <guid>https://jyunyi-lin.github.io/posts/2022/04/core-web-vitals/</guid>
-            <description>Core Web Vitals 網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
+            <description>網站體驗核心指標： LCP、FID、CLS，優化使用者體驗
 使用者體驗 (User Experience) 使用者體驗，或 UX(User Experience)，即「任何產品、生活形式經過人為的設計後，使用上感受到的體驗」因此 UX 無所不在。從我們使用的浴廁設施、家具、到你喝的早餐店奶茶、滑的手機都是經過設計而成。
 用戶體驗的設計師關心產品「何時」被使用，「如何」吸引人購買，以及購買後「如何」被使用。延伸到網站上，理所當然網站的載入速度、介面美觀、實用性、是否符合用戶的需求、用戶是否想再回訪，因此也與行銷、設計、工程和 SEO 息息相關。
 網站體驗核心指標（Core Web Vitals） 2020 年 5 月 28 日， Google 在官方部落格中針對使用者體驗推出了新的 3 項 Core web vitals。用來測量訪客在頁面的瀏覽體驗狀況。每項指標皆代表使用者體驗不同的面相，並反映出以使用者為中心的真實體驗。
 良好 需要改善 低落 LCP ≤2500ms &amp;gt;4000ms 75 FID ≤100ms &amp;gt;300ms 75 CLS ≤0.1 &amp;gt;0.25 75 每個核心指標的檢查結果都有良好、需要改善、不良三個區間
 LCP (Largest Contentful Paint) — 顯示最大內容元素所需時間 [速度指標] LCP 注重於頁面中最大元素的載入速度，簡言之就是網頁從開始等待畫面載入，直到主要畫面載入完成，Google 建議於開始載入網頁的 2.5 秒內完成 LCP。
 LCP 會偵測那些項目？ &amp;lt;img&amp;gt; elements 包在 &amp;lt;svg&amp;gt; element 裡面的 &amp;lt;image&amp;gt; elements &amp;lt;video&amp;gt; elements 透過 url() 的 CSS 功能 載入 background-image 的 element 包含 text node 或是 inline-level text elements children 的 block-level element LCP 該如何進行優化？ 通常 LCP 可以針對以下 4 大點來進行優化</description>
-            <content type="html"><![CDATA[<h1 id="core-web-vitals">Core Web Vitals</h1>
-<blockquote>
+            <content type="html"><![CDATA[<blockquote>
 <p>網站體驗核心指標： LCP、FID、CLS，優化使用者體驗</p>
 </blockquote>
 <h3 id="使用者體驗-user-experience">使用者體驗 (User Experience)</h3>

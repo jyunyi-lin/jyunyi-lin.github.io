@@ -6,8 +6,87 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-        <lastBuildDate>Sat, 24 Aug 2024 21:59:52 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 29 Aug 2024 16:21:26 +0800</lastBuildDate>
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>利用 Storybook 和 Jest 打造可靠的前端測試方案</title>
+            <link>https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/</link>
+            <pubDate>Thu, 29 Aug 2024 16:21:26 +0800</pubDate>
+            
+            <guid>https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/</guid>
+            <description>在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 Storybook 與 Jest 結合起來使用時，這些挑戰便能迎刃而解。
+什麼是 Storybook？ Storybook 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。
+什麼是 Jest？ Jest 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 Jest，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，Jest 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。
+Storybook 與 Jest 的完美結合 當我們將 Storybook 與 Jest 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 Storybook 的 stories 作為 Jest 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。
+步驟 1：設定 Storybook 和 Jest 首先，我們需要在專案中安裝並設定 Storybook 和 Jest。這可以透過以下命令來完成：
+npx sb init npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom 接著，在 package.json 中配置 Jest：
+&amp;#34;scripts&amp;#34;: { &amp;#34;test&amp;#34;: &amp;#34;jest&amp;#34; }, &amp;#34;jest&amp;#34;: { &amp;#34;setupFilesAfterEnv&amp;#34;: [&amp;#34;@testing-library/jest-dom/extend-expect&amp;#34;], &amp;#34;testEnvironment&amp;#34;: &amp;#34;jsdom&amp;#34; } 步驟 2：建立 Storybook 的 Stories 假設我們有一個 Button 元件，我們可以在 Button.</description>
+            <content type="html"><![CDATA[<p>在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 <strong>Storybook</strong> 與 <strong>Jest</strong> 結合起來使用時，這些挑戰便能迎刃而解。</p>
+<h2 id="什麼是-storybook">什麼是 Storybook？</h2>
+<p><strong>Storybook</strong> 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。</p>
+<h2 id="什麼是-jest">什麼是 Jest？</h2>
+<p><strong>Jest</strong> 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 <strong>Jest</strong>，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，<strong>Jest</strong> 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。</p>
+<h2 id="storybook-與-jest-的完美結合">Storybook 與 Jest 的完美結合</h2>
+<p>當我們將 <strong>Storybook</strong> 與 <strong>Jest</strong> 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 <strong>Storybook</strong> 的 stories 作為 <strong>Jest</strong> 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。</p>
+<h3 id="步驟-1設定-storybook-和-jest">步驟 1：設定 Storybook 和 Jest</h3>
+<p>首先，我們需要在專案中安裝並設定 <strong>Storybook</strong> 和 <strong>Jest</strong>。這可以透過以下命令來完成：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx sb init
+</span></span><span style="display:flex;"><span>npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom
+</span></span></code></pre></div><p>接著，在 <code>package.json</code> 中配置 Jest：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;jest&#34;</span>
+</span></span><span style="display:flex;"><span>}<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;jest&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;setupFilesAfterEnv&#34;</span>: [<span style="color:#e6db74">&#34;@testing-library/jest-dom/extend-expect&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;testEnvironment&#34;</span>: <span style="color:#e6db74">&#34;jsdom&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="步驟-2建立-storybook-的-stories">步驟 2：建立 Storybook 的 Stories</h3>
+<p>假設我們有一個 <code>Button</code> 元件，我們可以在 <code>Button.stories.jsx</code> 中建立它的 <strong>Stories</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Button</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./Button&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Example/Button&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Button</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Primary</span> <span style="color:#f92672">=</span> () =&gt; &lt;<span style="color:#f92672">Button</span> <span style="color:#a6e22e">primary</span>&gt;<span style="color:#a6e22e">Primary</span> <span style="color:#a6e22e">Button</span>&lt;/<span style="color:#f92672">Button</span>&gt;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Secondary</span> <span style="color:#f92672">=</span> () =&gt; &lt;<span style="color:#f92672">Button</span>&gt;<span style="color:#a6e22e">Secondary</span> <span style="color:#a6e22e">Button</span>&lt;/<span style="color:#f92672">Button</span>&gt;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Disabled</span> <span style="color:#f92672">=</span> () =&gt; &lt;<span style="color:#f92672">Button</span> <span style="color:#a6e22e">disabled</span>&gt;<span style="color:#a6e22e">Disabled</span> <span style="color:#a6e22e">Button</span>&lt;/<span style="color:#f92672">Button</span>&gt;;
+</span></span></code></pre></div><p>這些 Stories 描述了 <code>Button</code> 元件在不同狀態下的樣子。</p>
+<h3 id="步驟-3撰寫-jest-測試">步驟 3：撰寫 Jest 測試</h3>
+<p>接下來，我們可以基於 <strong>Storybook</strong> 的 <strong>Stories</strong> 撰寫 <strong>Jest</strong> 測試。例如，我們可以測試 <code>Button</code> 元件是否在不同狀態下正確渲染：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">render</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@testing-library/react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Primary</span>, <span style="color:#a6e22e">Secondary</span>, <span style="color:#a6e22e">Disabled</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./Button.stories&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;renders Primary Button&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">getByText</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Primary</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">getByText</span>(<span style="color:#e6db74">&#34;Primary Button&#34;</span>)).<span style="color:#a6e22e">toBeInTheDocument</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;renders Secondary Button&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">getByText</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Secondary</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">getByText</span>(<span style="color:#e6db74">&#34;Secondary Button&#34;</span>)).<span style="color:#a6e22e">toBeInTheDocument</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;renders Disabled Button&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">getByText</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Disabled</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">getByText</span>(<span style="color:#e6db74">&#34;Disabled Button&#34;</span>)).<span style="color:#a6e22e">toBeDisabled</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>這樣的測試確保了 <code>Button</code> 元件在每個狀態下都能正常運作。</p>
+<h3 id="步驟-4結合快照測試">步驟 4：結合快照測試</h3>
+<p>除了基本的渲染測試，我們還可以利用 <strong>Jest</strong> 的快照測試來追踪 UI 的變化。這可以幫助我們在不經意地修改了元件外觀時，及時發現並確認這些變更是否符合預期。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Primary Button matches snapshot&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">asFragment</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Primary</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">asFragment</span>()).<span style="color:#a6e22e">toMatchSnapshot</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h3 id="結語">結語</h3>
+<p>將 <strong>Storybook</strong> 與 <strong>Jest</strong> 結合使用，不僅能提高開發過程中的效率，還能確保元件的穩定性和一致性。這樣的測試方案能夠讓我們在面對複雜的 UI 元件時更加自信，並且減少因為程式碼變動而引發的潛在問題。透過這種方法，我們能夠更好地管理元件的品質，讓開發流程變得更加流暢，最終為使用者提供更好的體驗。</p>
+<p>這篇文章希望能夠啟發你在開發流程中導入這樣的測試方案，並享受到 <strong>Storybook</strong> 與 <strong>Jest</strong> 帶來的便利和可靠性。如果你還沒有試過這種組合，那就趕快動手吧！</p>
+]]></content>
+        </item>
         
         <item>
             <title>前端開發者的 GA 基礎知識入門</title>

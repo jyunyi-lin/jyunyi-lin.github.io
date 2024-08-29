@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jyun-Yi LIN ">
+<meta name="description" content="在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 Storybook 與 Jest 結合起來使用時，這些挑戰便能迎刃而解。
+什麼是 Storybook？ Storybook 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。
+什麼是 Jest？ Jest 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 Jest，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，Jest 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。
+Storybook 與 Jest 的完美結合 當我們將 Storybook 與 Jest 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 Storybook 的 stories 作為 Jest 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。
+步驟 1：設定 Storybook 和 Jest 首先，我們需要在專案中安裝並設定 Storybook 和 Jest。這可以透過以下命令來完成：
+npx sb init npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom 接著，在 package.json 中配置 Jest：
+&#34;scripts&#34;: { &#34;test&#34;: &#34;jest&#34; }, &#34;jest&#34;: { &#34;setupFilesAfterEnv&#34;: [&#34;@testing-library/jest-dom/extend-expect&#34;], &#34;testEnvironment&#34;: &#34;jsdom&#34; } 步驟 2：建立 Storybook 的 Stories 假設我們有一個 Button 元件，我們可以在 Button." />
+<meta name="keywords" content="JavaScript, 程式語言, 生活, storybook, jest" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/" />
+
+
+    <title>
+        
+            利用 Storybook 和 Jest 打造可靠的前端測試方案 :: 生活、學習紀錄  — Hello Friend NG Theme
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://jyunyi-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jyunyi-lin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jyunyi-lin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jyunyi-lin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://jyunyi-lin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://jyunyi-lin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://jyunyi-lin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+
+  <meta itemprop="name" content="利用 Storybook 和 Jest 打造可靠的前端測試方案">
+  <meta itemprop="description" content="在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 Storybook 與 Jest 結合起來使用時，這些挑戰便能迎刃而解。
+什麼是 Storybook？ Storybook 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。
+什麼是 Jest？ Jest 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 Jest，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，Jest 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。
+Storybook 與 Jest 的完美結合 當我們將 Storybook 與 Jest 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 Storybook 的 stories 作為 Jest 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。
+步驟 1：設定 Storybook 和 Jest 首先，我們需要在專案中安裝並設定 Storybook 和 Jest。這可以透過以下命令來完成：
+npx sb init npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom 接著，在 package.json 中配置 Jest：
+&#34;scripts&#34;: { &#34;test&#34;: &#34;jest&#34; }, &#34;jest&#34;: { &#34;setupFilesAfterEnv&#34;: [&#34;@testing-library/jest-dom/extend-expect&#34;], &#34;testEnvironment&#34;: &#34;jsdom&#34; } 步驟 2：建立 Storybook 的 Stories 假設我們有一個 Button 元件，我們可以在 Button.">
+  <meta itemprop="datePublished" content="2024-08-29T16:21:26+08:00">
+  <meta itemprop="dateModified" content="2024-08-29T16:21:26+08:00">
+  <meta itemprop="wordCount" content="256">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="Storybook,Jest">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="利用 Storybook 和 Jest 打造可靠的前端測試方案">
+  <meta name="twitter:description" content="在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 Storybook 與 Jest 結合起來使用時，這些挑戰便能迎刃而解。
+什麼是 Storybook？ Storybook 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。
+什麼是 Jest？ Jest 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 Jest，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，Jest 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。
+Storybook 與 Jest 的完美結合 當我們將 Storybook 與 Jest 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 Storybook 的 stories 作為 Jest 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。
+步驟 1：設定 Storybook 和 Jest 首先，我們需要在專案中安裝並設定 Storybook 和 Jest。這可以透過以下命令來完成：
+npx sb init npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom 接著，在 package.json 中配置 Jest：
+&#34;scripts&#34;: { &#34;test&#34;: &#34;jest&#34; }, &#34;jest&#34;: { &#34;setupFilesAfterEnv&#34;: [&#34;@testing-library/jest-dom/extend-expect&#34;], &#34;testEnvironment&#34;: &#34;jsdom&#34; } 步驟 2：建立 Storybook 的 Stories 假設我們有一個 Button 元件，我們可以在 Button.">
+
+
+
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="利用 Storybook 和 Jest 打造可靠的前端測試方案">
+  <meta property="og:description" content="在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 Storybook 與 Jest 結合起來使用時，這些挑戰便能迎刃而解。
+什麼是 Storybook？ Storybook 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。
+什麼是 Jest？ Jest 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 Jest，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，Jest 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。
+Storybook 與 Jest 的完美結合 當我們將 Storybook 與 Jest 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 Storybook 的 stories 作為 Jest 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。
+步驟 1：設定 Storybook 和 Jest 首先，我們需要在專案中安裝並設定 Storybook 和 Jest。這可以透過以下命令來完成：
+npx sb init npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom 接著，在 package.json 中配置 Jest：
+&#34;scripts&#34;: { &#34;test&#34;: &#34;jest&#34; }, &#34;jest&#34;: { &#34;setupFilesAfterEnv&#34;: [&#34;@testing-library/jest-dom/extend-expect&#34;], &#34;testEnvironment&#34;: &#34;jsdom&#34; } 步驟 2：建立 Storybook 的 Stories 假設我們有一個 Button 元件，我們可以在 Button.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-29T16:21:26+08:00">
+    <meta property="article:modified_time" content="2024-08-29T16:21:26+08:00">
+    <meta property="article:tag" content="Storybook">
+    <meta property="article:tag" content="Jest">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-08-29 16:21:26 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://jyunyi-lin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#548687;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://jyunyi-lin.github.io/about/">About</a></li><li><a href="https://jyunyi-lin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+  <div class="post-info">
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-clock">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      2 minutes
+      
+    </p>
+  </div>
+  <article>
+    <h1 class="post-title">
+      <a href="https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/">利用 Storybook 和 Jest 打造可靠的前端測試方案</a>
+    </h1>
+    <hr />
+    <aside id="toc">
+      <div class="toc-title">Table of Contents</div>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什麼是-storybook">什麼是 Storybook？</a></li>
+    <li><a href="#什麼是-jest">什麼是 Jest？</a></li>
+    <li><a href="#storybook-與-jest-的完美結合">Storybook 與 Jest 的完美結合</a>
+      <ul>
+        <li><a href="#步驟-1設定-storybook-和-jest">步驟 1：設定 Storybook 和 Jest</a></li>
+        <li><a href="#步驟-2建立-storybook-的-stories">步驟 2：建立 Storybook 的 Stories</a></li>
+        <li><a href="#步驟-3撰寫-jest-測試">步驟 3：撰寫 Jest 測試</a></li>
+        <li><a href="#步驟-4結合快照測試">步驟 4：結合快照測試</a></li>
+        <li><a href="#結語">結語</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+    <hr />
+    
+    <div class="post-content">
+      <p>在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 <strong>Storybook</strong> 與 <strong>Jest</strong> 結合起來使用時，這些挑戰便能迎刃而解。</p>
+<h2 id="什麼是-storybook">什麼是 Storybook？</h2>
+<p><strong>Storybook</strong> 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。</p>
+<h2 id="什麼是-jest">什麼是 Jest？</h2>
+<p><strong>Jest</strong> 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 <strong>Jest</strong>，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，<strong>Jest</strong> 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。</p>
+<h2 id="storybook-與-jest-的完美結合">Storybook 與 Jest 的完美結合</h2>
+<p>當我們將 <strong>Storybook</strong> 與 <strong>Jest</strong> 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 <strong>Storybook</strong> 的 stories 作為 <strong>Jest</strong> 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。</p>
+<h3 id="步驟-1設定-storybook-和-jest">步驟 1：設定 Storybook 和 Jest</h3>
+<p>首先，我們需要在專案中安裝並設定 <strong>Storybook</strong> 和 <strong>Jest</strong>。這可以透過以下命令來完成：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx sb init
+</span></span><span style="display:flex;"><span>npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom
+</span></span></code></pre></div><p>接著，在 <code>package.json</code> 中配置 Jest：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;jest&#34;</span>
+</span></span><span style="display:flex;"><span>}<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;jest&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;setupFilesAfterEnv&#34;</span>: [<span style="color:#e6db74">&#34;@testing-library/jest-dom/extend-expect&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;testEnvironment&#34;</span>: <span style="color:#e6db74">&#34;jsdom&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="步驟-2建立-storybook-的-stories">步驟 2：建立 Storybook 的 Stories</h3>
+<p>假設我們有一個 <code>Button</code> 元件，我們可以在 <code>Button.stories.jsx</code> 中建立它的 <strong>Stories</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Button</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./Button&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Example/Button&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Button</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Primary</span> <span style="color:#f92672">=</span> () =&gt; &lt;<span style="color:#f92672">Button</span> <span style="color:#a6e22e">primary</span>&gt;<span style="color:#a6e22e">Primary</span> <span style="color:#a6e22e">Button</span>&lt;/<span style="color:#f92672">Button</span>&gt;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Secondary</span> <span style="color:#f92672">=</span> () =&gt; &lt;<span style="color:#f92672">Button</span>&gt;<span style="color:#a6e22e">Secondary</span> <span style="color:#a6e22e">Button</span>&lt;/<span style="color:#f92672">Button</span>&gt;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Disabled</span> <span style="color:#f92672">=</span> () =&gt; &lt;<span style="color:#f92672">Button</span> <span style="color:#a6e22e">disabled</span>&gt;<span style="color:#a6e22e">Disabled</span> <span style="color:#a6e22e">Button</span>&lt;/<span style="color:#f92672">Button</span>&gt;;
+</span></span></code></pre></div><p>這些 Stories 描述了 <code>Button</code> 元件在不同狀態下的樣子。</p>
+<h3 id="步驟-3撰寫-jest-測試">步驟 3：撰寫 Jest 測試</h3>
+<p>接下來，我們可以基於 <strong>Storybook</strong> 的 <strong>Stories</strong> 撰寫 <strong>Jest</strong> 測試。例如，我們可以測試 <code>Button</code> 元件是否在不同狀態下正確渲染：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">render</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@testing-library/react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Primary</span>, <span style="color:#a6e22e">Secondary</span>, <span style="color:#a6e22e">Disabled</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./Button.stories&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;renders Primary Button&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">getByText</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Primary</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">getByText</span>(<span style="color:#e6db74">&#34;Primary Button&#34;</span>)).<span style="color:#a6e22e">toBeInTheDocument</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;renders Secondary Button&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">getByText</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Secondary</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">getByText</span>(<span style="color:#e6db74">&#34;Secondary Button&#34;</span>)).<span style="color:#a6e22e">toBeInTheDocument</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;renders Disabled Button&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">getByText</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Disabled</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">getByText</span>(<span style="color:#e6db74">&#34;Disabled Button&#34;</span>)).<span style="color:#a6e22e">toBeDisabled</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>這樣的測試確保了 <code>Button</code> 元件在每個狀態下都能正常運作。</p>
+<h3 id="步驟-4結合快照測試">步驟 4：結合快照測試</h3>
+<p>除了基本的渲染測試，我們還可以利用 <strong>Jest</strong> 的快照測試來追踪 UI 的變化。這可以幫助我們在不經意地修改了元件外觀時，及時發現並確認這些變更是否符合預期。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Primary Button matches snapshot&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">asFragment</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">Primary</span> /&gt;);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">asFragment</span>()).<span style="color:#a6e22e">toMatchSnapshot</span>();
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h3 id="結語">結語</h3>
+<p>將 <strong>Storybook</strong> 與 <strong>Jest</strong> 結合使用，不僅能提高開發過程中的效率，還能確保元件的穩定性和一致性。這樣的測試方案能夠讓我們在面對複雜的 UI 元件時更加自信，並且減少因為程式碼變動而引發的潛在問題。透過這種方法，我們能夠更好地管理元件的品質，讓開發流程變得更加流暢，最終為使用者提供更好的體驗。</p>
+<p>這篇文章希望能夠啟發你在開發流程中導入這樣的測試方案，並享受到 <strong>Storybook</strong> 與 <strong>Jest</strong> 帶來的便利和可靠性。如果你還沒有試過這種組合，那就趕快動手吧！</p>
+
+    </div>
+  </article>
+  <hr />
+  <div class="post-info">
+    
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/storybook/">storybook</a></span>
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/jest/">jest</a></span>
+        
+    </p>
+
+    
+    
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-calendar">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      
+      2024-08-29 16:21
+      
+      
+      
+      
+    </p>
+  </div>
+  <hr />
+  <div class="sharing-buttons">
+    
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f08%2f%25E5%2588%25A9%25E7%2594%25A8-storybook-%25E5%2592%258C-jest-%25E6%2589%2593%25E9%2580%25A0%25E5%258F%25AF%25E9%259D%25A0%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25AC%25E8%25A9%25A6%25E6%2596%25B9%25E6%25A1%2588%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=%e5%88%a9%e7%94%a8%20Storybook%20%e5%92%8c%20Jest%20%e6%89%93%e9%80%a0%e5%8f%af%e9%9d%a0%e7%9a%84%e5%89%8d%e7%ab%af%e6%b8%ac%e8%a9%a6%e6%96%b9%e6%a1%88&amp;body=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f08%2f%25E5%2588%25A9%25E7%2594%25A8-storybook-%25E5%2592%258C-jest-%25E6%2589%2593%25E9%2580%25A0%25E5%258F%25AF%25E9%259D%25A0%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25AC%25E8%25A9%25A6%25E6%2596%25B9%25E6%25A1%2588%2f" target="_self"
+  rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f08%2f%25E5%2588%25A9%25E7%2594%25A8-storybook-%25E5%2592%258C-jest-%25E6%2589%2593%25E9%2580%25A0%25E5%258F%25AF%25E9%259D%25A0%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25AC%25E8%25A9%25A6%25E6%2596%25B9%25E6%25A1%2588%2f&amp;resubmit=true&amp;title=%e5%88%a9%e7%94%a8%20Storybook%20%e5%92%8c%20Jest%20%e6%89%93%e9%80%a0%e5%8f%af%e9%9d%a0%e7%9a%84%e5%89%8d%e7%ab%af%e6%b8%ac%e8%a9%a6%e6%96%b9%e6%a1%88" target="_blank"
+  rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f08%2f%25E5%2588%25A9%25E7%2594%25A8-storybook-%25E5%2592%258C-jest-%25E6%2589%2593%25E9%2580%25A0%25E5%258F%25AF%25E9%259D%25A0%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25AC%25E8%25A9%25A6%25E6%2596%25B9%25E6%25A1%2588%2f;title=%e5%88%a9%e7%94%a8%20Storybook%20%e5%92%8c%20Jest%20%e6%89%93%e9%80%a0%e5%8f%af%e9%9d%a0%e7%9a%84%e5%89%8d%e7%ab%af%e6%b8%ac%e8%a9%a6%e6%96%b9%e6%a1%88" target="_blank" rel="noopener"
+  aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=%e5%88%a9%e7%94%a8%20Storybook%20%e5%92%8c%20Jest%20%e6%89%93%e9%80%a0%e5%8f%af%e9%9d%a0%e7%9a%84%e5%89%8d%e7%ab%af%e6%b8%ac%e8%a9%a6%e6%96%b9%e6%a1%88%20https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f08%2f%25E5%2588%25A9%25E7%2594%25A8-storybook-%25E5%2592%258C-jest-%25E6%2589%2593%25E9%2580%25A0%25E5%258F%25AF%25E9%259D%25A0%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25AC%25E8%25A9%25A6%25E6%2596%25B9%25E6%25A1%2588%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f08%2f%25E5%2588%25A9%25E7%2594%25A8-storybook-%25E5%2592%258C-jest-%25E6%2589%2593%25E9%2580%25A0%25E5%258F%25AF%25E9%259D%25A0%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25AC%25E8%25A9%25A6%25E6%2596%25B9%25E6%25A1%2588%2f&amp;t=%e5%88%a9%e7%94%a8%20Storybook%20%e5%92%8c%20Jest%20%e6%89%93%e9%80%a0%e5%8f%af%e9%9d%a0%e7%9a%84%e5%89%8d%e7%ab%af%e6%b8%ac%e8%a9%a6%e6%96%b9%e6%a1%88" target="_blank" rel="noopener"
+  aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e5%88%a9%e7%94%a8%20Storybook%20%e5%92%8c%20Jest%20%e6%89%93%e9%80%a0%e5%8f%af%e9%9d%a0%e7%9a%84%e5%89%8d%e7%ab%af%e6%b8%ac%e8%a9%a6%e6%96%b9%e6%a1%88&amp;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f08%2f%25E5%2588%25A9%25E7%2594%25A8-storybook-%25E5%2592%258C-jest-%25E6%2589%2593%25E9%2580%25A0%25E5%258F%25AF%25E9%259D%25A0%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25AC%25E8%25A9%25A6%25E6%2596%25B9%25E6%25A1%2588%2f"
+  target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </div>
+  </div>
+</a>
+  </div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span class="pagination__title-h"></span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://jyunyi-lin.github.io/posts/2024/08/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84-ga-%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E5%85%A5%E9%96%80/">
+          <span class="button__text">前端開發者的 GA 基礎知識入門</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+  
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
+
+    </body>
+</html>

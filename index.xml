@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 21:59:52 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Aug 2024 16:21:26 +0800</lastBuildDate>
     <atom:link href="https://jyunyi-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用 Storybook 和 Jest 打造可靠的前端測試方案</title>
+      <link>https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 29 Aug 2024 16:21:26 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/</guid>
+      <description>在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 Storybook 與 Jest 結合起來使用時，這些挑戰便能迎刃而解。&#xA;什麼是 Storybook？ Storybook 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。&#xA;什麼是 Jest？ Jest 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 Jest，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，Jest 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。&#xA;Storybook 與 Jest 的完美結合 當我們將 Storybook 與 Jest 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 Storybook 的 stories 作為 Jest 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。&#xA;步驟 1：設定 Storybook 和 Jest 首先，我們需要在專案中安裝並設定 Storybook 和 Jest。這可以透過以下命令來完成：&#xA;npx sb init npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom 接著，在 package.json 中配置 Jest：&#xA;&amp;#34;scripts&amp;#34;: { &amp;#34;test&amp;#34;: &amp;#34;jest&amp;#34; }, &amp;#34;jest&amp;#34;: { &amp;#34;setupFilesAfterEnv&amp;#34;: [&amp;#34;@testing-library/jest-dom/extend-expect&amp;#34;], &amp;#34;testEnvironment&amp;#34;: &amp;#34;jsdom&amp;#34; } 步驟 2：建立 Storybook 的 Stories 假設我們有一個 Button 元件，我們可以在 Button.</description>
+    </item>
     <item>
       <title>前端開發者的 GA 基礎知識入門</title>
       <link>https://jyunyi-lin.github.io/posts/2024/08/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84-ga-%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E5%85%A5%E9%96%80/</link>
@@ -71,13 +78,6 @@
       <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
       <guid>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
       <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。&#xA;Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。&#xA;Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。&#xA;初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。&#xA;npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。&#xA;資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。&#xA;src 資料夾 其中有四個部分，分別是&#xA;assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.</description>
-    </item>
-    <item>
-      <title>使用 FileReader 實現圖片預覽</title>
-      <link>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</link>
-      <pubDate>Tue, 30 Mar 2021 15:11:54 +0800</pubDate>
-      <guid>https://jyunyi-lin.github.io/posts/2021/03/%E4%BD%BF%E7%94%A8-filereader-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E9%A0%90%E8%A6%BD/</guid>
-      <description>使用 FileReader 實現圖片預覽 如何讓使用者在更換大頭貼或者封面照時能即時看到更換後的預覽圖呢？我們可以使用 FileReader 來實現。FileReader 是一種 web API，藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容。&#xA;實作 首先要先創建 FileReader 的對象實例 然後設定在 onload 時要做什麼事 最後讀取指定的 Blob，讀取完成後 result 將以 data: URL 格式（base64 編碼）的字串來表示讀入的資料內容。Blob 是 Binary Large Object 的縮寫，它是一個物件，該物件代表了一個相當於原始資料的不可變物件。 const reader = new FileReader() //創建 FileReader 的對象實例 reader.onload = (event) =&amp;gt; { //設定 onload handler if (input.id === &amp;#39;cover&amp;#39;) { coverPreview.src = `${event.target.result}` } if (input.id === &amp;#39;avatar&amp;#39;) { avatarPreview.src = `${event.target.result}` } } reader.readAsDataURL(input.files[0]) //讀取完成後以 data: URL 格式的字串來表示讀入的資料內容 Error!</description>
     </item>
   </channel>
 </rss>

@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 21:59:52 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Aug 2024 16:21:26 +0800</lastBuildDate>
     <atom:link href="https://jyunyi-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jest</title>
+      <link>https://jyunyi-lin.github.io/tags/jest/</link>
+      <pubDate>Thu, 29 Aug 2024 16:21:26 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/tags/jest/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Storybook</title>
+      <link>https://jyunyi-lin.github.io/tags/storybook/</link>
+      <pubDate>Thu, 29 Aug 2024 16:21:26 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/tags/storybook/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Google Analytics</title>
       <link>https://jyunyi-lin.github.io/tags/google-analytics/</link>
@@ -63,20 +77,6 @@
       <link>https://jyunyi-lin.github.io/tags/%E9%99%A3%E5%88%97%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Wed, 07 Apr 2021 15:21:50 +0800</pubDate>
       <guid>https://jyunyi-lin.github.io/tags/%E9%99%A3%E5%88%97%E6%93%8D%E4%BD%9C/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>ALPHA Camp</title>
-      <link>https://jyunyi-lin.github.io/tags/alpha-camp/</link>
-      <pubDate>Thu, 01 Apr 2021 15:29:24 +0800</pubDate>
-      <guid>https://jyunyi-lin.github.io/tags/alpha-camp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>學習心得</title>
-      <link>https://jyunyi-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Thu, 01 Apr 2021 15:29:24 +0800</pubDate>
-      <guid>https://jyunyi-lin.github.io/tags/%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
       <description></description>
     </item>
   </channel>

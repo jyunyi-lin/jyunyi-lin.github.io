@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Storybook on 生活、學習紀錄</title>
+    <link>https://jyunyi-lin.github.io/tags/storybook/</link>
+    <description>Recent content in Storybook on 生活、學習紀錄</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 29 Aug 2024 16:21:26 +0800</lastBuildDate>
+    <atom:link href="https://jyunyi-lin.github.io/tags/storybook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用 Storybook 和 Jest 打造可靠的前端測試方案</title>
+      <link>https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 29 Aug 2024 16:21:26 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/</guid>
+      <description>在現代前端開發中，我們經常會面對這樣的挑戰：如何確保我們的 UI 元件在不同的使用場景下都能穩定運作？如何在不斷變化的需求中保持程式碼的高品質？這些問題通常讓開發者頭痛不已。然而，當我們將 Storybook 與 Jest 結合起來使用時，這些挑戰便能迎刃而解。&#xA;什麼是 Storybook？ Storybook 是一個 UI 開發工具，能夠讓我們在獨立的開發環境中構建並測試 UI 元件。我們可以為每個元件建立「故事」（stories），這些「故事」展示了元件在不同狀態下的樣子。例如，一個按鈕元件可以在正常、懸停、禁用等狀態下呈現。這不僅方便我們開發，也讓設計師和 PM 可以直觀地看到元件的效果。&#xA;什麼是 Jest？ Jest 是一個強大的 JavaScript 測試框架，它簡單易用，支援斷言、模擬、非同步測試等功能。透過 Jest，我們可以撰寫單元測試和整合測試來確保程式碼的正確性。此外，Jest 還具備快照測試（Snapshot Testing）的功能，可以自動生成元件的快照並檢查變更。&#xA;Storybook 與 Jest 的完美結合 當我們將 Storybook 與 Jest 結合使用時，便能實現一個強大的測試方案。具體來說，我們可以利用 Storybook 的 stories 作為 Jest 測試的基礎，這樣可以保證所有的 UI 元件都被全面測試到。&#xA;步驟 1：設定 Storybook 和 Jest 首先，我們需要在專案中安裝並設定 Storybook 和 Jest。這可以透過以下命令來完成：&#xA;npx sb init npm install --save-dev jest babel-jest @testing-library/react @testing-library/jest-dom 接著，在 package.json 中配置 Jest：&#xA;&amp;#34;scripts&amp;#34;: { &amp;#34;test&amp;#34;: &amp;#34;jest&amp;#34; }, &amp;#34;jest&amp;#34;: { &amp;#34;setupFilesAfterEnv&amp;#34;: [&amp;#34;@testing-library/jest-dom/extend-expect&amp;#34;], &amp;#34;testEnvironment&amp;#34;: &amp;#34;jsdom&amp;#34; } 步驟 2：建立 Storybook 的 Stories 假設我們有一個 Button 元件，我們可以在 Button.</description>
+    </item>
+  </channel>
+</rss>

@@ -6,8 +6,112 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-        <lastBuildDate>Thu, 29 Aug 2024 16:21:26 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 23 Nov 2024 13:52:08 +0800</lastBuildDate>
         <atom:link href="https://jyunyi-lin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>深入探討 React Server Components：打造更高效的前端應用程式</title>
+            <link>https://jyunyi-lin.github.io/posts/2024/11/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-react-server-components%E6%89%93%E9%80%A0%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F/</link>
+            <pubDate>Sat, 23 Nov 2024 13:52:08 +0800</pubDate>
+            
+            <guid>https://jyunyi-lin.github.io/posts/2024/11/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-react-server-components%E6%89%93%E9%80%A0%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F/</guid>
+            <description>在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。
+在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。
+React Server Components 的核心概念 React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。
+三大核心特點 以伺服器為主的渲染： RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。
+零 JavaScript 負擔： 客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。
+靈活整合： React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。
+React Server Components 的應用場景 在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：
+1. 資料密集型應用程式 例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。
+2. SEO 和首屏渲染效能 對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。
+3. 資源受限的設備 在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。</description>
+            <content type="html"><![CDATA[<p>在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。</p>
+<p>在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。</p>
+<hr>
+<h2 id="react-server-components-的核心概念">React Server Components 的核心概念</h2>
+<p>React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。</p>
+<h3 id="三大核心特點"><strong>三大核心特點</strong></h3>
+<ol>
+<li>
+<p><strong>以伺服器為主的渲染：</strong>
+RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。</p>
+</li>
+<li>
+<p><strong>零 JavaScript 負擔：</strong>
+客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。</p>
+</li>
+<li>
+<p><strong>靈活整合：</strong>
+React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。</p>
+</li>
+</ol>
+<hr>
+<h2 id="react-server-components-的應用場景">React Server Components 的應用場景</h2>
+<p>在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：</p>
+<h3 id="1-資料密集型應用程式"><strong>1. 資料密集型應用程式</strong></h3>
+<p>例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。</p>
+<h3 id="2-seo-和首屏渲染效能"><strong>2. SEO 和首屏渲染效能</strong></h3>
+<p>對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。</p>
+<h3 id="3-資源受限的設備"><strong>3. 資源受限的設備</strong></h3>
+<p>在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。</p>
+<hr>
+<h2 id="實作用-nextjs-建立-react-server-components">實作：用 Next.js 建立 React Server Components</h2>
+<p>以下是一個簡單的範例，展示如何使用 <strong>Next.js</strong> 和 React Server Components：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// src/app/page.server.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ServerComponent</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetchDataFromAPI</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">伺服器端渲染的資料</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>) =&gt; (
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">name</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
+</span></span><span style="display:flex;"><span>        ))}
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// src/app/page.client.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ClientComponent</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./page.client&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ServerComponent</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./page.server&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Page</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ServerComponent</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ClientComponent</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="關鍵步驟">關鍵步驟</h3>
+<h4 id="分離伺服器端與客戶端組件">分離伺服器端與客戶端組件：</h4>
+<p>使用 <code>.server.js</code> 和 <code>.client.js</code> 檔案命名，分別處理伺服器與客戶端邏輯。</p>
+<h4 id="靈活的資料抓取">靈活的資料抓取：</h4>
+<p>在伺服器端組件內使用伺服器端 API 或資料庫操作，避免將資料運算邏輯暴露在客戶端。</p>
+<h4 id="與現有技術堆疊整合">與現有技術堆疊整合：</h4>
+<p>RSC 可以與 Next.js 的 <code>getServerSideProps</code> 或 <code>getStaticProps</code> 一起使用，實現更精細的渲染策略。</p>
+<hr>
+<h3 id="rsc-的挑戰與未來發展">RSC 的挑戰與未來發展</h3>
+<p>雖然 RSC 提供了許多效能優勢，但在實際開發中仍有一些挑戰需要面對：</p>
+<h4 id="學習曲線">學習曲線：</h4>
+<p>理解 RSC 的運作模式及其與現有架構的整合需要一些時間。</p>
+<h4 id="工具鏈支援">工具鏈支援：</h4>
+<p>現階段，只有部分框架（如 Next.js）對 RSC 提供完善的支援。</p>
+<h4 id="伺服器資源依賴">伺服器資源依賴：</h4>
+<p>由於邏輯依賴伺服器執行，伺服器的效能與穩定性直接影響應用的可用性。</p>
+<hr>
+<h3 id="結論">結論</h3>
+<p>React Server Components 是一項強大的技術，它為前端效能優化提供了新的解法，特別適合於需要高效能和良好 SEO 的應用程式。在未來，隨著工具鏈和生態系的完善，RSC 有潛力成為現代 Web 開發的主流選擇。</p>
+<p>如果你也對提升應用程式的效能感興趣，不妨試試在你的專案中導入 React Server Components，享受它帶來的極致效能體驗！</p>
+<hr>
+<h3 id="參考資源">參考資源</h3>
+<ul>
+<li><a href="https://react.dev">React 官方文件</a></li>
+<li><a href="https://nextjs.org">Next.js 官方文件</a></li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>利用 Storybook 和 Jest 打造可靠的前端測試方案</title>

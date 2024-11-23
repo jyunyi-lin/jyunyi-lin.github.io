@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 29 Aug 2024 16:21:26 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 Nov 2024 13:52:08 +0800</lastBuildDate>
     <atom:link href="https://jyunyi-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深入探討 React Server Components：打造更高效的前端應用程式</title>
+      <link>https://jyunyi-lin.github.io/posts/2024/11/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-react-server-components%E6%89%93%E9%80%A0%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F/</link>
+      <pubDate>Sat, 23 Nov 2024 13:52:08 +0800</pubDate>
+      <guid>https://jyunyi-lin.github.io/posts/2024/11/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-react-server-components%E6%89%93%E9%80%A0%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F/</guid>
+      <description>在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。&#xA;在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。&#xA;React Server Components 的核心概念 React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。&#xA;三大核心特點 以伺服器為主的渲染： RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。&#xA;零 JavaScript 負擔： 客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。&#xA;靈活整合： React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。&#xA;React Server Components 的應用場景 在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：&#xA;1. 資料密集型應用程式 例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。&#xA;2. SEO 和首屏渲染效能 對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。&#xA;3. 資源受限的設備 在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。</description>
+    </item>
     <item>
       <title>利用 Storybook 和 Jest 打造可靠的前端測試方案</title>
       <link>https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/</link>
@@ -71,13 +78,6 @@
       <pubDate>Thu, 01 Apr 2021 14:37:32 +0800</pubDate>
       <guid>https://jyunyi-lin.github.io/posts/2021/04/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2/</guid>
       <description>這次跟著複習的腳步，再來看看 Vue 常用的指令吧！如果是第一次來的朋友，歡迎先去看看第一篇簡介 Vue 框架的文章喔。&#xA;常用指令 v-on 事件監聽 使用 DOM API 監聽事件的時候，會需要先把要觸發事件的節點設定出來，再用 addEventListener() 來做監聽。在 Vue 裡面只需要將 v-on 寫在想觸發事件的 HTML 標籤上，就可以進行事件監聽。&#xA;使用方法為：v-on:事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot; 可以簡寫為：@事件動作=&amp;quot;事件動作執行後要用的 method&amp;quot;&#xA;假設我們想在點擊按鈕後觸發瀏覽器提醒，可以這樣寫：&#xA;&amp;lt;button v-on:click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 或者使用簡寫：&#xA;&amp;lt;button @click=&amp;#34;alertAfterClick&amp;#34;&amp;gt;點擊按鈕&amp;lt;/button&amp;gt; 觸發事件後會執行的方法寫在 method 裡面：&#xA;methods: { alertAfterClick () { window.alert(&amp;#39;點擊到按鈕了&amp;#39;) } } 如此一來視窗就會順利出現相對應得 Alert 囉！&#xA;v-bind 想增加 HTML 屬性值或把父元件的資料帶入子元件時就可以使用 v-bind。&#xA;使用方法為：v-bind: 屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot; 可以簡寫為：:屬性名稱或要被使用之資料現在使用時要用的名稱=&amp;quot;屬性值(主要會用 true 和 false 操控)或資料名稱&amp;quot;&#xA;直接來看看例子吧，我們將 img 標籤綁定了使用者的 ID 與大頭貼照片：&#xA;&amp;lt;img v-bind:src=&amp;#34;user.avatar&amp;#34; v-bind:data-id=&amp;#34;user.id&amp;#34; &amp;gt; 或者使用簡寫：</description>
-    </item>
-    <item>
-      <title>Vue.js 學習筆記 - 1</title>
-      <link>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</link>
-      <pubDate>Wed, 31 Mar 2021 09:58:16 +0800</pubDate>
-      <guid>https://jyunyi-lin.github.io/posts/2021/03/vue.js-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1/</guid>
-      <description>學了 Vue 也已經一段時間，實作了餐廳論壇與簡易的社交平台後，發現還有許多陌生的地方。趁著記憶還猶新，一邊複習，一邊把知識補足起來。對 Vue 有興趣的人也可以跟著複習的腳步，稍微認識一下這個框架是什麼、如何使用。前情提要：由於是複習文章，可能不會有太詳細的教學，如果讀了之後發現還未懂透的話，建議可以搭配 Vue 官方文件來服用，效果更佳。&#xA;Vue 是什麼？ Vue 是一個前端框架。隨著這幾年前後端分離，前端框架如雨後春筍般冒出，形成 React、Vue、Angular 三大局面。其中 React 是比較難學習的，而 Vue 則是最好上手。前端框架很多樣，但基本上都面對以下三件事：❶ 渲染局部頁面、❷ 網頁元件化，使用邏輯控制組件、❸ 處理 URL 與資料流。&#xA;Vue 可以讓 HTML、CSS 這些與畫面相關的部分與 JavaScript 分開管理，且能以資料操控畫面，整體上的效能顯得更好。&#xA;初始設置 在使用 Vue 之前，我們需要先 ❶ 安裝 Vue，接著 ❷ 創建一個新專案，然後 ❸ 啟動這個專案。&#xA;npm install -g @vue/cli //在全域環境安裝 vue create your-project-name npm run server 完成後，打開你的 code editor，進入這個專案中，會看到幾個資料夾。&#xA;資料夾詳解 public 資料夾 這個資料夾裡會有網頁的 icon 和 index.html 檔案，html 檔案主要是 Vue 預設的一些內容。通常在專案裡，叫做 public 的資料夾是放一些可以直接被外部讀取到的檔案。&#xA;src 資料夾 其中有四個部分，分別是&#xA;assets：中文是資產的意思，顧名思義就是放置靜態檔案，如 icon、圖檔、css 設定檔。 components：這個資料夾會放一些元件檔案，使用時，透過 import 引入使用。 main.</description>
     </item>
   </channel>
 </rss>

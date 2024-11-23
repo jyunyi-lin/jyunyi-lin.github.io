@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jyun-Yi LIN ">
+<meta name="description" content="在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。
+在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。
+React Server Components 的核心概念 React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。
+三大核心特點 以伺服器為主的渲染： RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。
+零 JavaScript 負擔： 客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。
+靈活整合： React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。
+React Server Components 的應用場景 在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：
+1. 資料密集型應用程式 例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。
+2. SEO 和首屏渲染效能 對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。
+3. 資源受限的設備 在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。" />
+<meta name="keywords" content="JavaScript, 程式語言, 生活, React Server Components" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://jyunyi-lin.github.io/posts/2024/11/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-react-server-components%E6%89%93%E9%80%A0%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F/" />
+
+
+    <title>
+        
+            深入探討 React Server Components：打造更高效的前端應用程式 :: 生活、學習紀錄  — Hello Friend NG Theme
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://jyunyi-lin.github.io/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jyunyi-lin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jyunyi-lin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jyunyi-lin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://jyunyi-lin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://jyunyi-lin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://jyunyi-lin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+
+  <meta itemprop="name" content="深入探討 React Server Components：打造更高效的前端應用程式">
+  <meta itemprop="description" content="在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。
+在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。
+React Server Components 的核心概念 React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。
+三大核心特點 以伺服器為主的渲染： RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。
+零 JavaScript 負擔： 客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。
+靈活整合： React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。
+React Server Components 的應用場景 在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：
+1. 資料密集型應用程式 例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。
+2. SEO 和首屏渲染效能 對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。
+3. 資源受限的設備 在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。">
+  <meta itemprop="datePublished" content="2024-11-23T13:52:08+08:00">
+  <meta itemprop="dateModified" content="2024-11-23T13:52:08+08:00">
+  <meta itemprop="wordCount" content="192">
+  <meta itemprop="image" content="https://jyunyi-lin.github.io/">
+  <meta itemprop="keywords" content="React Server Components">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jyunyi-lin.github.io/">
+  <meta name="twitter:title" content="深入探討 React Server Components：打造更高效的前端應用程式">
+  <meta name="twitter:description" content="在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。
+在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。
+React Server Components 的核心概念 React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。
+三大核心特點 以伺服器為主的渲染： RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。
+零 JavaScript 負擔： 客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。
+靈活整合： React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。
+React Server Components 的應用場景 在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：
+1. 資料密集型應用程式 例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。
+2. SEO 和首屏渲染效能 對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。
+3. 資源受限的設備 在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。">
+
+
+
+    <meta property="og:url" content="https://jyunyi-lin.github.io/posts/2024/11/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-react-server-components%E6%89%93%E9%80%A0%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F/">
+  <meta property="og:site_name" content="生活、學習紀錄">
+  <meta property="og:title" content="深入探討 React Server Components：打造更高效的前端應用程式">
+  <meta property="og:description" content="在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。
+在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。
+React Server Components 的核心概念 React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。
+三大核心特點 以伺服器為主的渲染： RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。
+零 JavaScript 負擔： 客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。
+靈活整合： React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。
+React Server Components 的應用場景 在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：
+1. 資料密集型應用程式 例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。
+2. SEO 和首屏渲染效能 對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。
+3. 資源受限的設備 在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-23T13:52:08+08:00">
+    <meta property="article:modified_time" content="2024-11-23T13:52:08+08:00">
+    <meta property="article:tag" content="React Server Components">
+    <meta property="og:image" content="https://jyunyi-lin.github.io/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-11-23 13:52:08 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://jyunyi-lin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#548687;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://jyunyi-lin.github.io/about/">About</a></li><li><a href="https://jyunyi-lin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+  <div class="post-info">
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-clock">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      One minute
+      
+    </p>
+  </div>
+  <article>
+    <h1 class="post-title">
+      <a href="https://jyunyi-lin.github.io/posts/2024/11/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-react-server-components%E6%89%93%E9%80%A0%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F/">深入探討 React Server Components：打造更高效的前端應用程式</a>
+    </h1>
+    <hr />
+    <aside id="toc">
+      <div class="toc-title">Table of Contents</div>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#react-server-components-的核心概念">React Server Components 的核心概念</a>
+      <ul>
+        <li><a href="#三大核心特點"><strong>三大核心特點</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#react-server-components-的應用場景">React Server Components 的應用場景</a>
+      <ul>
+        <li><a href="#1-資料密集型應用程式"><strong>1. 資料密集型應用程式</strong></a></li>
+        <li><a href="#2-seo-和首屏渲染效能"><strong>2. SEO 和首屏渲染效能</strong></a></li>
+        <li><a href="#3-資源受限的設備"><strong>3. 資源受限的設備</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#實作用-nextjs-建立-react-server-components">實作：用 Next.js 建立 React Server Components</a>
+      <ul>
+        <li><a href="#關鍵步驟">關鍵步驟</a></li>
+        <li><a href="#rsc-的挑戰與未來發展">RSC 的挑戰與未來發展</a></li>
+        <li><a href="#結論">結論</a></li>
+        <li><a href="#參考資源">參考資源</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+    <hr />
+    
+    <div class="post-content">
+      <p>在前端開發的世界中，效能和用戶體驗是工程師永遠追求的核心目標。React Server Components（RSC）是一項由 React 團隊推出的技術，它結合了伺服器渲染與客戶端互動的優勢，旨在進一步優化應用程式的效能與開發體驗。</p>
+<p>在這篇文章中，我將以資深前端工程師的視角，剖析 React Server Components 的核心概念、應用場景，以及它如何在現代 Web 開發中解決效能瓶頸的問題。</p>
+<hr>
+<h2 id="react-server-components-的核心概念">React Server Components 的核心概念</h2>
+<p>React Server Components 是 React 團隊於 2020 年提出的一項創新技術，主要目的是解決大型應用程式中資料傳輸和渲染效能的挑戰。與傳統的伺服器端渲染（Server-Side Rendering, SSR）不同，RSC 的最大特點是將部分 UI 的邏輯移到伺服器端進行處理，而非完全依賴客戶端或伺服器端。</p>
+<h3 id="三大核心特點"><strong>三大核心特點</strong></h3>
+<ol>
+<li>
+<p><strong>以伺服器為主的渲染：</strong>
+RSC 允許在伺服器端完成組件的渲染，這意味著伺服器可以直接處理重資料運算的邏輯，減少前端需要下載和處理的 JavaScript。</p>
+</li>
+<li>
+<p><strong>零 JavaScript 負擔：</strong>
+客戶端不需要執行伺服器端組件的邏輯，這不僅減輕了瀏覽器的運算負擔，還能減少前端程式碼的大小。</p>
+</li>
+<li>
+<p><strong>靈活整合：</strong>
+React Server Components 與客戶端的互動組件（Client Components）無縫結合，允許我們依據不同的效能需求選擇適當的渲染策略。</p>
+</li>
+</ol>
+<hr>
+<h2 id="react-server-components-的應用場景">React Server Components 的應用場景</h2>
+<p>在現代 Web 應用程式中，以下場景特別適合導入 React Server Components：</p>
+<h3 id="1-資料密集型應用程式"><strong>1. 資料密集型應用程式</strong></h3>
+<p>例如數據分析儀表板或金融系統，伺服器端可以直接處理複雜的查詢和計算，並將結果以組件形式傳遞給客戶端。這樣可以減少瀏覽器的負擔，優化首次載入時間。</p>
+<h3 id="2-seo-和首屏渲染效能"><strong>2. SEO 和首屏渲染效能</strong></h3>
+<p>對於需要高效能 SEO 的網站，RSC 提供了接近靜態 HTML 的渲染結果，並保持 React 的靈活性，有助於提升搜尋引擎的爬取效率。</p>
+<h3 id="3-資源受限的設備"><strong>3. 資源受限的設備</strong></h3>
+<p>在行動裝置或低性能設備上，RSC 可以將運算負擔轉移至伺服器，改善用戶體驗。</p>
+<hr>
+<h2 id="實作用-nextjs-建立-react-server-components">實作：用 Next.js 建立 React Server Components</h2>
+<p>以下是一個簡單的範例，展示如何使用 <strong>Next.js</strong> 和 React Server Components：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// src/app/page.server.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ServerComponent</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetchDataFromAPI</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">伺服器端渲染的資料</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>) =&gt; (
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">name</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
+</span></span><span style="display:flex;"><span>        ))}
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// src/app/page.client.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ClientComponent</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./page.client&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ServerComponent</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./page.server&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Page</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ServerComponent</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ClientComponent</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="關鍵步驟">關鍵步驟</h3>
+<h4 id="分離伺服器端與客戶端組件">分離伺服器端與客戶端組件：</h4>
+<p>使用 <code>.server.js</code> 和 <code>.client.js</code> 檔案命名，分別處理伺服器與客戶端邏輯。</p>
+<h4 id="靈活的資料抓取">靈活的資料抓取：</h4>
+<p>在伺服器端組件內使用伺服器端 API 或資料庫操作，避免將資料運算邏輯暴露在客戶端。</p>
+<h4 id="與現有技術堆疊整合">與現有技術堆疊整合：</h4>
+<p>RSC 可以與 Next.js 的 <code>getServerSideProps</code> 或 <code>getStaticProps</code> 一起使用，實現更精細的渲染策略。</p>
+<hr>
+<h3 id="rsc-的挑戰與未來發展">RSC 的挑戰與未來發展</h3>
+<p>雖然 RSC 提供了許多效能優勢，但在實際開發中仍有一些挑戰需要面對：</p>
+<h4 id="學習曲線">學習曲線：</h4>
+<p>理解 RSC 的運作模式及其與現有架構的整合需要一些時間。</p>
+<h4 id="工具鏈支援">工具鏈支援：</h4>
+<p>現階段，只有部分框架（如 Next.js）對 RSC 提供完善的支援。</p>
+<h4 id="伺服器資源依賴">伺服器資源依賴：</h4>
+<p>由於邏輯依賴伺服器執行，伺服器的效能與穩定性直接影響應用的可用性。</p>
+<hr>
+<h3 id="結論">結論</h3>
+<p>React Server Components 是一項強大的技術，它為前端效能優化提供了新的解法，特別適合於需要高效能和良好 SEO 的應用程式。在未來，隨著工具鏈和生態系的完善，RSC 有潛力成為現代 Web 開發的主流選擇。</p>
+<p>如果你也對提升應用程式的效能感興趣，不妨試試在你的專案中導入 React Server Components，享受它帶來的極致效能體驗！</p>
+<hr>
+<h3 id="參考資源">參考資源</h3>
+<ul>
+<li><a href="https://react.dev">React 官方文件</a></li>
+<li><a href="https://nextjs.org">Next.js 官方文件</a></li>
+</ul>
+
+    </div>
+  </article>
+  <hr />
+  <div class="post-info">
+    
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://jyunyi-lin.github.io/tags/react-server-components/">React Server Components</a></span>
+        
+    </p>
+
+    
+    
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-calendar">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      
+      2024-11-23 13:52
+      
+      
+      
+      
+    </p>
+  </div>
+  <hr />
+  <div class="sharing-buttons">
+    
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f11%2f%25E6%25B7%25B1%25E5%2585%25A5%25E6%258E%25A2%25E8%25A8%258E-react-server-components%25E6%2589%2593%25E9%2580%25A0%25E6%259B%25B4%25E9%25AB%2598%25E6%2595%2588%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%2587%2589%25E7%2594%25A8%25E7%25A8%258B%25E5%25BC%258F%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=%e6%b7%b1%e5%85%a5%e6%8e%a2%e8%a8%8e%20React%20Server%20Components%ef%bc%9a%e6%89%93%e9%80%a0%e6%9b%b4%e9%ab%98%e6%95%88%e7%9a%84%e5%89%8d%e7%ab%af%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f&amp;body=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f11%2f%25E6%25B7%25B1%25E5%2585%25A5%25E6%258E%25A2%25E8%25A8%258E-react-server-components%25E6%2589%2593%25E9%2580%25A0%25E6%259B%25B4%25E9%25AB%2598%25E6%2595%2588%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%2587%2589%25E7%2594%25A8%25E7%25A8%258B%25E5%25BC%258F%2f" target="_self"
+  rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+<a class="resp-sharing-button__link"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f11%2f%25E6%25B7%25B1%25E5%2585%25A5%25E6%258E%25A2%25E8%25A8%258E-react-server-components%25E6%2589%2593%25E9%2580%25A0%25E6%259B%25B4%25E9%25AB%2598%25E6%2595%2588%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%2587%2589%25E7%2594%25A8%25E7%25A8%258B%25E5%25BC%258F%2f&amp;resubmit=true&amp;title=%e6%b7%b1%e5%85%a5%e6%8e%a2%e8%a8%8e%20React%20Server%20Components%ef%bc%9a%e6%89%93%e9%80%a0%e6%9b%b4%e9%ab%98%e6%95%88%e7%9a%84%e5%89%8d%e7%ab%af%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f" target="_blank"
+  rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f11%2f%25E6%25B7%25B1%25E5%2585%25A5%25E6%258E%25A2%25E8%25A8%258E-react-server-components%25E6%2589%2593%25E9%2580%25A0%25E6%259B%25B4%25E9%25AB%2598%25E6%2595%2588%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%2587%2589%25E7%2594%25A8%25E7%25A8%258B%25E5%25BC%258F%2f;title=%e6%b7%b1%e5%85%a5%e6%8e%a2%e8%a8%8e%20React%20Server%20Components%ef%bc%9a%e6%89%93%e9%80%a0%e6%9b%b4%e9%ab%98%e6%95%88%e7%9a%84%e5%89%8d%e7%ab%af%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f" target="_blank" rel="noopener"
+  aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=%e6%b7%b1%e5%85%a5%e6%8e%a2%e8%a8%8e%20React%20Server%20Components%ef%bc%9a%e6%89%93%e9%80%a0%e6%9b%b4%e9%ab%98%e6%95%88%e7%9a%84%e5%89%8d%e7%ab%af%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f%20https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f11%2f%25E6%25B7%25B1%25E5%2585%25A5%25E6%258E%25A2%25E8%25A8%258E-react-server-components%25E6%2589%2593%25E9%2580%25A0%25E6%259B%25B4%25E9%25AB%2598%25E6%2595%2588%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%2587%2589%25E7%2594%25A8%25E7%25A8%258B%25E5%25BC%258F%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f11%2f%25E6%25B7%25B1%25E5%2585%25A5%25E6%258E%25A2%25E8%25A8%258E-react-server-components%25E6%2589%2593%25E9%2580%25A0%25E6%259B%25B4%25E9%25AB%2598%25E6%2595%2588%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%2587%2589%25E7%2594%25A8%25E7%25A8%258B%25E5%25BC%258F%2f&amp;t=%e6%b7%b1%e5%85%a5%e6%8e%a2%e8%a8%8e%20React%20Server%20Components%ef%bc%9a%e6%89%93%e9%80%a0%e6%9b%b4%e9%ab%98%e6%95%88%e7%9a%84%e5%89%8d%e7%ab%af%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f" target="_blank" rel="noopener"
+  aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e6%b7%b1%e5%85%a5%e6%8e%a2%e8%a8%8e%20React%20Server%20Components%ef%bc%9a%e6%89%93%e9%80%a0%e6%9b%b4%e9%ab%98%e6%95%88%e7%9a%84%e5%89%8d%e7%ab%af%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f&amp;url=https%3a%2f%2fjyunyi-lin.github.io%2fposts%2f2024%2f11%2f%25E6%25B7%25B1%25E5%2585%25A5%25E6%258E%25A2%25E8%25A8%258E-react-server-components%25E6%2589%2593%25E9%2580%25A0%25E6%259B%25B4%25E9%25AB%2598%25E6%2595%2588%25E7%259A%2584%25E5%2589%258D%25E7%25AB%25AF%25E6%2587%2589%25E7%2594%25A8%25E7%25A8%258B%25E5%25BC%258F%2f"
+  target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </div>
+  </div>
+</a>
+  </div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span class="pagination__title-h"></span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://jyunyi-lin.github.io/posts/2024/08/%E5%88%A9%E7%94%A8-storybook-%E5%92%8C-jest-%E6%89%93%E9%80%A0%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6%E6%96%B9%E6%A1%88/">
+          <span class="button__text">利用 Storybook 和 Jest 打造可靠的前端測試方案</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+  
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            
+            <span><a href="https://jyunyi-lin.github.io/">Jyun-Yi LIN</a></span>
+            
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://jyunyi-lin.github.io/bundle.min.f98cc661e951f8e5f4dea3d8882a9d0048fdf0dd72c078de6d84f9f9ecc59b82656c195b73890fc781534a4daa1d8233c5562f57ff95b6b7dad75ec86cdd5904.js" integrity="sha512-&#43;YzGYelR&#43;OX03qPYiCqdAEj98N1ywHjebYT5&#43;ezFm4JlbBlbc4kPx4FTSk2qHYIzxVYvV/&#43;Vtrfa117IbN1ZBA=="></script>
+
+    </body>
+</html>

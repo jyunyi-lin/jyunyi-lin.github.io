@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://jyunyi-lin.github.io/sitemap.xml
+Sitemap: https://jyunyi-lin.github.io/_sitemap.xml

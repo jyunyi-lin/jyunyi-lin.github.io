@@ -3,6 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jyunyi-lin.github.io/fr/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
@@ -20,6 +22,8 @@
                 />
   </url><url>
     <loc>https://jyunyi-lin.github.io/fr/series/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
@@ -37,6 +41,8 @@
                 />
   </url><url>
     <loc>https://jyunyi-lin.github.io/fr/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
@@ -54,6 +60,8 @@
                 />
   </url><url>
     <loc>https://jyunyi-lin.github.io/fr/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
